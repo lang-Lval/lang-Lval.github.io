@@ -1240,6 +1240,10 @@ pre .javascript .function {
 .post-body p strong {
   color: #f00;
 }
+.post-button .btn {
+  color: #fca01d;
+  border: 1px solid #fca01d;
+}
 .post-body .fancybox img {
   display: block !important;
   margin: 0 auto;
@@ -1836,7 +1840,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cfff7d;
+  background: #e8cd16;
 }
 .links-of-blogroll {
   font-size: 13px;
