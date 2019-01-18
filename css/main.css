@@ -1237,6 +1237,9 @@ pre .javascript .function {
   border-bottom: none;
   border-bottom: 0.5px solid #fc6423;
 }
+.post-body p strong {
+  color: #f00;
+}
 .post-body .fancybox img {
   display: block !important;
   margin: 0 auto;
@@ -1833,7 +1836,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9fff6a;
+  background: #ffe2f0;
 }
 .links-of-blogroll {
   font-size: 13px;
