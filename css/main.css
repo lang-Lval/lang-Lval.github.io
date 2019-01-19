@@ -1227,6 +1227,10 @@ pre .javascript .function {
     word-break: break-word;
   }
 }
+.custom-logo-site-title .site-title {
+  color: #f90;
+  animation: neon3 1s linear infinite;
+}
 .post-body p a {
   color: #0593d3;
   border-bottom: none;
@@ -1841,7 +1845,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #dab1b3;
+  background: #0a7188;
 }
 .links-of-blogroll {
   font-size: 13px;
