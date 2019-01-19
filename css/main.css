@@ -1841,7 +1841,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7fadff;
+  background: #0f6eff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3150,7 +3150,9 @@ body {
   animation: neon3 1.5s linear infinite;
 }
 #music163player .fluid-vids {
-  height: 60px;
+  height: 20px;
+}
+.sidebar {
   background: #828282;
 }
 @-moz-keyframes neon3 {
