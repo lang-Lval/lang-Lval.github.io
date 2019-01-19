@@ -1841,7 +1841,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e5042a;
+  background: #75c2ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3144,8 +3144,7 @@ pre .javascript .function {
   box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
 }
 .custom-logo-site-title .site-title {
-  color: #f90;
-  animation: neon3 1s linear infinite;
+  animation: neon3 1.5s linear infinite;
 }
 @-moz-keyframes neon3 {
   0% {
