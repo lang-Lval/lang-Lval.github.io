@@ -86,16 +86,16 @@
 <meta property="og:site_name" content="紫气楠楠">
 <meta property="og:description" content="“ 很早之前便注册了github，一直没有使用，正好这次搭建blogs可以熟悉下好久没用的git，当然，我对git的理解还是很粗浅的，主要还是通过Git教程 - 廖雪峰的官方网站来学习。” git的安装就不做介绍了，都是一直下一步的操作，我们直接进入git的操作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/0.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/0.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/01.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/02.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/03.jpg">
-<meta property="og:updated_time" content="2019-02-26T05:26:02.114Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/0.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/01.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/03.jpg">
+<meta property="og:updated_time" content="2019-02-28T07:41:57.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的基本使用">
 <meta name="twitter:description" content="“ 很早之前便注册了github，一直没有使用，正好这次搭建blogs可以熟悉下好久没用的git，当然，我对git的理解还是很粗浅的，主要还是通过Git教程 - 廖雪峰的官方网站来学习。” git的安装就不做介绍了，都是一直下一步的操作，我们直接进入git的操作。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/0.jpg">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/0.jpg">
 
 
 
@@ -380,16 +380,16 @@
       
 
       
-        <p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/0.jpg" alt="avatar"></p>
+        <p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/0.jpg" alt="avatar"></p>
 <p>“ 很早之前便注册了github，一直没有使用，正好这次搭建blogs可以熟悉下好久没用的git，当然，我对git的理解还是很粗浅的，主要还是通过Git教程 - 廖雪峰的官方网站来学习。”</p>
 <p>git的安装就不做介绍了，都是一直下一步的操作，我们直接进入git的操作。</p>
 <a id="more"></a>
 <h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>先创建一个本地的版本库（就是一个文件夹，随便在哪建一个）</p>
-<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/0.png" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/0.png" alt="avatar"></p>
 <h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>   通过git init 将这个文件夹变成git可管理的厂库 进入文件夹内右击打开git bash命令行窗口</p>
-<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/01.png" alt="avatar"></p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>此时你会发现文件夹内多了一个.git的文件，这是用来跟踪和管理版本库的。它是默认隐藏的，如果你看不到，那就需要设置一下让隐藏文件可见<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/02.png" alt="avatar"></p>
-<p>到了这一步，你就可以将自己的项目文件复制进来了然后通过git status 查看当前状态<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdimg/day2/03.jpg" alt="avatar"></p>
+<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/01.png" alt="avatar"></p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>此时你会发现文件夹内多了一个.git的文件，这是用来跟踪和管理版本库的。它是默认隐藏的，如果你看不到，那就需要设置一下让隐藏文件可见<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/02.png" alt="avatar"></p>
+<p>到了这一步，你就可以将自己的项目文件复制进来了然后通过git status 查看当前状态<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/03.jpg" alt="avatar"></p>
 <h3 id="第四步、"><a href="#第四步、" class="headerlink" title="第四步、"></a>第四步、</h3><pre><code>看到文件状态后，再通过git add . 将改文件下的所有目录添加到厂库，然后用git commit -m &quot;注释&quot;把项目提交到仓库。-m后面的引号内是你本次提交的注释，这个可以随便写，或者空着
 </code></pre><h3 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h3><pre><code>将Git仓库与本地仓库进行关联（这个操作只用执行一次，关联后下次可直接进行提交）
 </code></pre><p>git remote add origin <a href="https://github.com/langhuonan/langhuonan.github.io.git" target="_blank" rel="noopener">https://github.com/langhuonan/langhuonan.github.io.git</a> </p>
@@ -514,7 +514,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
