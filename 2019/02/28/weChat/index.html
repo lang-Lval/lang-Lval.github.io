@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##微信小程序相关及一些小坑 1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性 scroll-view相关 scroll-view生效需要设置高度，如果没有设置高度，滑动效果不生效 去除scroll-view默认滚动条123456789::-webkit-scrollbar&amp;#">
+<meta name="description" content="##微信小程序相关及一些小坑 1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序基础">
 <meta property="og:url" content="http://yoursite.com/2019/02/28/weChat/index.html">
 <meta property="og:site_name" content="紫气楠楠">
-<meta property="og:description" content="##微信小程序相关及一些小坑 1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性 scroll-view相关 scroll-view生效需要设置高度，如果没有设置高度，滑动效果不生效 去除scroll-view默认滚动条123456789::-webkit-scrollbar&amp;#">
+<meta property="og:description" content="##微信小程序相关及一些小坑 1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day3/wechat.jpg">
-<meta property="og:updated_time" content="2019-02-28T08:34:43.453Z">
+<meta property="og:updated_time" content="2019-02-28T08:36:28.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序基础">
-<meta name="twitter:description" content="##微信小程序相关及一些小坑 1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性 scroll-view相关 scroll-view生效需要设置高度，如果没有设置高度，滑动效果不生效 去除scroll-view默认滚动条123456789::-webkit-scrollbar&amp;#">
+<meta name="twitter:description" content="##微信小程序相关及一些小坑 1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day3/wechat.jpg">
 
 
@@ -378,7 +378,7 @@
       
         <p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day3/wechat.jpg" alt="avatar"></p>
 <p>##微信小程序相关及一些小坑</p>
-<h3 id="1-页面滑动"><a href="#1-页面滑动" class="headerlink" title="1.页面滑动"></a>1.页面滑动</h3><p>小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域<br><a href="https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html" target="_blank" rel="noopener">scroll-view</a>相关配置属性</p>
+<h3 id="1-页面滑动"><a href="#1-页面滑动" class="headerlink" title="1.页面滑动"></a>1.页面滑动</h3><p>小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域<br><a href="https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html" target="_blank" rel="noopener">scroll-view</a>相关配置属性<br><a id="more"></a></p>
 <h4 id="scroll-view相关"><a href="#scroll-view相关" class="headerlink" title="scroll-view相关"></a>scroll-view相关</h4><ol>
 <li>scroll-view生效需要设置高度，如果没有设置高度，滑动效果不生效</li>
 <li>去除scroll-view默认滚动条<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">::-webkit-scrollbar&#123;</span><br><span class="line"></span><br><span class="line">width: 0;</span><br><span class="line"></span><br><span class="line">height: 0;</span><br><span class="line"></span><br><span class="line">color: transparent;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
