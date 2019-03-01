@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[微信小程序基础]]></title>
+    <url>%2F2019%2F02%2F28%2FweChat%2F</url>
+    <content type="text"><![CDATA[##微信小程序相关及一些小坑 1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性 scroll-view相关 scroll-view生效需要设置高度，如果没有设置高度，滑动效果不生效 去除scroll-view默认滚动条123456789::-webkit-scrollbar&#123;width: 0;height: 0;color: transparent;&#125; 2.闭包问题请求后台api中的success函数实际是一个闭包 ， 无法直接通过this来设置setData;解决方案：1.将当前对象赋给一个新对象：let that = this2.使用箭头函数123456789101112131415161718192021onLoad: function (options) &#123; console.log(options.uselogid) wx.request(&#123; url: util.Api.getUserPrizeInfo, method: &apos;get&apos;, data: &#123; openid: app.globalData.openid, user_log_id: options.uselogid &#125;, success: (res) =&gt; &#123; // console.log(res.data) this.setData(&#123; cardData: res.data.data, qrCode: res.data.data.qrCodeUrl, uselogid: options.uselogid, status: res.data.data.status &#125;) console.log(this.data.status) &#125; &#125;)&#125; 3.背景图片问题 小程序中的背景图片写在wxss预览时无法显现 解决方案： 1.将图片转为base64格式，才能在wxss内设置 2.写行内样式，图片用网络图片，本地图片无法预览 4.路由 1.使用navigator标签导航，注意url地址不能带文件后缀 2.在js文件内注册事件跳转 wx.navigateTo跳转保留当前页面，也就是说会有返回箭头 123wx.navigateTo(&#123; url: &apos;/pages/cardDetial/cardDetial?uselogid=&apos; + e.currentTarget.dataset.uselogid, &#125;) wx.redirectTo跳转 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。123wx.redirectTo(&#123; url: &apos;/pages/superGift/superGift&apos;, &#125;) 5.页面间传值传值:和web页面差不多，也是在url地址后面拼接参数123wx.navigateTo(&#123; url: &apos;/pages/cardDetial/cardDetial?uselogid=&apos; + e.currentTarget.dataset.uselogid, &#125;) 接收：直接在生命周期onLoad里用参数接收123onLoad: function (options) &#123; console.log(options.uselogid)&#125;, 6.无法使用外部字体图标大部分情况下直接下载iconfont的压缩包，将其内的iconfont.css文件复制到一个新的wxss文件内，然后在app.wxss文件内全局引入@import “/lib/style/iconfont.wxss”;就可以在任意文件中使用了如果出现无法使用的情况，试试下面方法：1，下载font-awesome字体包 2，打开Transfonter网站，上传字体iconfont.ttf，选择base64编码 3，convert完毕后点击下载，下载得到的包中有stylesheet.css文件，打开并对照font-awesome.css中的内容进行合并base64部分，加入到微信小程序的xxx.wxss文件中进行使用 &lt;text class=&quot;iconfont icon-xxxx&quot;&gt;&lt;/text&gt; 7.setData修改数组或对象setData无法直接修改引用类型的数据，需要字符串拼接的方式保存到变量中123456var closeShow = &quot;redPacket.myClosePackect&quot;self.setData(&#123; [closeShow]: false, &#125;) 8.textarea注意事项1.bug: 微信版本 6.3.30，textarea 在列表渲染时，新增加的 textarea 在自动聚焦时的位置计算错误。2.tip: textarea 的 blur 事件会晚于页面上的 tap 事件，如果需要在 button 的点击事件获取 textarea，可以使用 form 的 bindsubmit。3.tip: 不建议在多行文本上对用户的输入进行修改，所以 textarea 的 bindinput 处理函数并不会将返回值反映到 textarea 上。4.tip: textarea 组件是由客户端创建的原生组件，它的层级是最高的，不能通过 z-index 控制层级。5.tip: 请勿在 scroll-view、swiper、picker-view、movable-view 中使用 textarea 组件。6.tip: css 动画对 textarea 组件无效。 9.原生组件无法被覆盖的问题map、video、canvas、camera 等原生组件上不可被标签覆盖，如果需要覆盖，要使用cover-view标签 且只支持嵌套cover-view、cover-image]]></content>
+      <categories>
+        <category>weChat</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[将博客搬至CSDN]]></title>
+    <url>%2F2019%2F02%2F26%2Fblogchange%2F</url>
+    <content type="text"><![CDATA[搬家通知地址个人博客地址已搬家到CSDN，希望大家多多支持 最近利用hexo搭了一个博客主页，之前都是混掘金，但感觉掘金上的人越来越少了，是时候踏入下一个江湖啦~]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[vue-cli生成vue项目]]></title>
+    <url>%2F2019%2F01%2F17%2Ffirst%2F</url>
+    <content type="text"><![CDATA[全局安装 vue-cli1.$ cnpm install –global vue-cli 如果已经安装过了就不用安装了，这里我前面的项目已经安装过了，所以直接从第二步开始 my-project为自定义项目名2.$ vue init webpack my-project 需要注意的是项目的名称不能大写，不然会报错 项目初始化时会询问一些安装项，可以根据自己的需求选择 Project name (my-project) ==&gt;项目名称（我的项目） Project description (A Vue.js project) ==&gt;项目描述一个Vue.js 项目 Author 作者（你的名字） nstall vue-router? (Y/n) ==&gt;是否安装Vue路由，也就是以后是spa（但页面应用需要的模块）yes Use ESLint to lint your code? (Y/n) ==&gt;使用 ESLint 到你的代码？ （Y [ yes ] / N [ no ]）此处建议选no，如果不是按照ESLint风格，编译时就会报错（就是这里坑了我，找半天没发现逻辑问题） Pick an ESLint preset (Use arrow keys) ==&gt;选择一个预置ESLint（使用箭头键） Setup unit tests with Karma + Mocha? (Y/n) ==&gt;设置单元测Karma + Mocha？ （Y/ N） Setup e2e tests with Nightwatch? (Y/n) ==&gt;设置端到端测试，Nightwatch？这里需要选yes，否则会报websocket的错误 （Y/ N）Y 3.最后一步就是安心等待啦 完成后运行npm run Dev项目就运行起来啦 注： Vue取消eslint语法限制 在build/webpack.base.conf.js文件中，注释或者删除掉：module-&gt;rules中有关eslint的规则]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Git的基本使用]]></title>
+    <url>%2F2019%2F01%2F17%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[“ 很早之前便注册了github，一直没有使用，正好这次搭建blogs可以熟悉下好久没用的git，当然，我对git的理解还是很粗浅的，主要还是通过Git教程 - 廖雪峰的官方网站来学习。” git的安装就不做介绍了，都是一直下一步的操作，我们直接进入git的操作。 第一步先创建一个本地的版本库（就是一个文件夹，随便在哪建一个） 第二步 通过git init 将这个文件夹变成git可管理的厂库 进入文件夹内右击打开git bash命令行窗口 第三步此时你会发现文件夹内多了一个.git的文件，这是用来跟踪和管理版本库的。它是默认隐藏的，如果你看不到，那就需要设置一下让隐藏文件可见 到了这一步，你就可以将自己的项目文件复制进来了然后通过git status 查看当前状态 第四步、看到文件状态后，再通过git add . 将改文件下的所有目录添加到厂库，然后用git commit -m &quot;注释&quot;把项目提交到仓库。-m后面的引号内是你本次提交的注释，这个可以随便写，或者空着 第五步将Git仓库与本地仓库进行关联（这个操作只用执行一次，关联后下次可直接进行提交） git remote add origin https://github.com/langhuonan/langhuonan.github.io.git git remote add origin 后面跟的是你github的仓库地址 第六步关联好后我们就可以吧本地库的内容推送到远程仓库github上啦 git push -u origin master (第一次推送由于远程库是空的，所以要加上-u这个参数，下次再传的时候只需要git push origin master) 至此就完成了将本地项目上传到远程库的整个过程]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+  </entry>
+</search>
