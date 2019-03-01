@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="##cli环境中安装vux类库 1. npm install vux --save vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：  const vuxLoader = require(&amp;apos;vux-loader&amp;apos;) const webpackConfig = originalConfig 将原来的 m">
+<meta name="description" content="##cli环境中安装vux类库 1. npm install vux --save vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：">
 <meta name="keywords" content="categories">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue的类库vux安装">
 <meta property="og:url" content="http://yoursite.com/2019/03/01/day5/index.html">
 <meta property="og:site_name" content="紫气楠楠">
-<meta property="og:description" content="##cli环境中安装vux类库 1. npm install vux --save vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：  const vuxLoader = require(&amp;apos;vux-loader&amp;apos;) const webpackConfig = originalConfig 将原来的 m">
+<meta property="og:description" content="##cli环境中安装vux类库 1. npm install vux --save vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg">
-<meta property="og:updated_time" content="2019-03-01T07:21:17.133Z">
+<meta property="og:updated_time" content="2019-03-01T08:04:50.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue的类库vux安装">
-<meta name="twitter:description" content="##cli环境中安装vux类库 1. npm install vux --save vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：  const vuxLoader = require(&amp;apos;vux-loader&amp;apos;) const webpackConfig = originalConfig 将原来的 m">
+<meta name="twitter:description" content="##cli环境中安装vux类库 1. npm install vux --save vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg">
 
 
@@ -425,8 +425,8 @@
 <p>##cli环境中安装vux类库</p>
 <pre><code>1. npm install vux --save
 vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：
-
-const vuxLoader = require(&apos;vux-loader&apos;)
+</code></pre><a id="more"></a>
+<pre><code>const vuxLoader = require(&apos;vux-loader&apos;)
 const webpackConfig = originalConfig 将原来的 module.exports 代码赋值给变量 webpackConfig (将原文件的module.exports改为let webpackConfig) 
 2.在文件最后一行复制下面代码
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = vuxLoader.merge(webpackConfig, &#123;</span><br><span class="line">  plugins: [&apos;vux-ui&apos;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -580,7 +580,7 @@ vux样式改变，可以在APP.vue中用样式覆盖，在组件内用scoped无�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
