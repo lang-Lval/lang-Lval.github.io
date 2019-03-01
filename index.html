@@ -287,6 +287,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/sdk/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lval">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myimg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="紫气楠楠">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/01/sdk/" itemprop="url">微信jssdk的接入（分享及扫码功能）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T15:43:06+08:00">
+                2019-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/01/sdk/" class="leancloud_visitors" data-flag-title="微信jssdk的接入（分享及扫码功能）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  820
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="vue中使用（vux版）"><a href="#vue中使用（vux版）" class="headerlink" title="vue中使用（vux版）"></a>vue中使用（vux版）</h3><h4 id="微信扫一扫功能"><a href="#微信扫一扫功能" class="headerlink" title="微信扫一扫功能"></a>微信扫一扫功能</h4><p>分享接口只有认证公众号才能使用，域名必须备案且在微信后台设置。</p>
+<p>先确认已经满足使用jssdk的要求再进行开发。<br>1.引入vux类库<br>2.在 main.js 中全局引入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; WechatPlugin &#125; from &apos;vux&apos;</span><br><span class="line">Vue.use(WechatPlugin)</span><br><span class="line"></span><br><span class="line">console.log(Vue.wechat) // 可以直接访问 wx 对象。</span><br></pre></td></tr></table></figure></p>
+<p>3.全局引入后就可以在任意组件内调用了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">self.$wechat.scanQRCode(&#123;</span><br><span class="line">						needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，</span><br><span class="line">						scanType: [&quot;qrCode&quot;], // 可以指定扫二维码还是一维码，默认二者都有</span><br><span class="line">						success: function (res) &#123;</span><br><span class="line">							self.$vux.loading.hide();</span><br><span class="line">							var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果</span><br><span class="line">							if (result)&#123;</span><br><span class="line">								self.$store.commit(&apos;setQrCode&apos;,result);</span><br><span class="line">								self.getQrcodeInfo(result)</span><br><span class="line">							&#125;else &#123;</span><br><span class="line">								self.$vux.alert.show(&#123;</span><br><span class="line">									content:&apos;未识别的兑换码&apos;</span><br><span class="line">								&#125;)</span><br><span class="line">							&#125;</span><br><span class="line"></span><br><span class="line">						&#125;</span><br><span class="line">					&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>附录：<a href="https://mp.weixin.qq.com/wiki?" target="_blank" rel="noopener">微信js-sdk说明文档</a></p>
+<h3 id="jquery中使用sdk"><a href="#jquery中使用sdk" class="headerlink" title="jquery中使用sdk"></a>jquery中使用sdk</h3><p>1.在需要调用JS接口的页面引入如下JS文件，（支持https）：<a href="http://res.wx.qq.com/open/js/jweixin-1.4.0.js" target="_blank" rel="noopener">http://res.wx.qq.com/open/js/jweixin-1.4.0.js</a></p>
+<p>2.jssdk的签名权限,这个权限是由后台提供的,前端只需要把签名权限注入到wx.config中就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">//初始化jssdk</span><br><span class="line">    var init = function(data)&#123;</span><br><span class="line">        //通过config接口注入权限验证配置</span><br><span class="line">        wx.config(&#123;</span><br><span class="line">            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。</span><br><span class="line">            appId: data.app_id, // 必填，公众号的唯一标识</span><br><span class="line">            timestamp: data.timestamp, // 必填，生成签名的时间戳</span><br><span class="line">            nonceStr: data.nonceStr, // 必填，生成签名的随机串</span><br><span class="line">            signature: data.signature,// 必填，签名，见附录1</span><br><span class="line">            jsApiList: [&apos;onMenuShareTimeline&apos;,&apos;onMenuShareAppMessage&apos;] // 必填，需要使用的JS接口列表</span><br><span class="line">        &#125;);</span><br><span class="line">        //通过ready接口处理成功验证</span><br><span class="line">        wx.ready(function()&#123;</span><br><span class="line">            //分享到朋友圈</span><br><span class="line">            </span><br><span class="line">//  		var local_url = $.getStorge(&apos;auth_url&apos;);</span><br><span class="line">//  		if(!local_url)&#123;</span><br><span class="line">//  			local_url = window.location.href;</span><br><span class="line">//  		&#125;</span><br><span class="line">    		var local_url = window.location.href;</span><br><span class="line">           </span><br><span class="line">            console.log(local_url);</span><br><span class="line">            wx.onMenuShareTimeline(&#123;</span><br><span class="line">			    title: desc+&apos;--&apos;+title, // 分享标题</span><br><span class="line">			    link: local_url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span><br><span class="line">			    imgUrl: &apos;http://jssdk.cloud-cy.com/wechatShopServer/&apos;+logo, // 分享图标</span><br><span class="line">			    success: function () &#123; </span><br><span class="line">			        // 用户确认分享后执行的回调函数</span><br><span class="line">			    &#125;,</span><br><span class="line">			    cancel: function () &#123; </span><br><span class="line">			        // 用户取消分享后执行的回调函数</span><br><span class="line">			    &#125;</span><br><span class="line">			&#125;);</span><br><span class="line">			//分享给朋友</span><br><span class="line">			wx.onMenuShareAppMessage(&#123;</span><br><span class="line">			    title: title, // 分享标题</span><br><span class="line">			    desc: desc, // 分享描述</span><br><span class="line">			    link: local_url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致</span><br><span class="line">			    imgUrl: &apos;http://jssdk.cloud-cy.com/wechatShopServer/&apos;+logo, // 分享图标</span><br><span class="line">			    type: &apos;link&apos;, // 分享类型,music、video或link，不填默认为link</span><br><span class="line">			    dataUrl: &apos;&apos;, // 如果type是music或video，则要提供数据链接，默认为空</span><br><span class="line">			    success: function () &#123; </span><br><span class="line">			        // 用户确认分享后执行的回调函数</span><br><span class="line">			    &#125;,</span><br><span class="line">			    cancel: function () &#123; </span><br><span class="line">			        // 用户取消分享后执行的回调函数</span><br><span class="line">			    &#125;</span><br><span class="line">			&#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">	//获取jssdk配置</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">        type:&quot;get&quot;,</span><br><span class="line">        url:web+&quot;/Jssdk&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">        	url:window.location.href,</span><br><span class="line">        	url_code:account</span><br><span class="line">        &#125;,</span><br><span class="line">        dataType:&quot;json&quot;,</span><br><span class="line">        success:function(data,textStatus)&#123;console.log(data);</span><br><span class="line">            if(data.code==200)&#123;</span><br><span class="line">                init(data.data);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">//              alert(&quot;连接失败，请稍后再试或联系管理员&quot;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/day5/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1262,7 +1430,7 @@ vux样式改变，可以在APP.vue中用样式覆盖，在组件内用scoped无�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
