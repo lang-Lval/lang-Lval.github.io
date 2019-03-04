@@ -289,6 +289,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/04/live2d/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lval">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myimg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="紫气楠楠">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/04/live2d/" itemprop="url">hexo添加live2d看板动画</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T13:53:58+08:00">
+                2019-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/主题相关/" itemprop="url" rel="index">
+                    <span itemprop="name">主题相关</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/04/live2d/" class="leancloud_visitors" data-flag-title="hexo添加live2d看板动画">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  265
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="hexo的next主题添加看板动画"><a href="#hexo的next主题添加看板动画" class="headerlink" title="hexo的next主题添加看板动画"></a>hexo的next主题添加看板动画</h3><p>1.git定位到根目录文件，并输入以下命令<br>npm install –save hexo-helper-live2d<br>2.下载各种模型：npm install + 模型名 (npm install live2d-widget-model-shizuku)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d-widget-model-chitose</span><br><span class="line">live2d-widget-model-epsilon2_1</span><br><span class="line">live2d-widget-model-gf</span><br><span class="line"></span><br><span class="line">live2d-widget-model-haru/01 (use npm install --save live2d-widget-model-haru)</span><br><span class="line"></span><br><span class="line">live2d-widget-model-haru/02 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haruto</span><br><span class="line">live2d-widget-model-hibiki</span><br><span class="line">live2d-widget-model-hijiki</span><br><span class="line">live2d-widget-model-izumi</span><br><span class="line">live2d-widget-model-koharu</span><br><span class="line">live2d-widget-model-miku</span><br><span class="line">live2d-widget-model-ni-j</span><br><span class="line">live2d-widget-model-nico</span><br><span class="line">live2d-widget-model-niet</span><br></pre></td></tr></table></figure></p>
+<p>3.此时再去 node_moduels目录下，可以看到有如下文件夹，这些都是动画主配置<br><img src="/2019/03/04/live2d/01.png" alt="zi"><br>4.在Hexo根目录中新建文件夹live2d_models，然后在node_modules文件夹中找到刚刚下载的live2d模型，将其复制到live2d_models中<br>5.hexo的配置文件_config.yml中添加如下配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#2d</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw/</span><br><span class="line">  pluginJsPath: lib/</span><br><span class="line">  pluginModelPath: assets/</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-shizuku</span><br><span class="line">  display:</span><br><span class="line">    position: left</span><br><span class="line">    width: 120</span><br><span class="line">    height: 240</span><br><span class="line">  mobile:</span><br><span class="line">    show: false</span><br></pre></td></tr></table></figure></p>
+<p>6.配置博客站点配置文件，_config.yml将里面的use:换成下载的模型名称<br>7.hexo d上传后就会在右下角出现live2d动画了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/vuex/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -614,7 +800,7 @@
       
         
           <p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg" alt="avatar"></p>
-<h3 id="vue中使用（vux版）"><a href="#vue中使用（vux版）" class="headerlink" title="vue中使用（vux版）"></a>vue中使用（vux版）</h3><h4 id="微信扫一扫功能"><a href="#微信扫一扫功能" class="headerlink" title="微信扫一扫功能"></a>微信扫一扫功能</h4><p>分享接口只有认证公众号才能使用，域名必须备案且在微信后台设置。<br>
+<h3 id="vue中使用（vux版）"><a href="#vue中使用（vux版）" class="headerlink" title="vue中使用（vux版）"></a>vue中使用（vux版）</h3><h4 id="微信扫一扫功能"><a href="#微信扫一扫功能" class="headerlink" title="微信扫一扫功能"></a>微信扫一扫功能</h4><p>分享接口只有认证公众号才能使用，域名必须备案且在微信后台设置。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/01/sdk/#more" rel="contents">
@@ -624,7 +810,7 @@
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
     
     
     
@@ -995,8 +1181,7 @@ vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如�
       
         
           <p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day3/wechat.jpg" alt="avatar"></p>
-<p>##微信小程序相关及一些小坑</p>
-<h3 id="1-页面滑动"><a href="#1-页面滑动" class="headerlink" title="1.页面滑动"></a>1.页面滑动</h3><p>小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域<br><a href="https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html" target="_blank" rel="noopener">scroll-view</a>相关配置属性<br>
+<h2 id="微信小程序相关及一些小坑"><a href="#微信小程序相关及一些小坑" class="headerlink" title="微信小程序相关及一些小坑"></a>微信小程序相关及一些小坑</h2><h3 id="1-页面滑动"><a href="#1-页面滑动" class="headerlink" title="1.页面滑动"></a>1.页面滑动</h3><p>小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域<br><a href="https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html" target="_blank" rel="noopener">scroll-view</a>相关配置属性<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/28/weChat/#more" rel="contents">
@@ -1006,7 +1191,7 @@ vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如�
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
     
     
     
@@ -1204,196 +1389,6 @@ vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/17/first/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lval">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myimg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="紫气楠楠">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/17/first/" itemprop="url">vue-cli生成vue项目</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-17T15:54:13+08:00">
-                2019-01-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/01/17/first/" class="leancloud_visitors" data-flag-title="vue-cli生成vue项目">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  368
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg" alt="avatar"></p>
-<h3 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h3><p>1.$ cnpm install –global vue-cli </p>
-<p>如果已经安装过了就不用安装了，这里我前面的项目已经安装过了，所以直接从第二步开始<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/17/first/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1446,7 +1441,7 @@ vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1457,7 +1452,7 @@ vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
