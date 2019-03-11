@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="1. 扩展运算符扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...document.querySelectorAll(&amp;apos;div&amp;apos;)]// [&amp;lt">
+<meta name="description" content="本文源自阮老师的ES6入门教程，为了之后方便自己随时查看，将常用的es6部分整理了一下传送门 1. 扩展运算符扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...doc">
 <meta name="keywords" content="es6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6基础之数组的扩展">
 <meta property="og:url" content="http://yoursite.com/2019/03/11/es6-4/index.html">
 <meta property="og:site_name" content="紫气楠楠">
-<meta property="og:description" content="1. 扩展运算符扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...document.querySelectorAll(&amp;apos;div&amp;apos;)]// [&amp;lt">
+<meta property="og:description" content="本文源自阮老师的ES6入门教程，为了之后方便自己随时查看，将常用的es6部分整理了一下传送门 1. 扩展运算符扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...doc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-08T08:31:22.134Z">
+<meta property="og:updated_time" content="2019-03-11T02:53:37.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6基础之数组的扩展">
-<meta name="twitter:description" content="1. 扩展运算符扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...document.querySelectorAll(&amp;apos;div&amp;apos;)]// [&amp;lt">
+<meta name="twitter:description" content="本文源自阮老师的ES6入门教程，为了之后方便自己随时查看，将常用的es6部分整理了一下传送门 1. 扩展运算符扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列12345678console.log(...[1, 2, 3])// 1 2 3console.log(1, ...[2, 3, 4], 5)// 1 2 3 4 5[...doc">
 
 
 
@@ -426,7 +426,8 @@
       
 
       
-        <h3 id="1-扩展运算符"><a href="#1-扩展运算符" class="headerlink" title="1. 扩展运算符"></a>1. 扩展运算符</h3><p>扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">console.log(...[1, 2, 3])</span><br><span class="line">// 1 2 3</span><br><span class="line"></span><br><span class="line">console.log(1, ...[2, 3, 4], 5)</span><br><span class="line">// 1 2 3 4 5</span><br><span class="line"></span><br><span class="line">[...document.querySelectorAll(&apos;div&apos;)]</span><br><span class="line">// [&lt;div&gt;, &lt;div&gt;, &lt;div&gt;]</span><br></pre></td></tr></table></figure></p>
+        <p>本文源自阮老师的ES6入门教程，为了之后方便自己随时查看，将常用的es6部分整理了一下<br><a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="noopener">传送门</a></p>
+<h3 id="1-扩展运算符"><a href="#1-扩展运算符" class="headerlink" title="1. 扩展运算符"></a>1. 扩展运算符</h3><p>扩展运算符（spread）是三个点（…）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">console.log(...[1, 2, 3])</span><br><span class="line">// 1 2 3</span><br><span class="line"></span><br><span class="line">console.log(1, ...[2, 3, 4], 5)</span><br><span class="line">// 1 2 3 4 5</span><br><span class="line"></span><br><span class="line">[...document.querySelectorAll(&apos;div&apos;)]</span><br><span class="line">// [&lt;div&gt;, &lt;div&gt;, &lt;div&gt;]</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>该运算符主要用于函数调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function push(array, ...items) &#123;</span><br><span class="line">  array.push(...items);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function add(x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const numbers = [4, 38];</span><br><span class="line">add(...numbers) // 42</span><br></pre></td></tr></table></figure></p>
 <p>上面代码中，array.push(…items)和add(…numbers)这两行，都是函数的调用，它们的都使用了扩展运算符。该运算符将一个数组，变为参数序列。</p>
@@ -524,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/10/es6-3/" rel="next" title="es6基础之函数的扩展">
-                <i class="fa fa-chevron-left"></i> es6基础之函数的扩展
+              <a href="/2019/03/11/es6-5/" rel="next" title="es6基础之对象的扩展">
+                <i class="fa fa-chevron-left"></i> es6基础之对象的扩展
               </a>
             
           </div>
@@ -533,6 +534,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/12/es6-6/" rel="prev" title="es6基础之set数据结构">
+                es6基础之set数据结构 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -616,7 +621,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
