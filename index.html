@@ -673,6 +673,216 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/web/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lval">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myimg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="紫气楠楠">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/12/web/" itemprop="url">js常见数组的方法及高阶函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-12T16:40:18+08:00">
+                2019-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/12/web/" class="leancloud_visitors" data-flag-title="js常见数组的方法及高阶函数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="forEach的用法"><a href="#forEach的用法" class="headerlink" title="forEach的用法"></a>forEach的用法</h3><p> 一般数据遍历方法<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var array = [1,2,3,4,5,6,7];  </span><br><span class="line"> for (var i = 0; i &lt; array.length; i) &#123;  </span><br><span class="line">     console.log(i,array[i]);  </span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>for in 方法遍历数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(let index in array) &#123;  </span><br><span class="line">    console.log(index,array[index]);  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>forEach 方法遍历数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">array.forEach（function(v,i,arr)&#123;  </span><br><span class="line">    console.log(v);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>语法：array.forEach(function(v, i, arr), thisValue)<br>上述代码中第一个参数v代表当前元素，第二个参数i代表当前元素的索引（可选），第三个参数arr代表当前元素所属的数组对象（可选）</p>
+<p>thisValue 可选。传递给函数的值一般用 “this” 值。<br>如果这个参数为空， “undefined” 会传递给 “this” 值</p>
+<p>特点：<br> forEach() 方法对数组的每个元素执行一次提供的函数。总是返回undefined；<br> forEach() 方法会改变原数组</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> var array1 = [1,2,3,4,5];</span><br><span class="line"> </span><br><span class="line"> varp = array1.forEach(function(value,index)&#123;</span><br><span class="line"> </span><br><span class="line">    console.log(value);   //可遍历到所有数组元素</span><br><span class="line"> </span><br><span class="line">    return value + 10</span><br><span class="line">&#125;);</span><br><span class="line">console.log(p);   //undefined    无论怎样，总返回undefined</span><br></pre></td></tr></table></figure>
+<h3 id="map-方法"><a href="#map-方法" class="headerlink" title="map 方法"></a>map 方法</h3><p>语法：<br>和forEach一样<br>array.map(function(currentValue,index,arr), thisValue)<br>第一个参数v代表当前元素，第二个参数i代表当前元素的索引（可选），第三个参数arr代表当前元素所属的数组对象（可选）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var p1 = array1.map(function(value,index)&#123;</span><br><span class="line"> </span><br><span class="line">    console.log(value);   //可遍历到所有数组元素</span><br><span class="line"> </span><br><span class="line">    return value + 10</span><br><span class="line">&#125;);</span><br><span class="line">console.log(p1);   //[11, 12, 13, 14, 15]   返回一个新的数组</span><br></pre></td></tr></table></figure></p>
+<p>不同于forEach的是：<br>map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。</p>
+<p>map() 方法按照原始数组元素顺序依次处理元素。</p>
+<p>注意： map() 不会对空数组进行检测。</p>
+<p>注意： map() 不会改变原始数组。</p>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>filter也是一个常用的操作，它用于把Array的某些元素过滤掉，然后返回剩下的元素。和map()类似，Array的filter()也接收一个函数。和map()不同的是，filter()把传入的函数依次作用于每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//例如，在一个Array中，删掉偶数，只保留奇数，可以这么写：</span><br><span class="line">var arr = [1, 2, 4, 5, 6, 9, 10, 15];</span><br><span class="line">var r = arr.filter(function (x) &#123;</span><br><span class="line">    return x % 2 !== 0;</span><br><span class="line">&#125;);</span><br><span class="line">r; // [1, 5, 9, 15],返回满足过滤条件元素的数组</span><br></pre></td></tr></table></figure></p>
+<p>filter()接收的回调函数，其实可以有多个参数。通常我们仅使用第一个参数，表示Array的某个元素。回调函数还可以接收另外两个参数，表示元素的位置和数组本身：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;];</span><br><span class="line">var r = arr.filter(function (element, index, self) &#123;</span><br><span class="line">    console.log(element); // 依次打印&apos;A&apos;, &apos;B&apos;, &apos;C&apos;</span><br><span class="line">    console.log(index); // 依次打印0, 1, 2</span><br><span class="line">    console.log(self); // self就是变量arr</span><br><span class="line">    return true;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//利用filter，可以巧妙地去除Array的重复元素：</span><br><span class="line"></span><br><span class="line">var p,</span><br><span class="line">    arr = [&apos;apple&apos;, &apos;strawberry&apos;, &apos;banana&apos;, &apos;pear&apos;, &apos;apple&apos;, &apos;orange&apos;, &apos;orange&apos;, &apos;strawberry&apos;];</span><br><span class="line">    p = arr.filter(function (element, index, self) &#123;</span><br><span class="line">    return self.indexOf(element) === index;</span><br><span class="line">&#125;);</span><br><span class="line">alert(p.toString());</span><br><span class="line">//去除重复元素依靠的是indexOf总是返回第一个元素的位置，后续的重复元素位置与indexOf返回的位置不相等，因此被filter滤掉了。</span><br></pre></td></tr></table></figure></p>
+<h3 id="sort排序算法"><a href="#sort排序算法" class="headerlink" title="sort排序算法"></a>sort排序算法</h3><p>数组的sort()方法默认把所有元素先转换为String再排序，比如’10’排在了’2’的前面，因为字符’1’比字符’2’的ASCII码小。如果使用sort()方法的默认排序规则，直接对数字排序，结果肯定是错误的，<br>但sort()方法也是一个高阶函数，它可以接收一个比较函数来实现自定义的排序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//升序排列：</span><br><span class="line">var arr = [10, 20, 30, 1, 2, 3];</span><br><span class="line">arr.sort(function (x, y) &#123;</span><br><span class="line">    if (x &lt; y) &#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">    if (x &gt; y) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;); // [1, 2, 3, 10, 20, 30]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//降序排列：</span><br><span class="line">var arr = [10, 20, 30, 1, 2, 3];</span><br><span class="line">arr.sort(function (x, y) &#123;</span><br><span class="line">    if (x &lt; y) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    if (x &gt; y) &#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;); // [30, 20, 10, 3, 2, 1]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//sort()方法会直接对Array进行修改，它返回的结果仍是当前Array：</span><br><span class="line">var a1 = [&apos;B&apos;, &apos;A&apos;, &apos;C&apos;];</span><br><span class="line">var a2 = a1.sort();</span><br><span class="line">a1; // [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]</span><br><span class="line">a2; // [&apos;A&apos;, &apos;B&apos;, &apos;C&apos;]</span><br><span class="line">a1 === a2; // true, a1和a2是同一对象</span><br></pre></td></tr></table></figure></p>
+<h3 id="every"><a href="#every" class="headerlink" title="every()"></a>every()</h3><p>定义和用法<br>every() 方法用于检测数组所有元素是否都符合指定条件（通过函数提供）。</p>
+<p>every() 方法使用指定函数检测数组中的所有元素：</p>
+<p>如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测。<br>如果所有元素都满足条件，则返回 true</p>
+<p>注意： every() 不会对空数组进行检测。</p>
+<p>注意： every() 不会改变原始数组。</p>
+<p>语法：array.every(function(currentValue,index,arr), thisValue)<br>currentValue    （必须。当前元素的值）<br>index    （可选。当前元素的索引值）<br>arr      （可选。当前元素属于的数组对象）<br>thisValue （可选。对象作为该执行回调时使用，传递给函数，用作 “this” 的值。<br>如果省略了 thisValue ，”this” 的值为 “undefined”）<br>返回值：布尔值。如果所有元素都通过检测返回 true，否则返回 false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//检测数组内所有元素是否大于10</span><br><span class="line">function isBigEnough(element, index, array) &#123;</span><br><span class="line">  return (element &gt;= 10);</span><br><span class="line">&#125;</span><br><span class="line">var passed = [12, 5, 8, 130, 44].every(isBigEnough);</span><br><span class="line">// passed is false</span><br><span class="line">passed = [12, 54, 18, 130, 44].every(isBigEnough);</span><br><span class="line">// passed is true</span><br></pre></td></tr></table></figure></p>
+<h3 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h3><p>定义和用法<br>some() 方法用于检测数组中的元素是否满足指定条件（函数提供）。</p>
+<p>some() 方法会依次执行数组的每个元素：</p>
+<p>如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。<br>如果没有满足条件的元素，则返回false。<br>注意： some() 不会对空数组进行检测。</p>
+<p>注意： some() 不会改变原始数组。</p>
+<p>语法：array.some(function(currentValue,index,arr),thisValue) 形式与every相同</p>
+<p>返回值：布尔值。如果数组中有元素满足条件返回 true，否则返回 false。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//检测数组中是否有大于10的元素</span><br><span class="line">function isBigEnough(element, index, array) &#123;</span><br><span class="line">  return (element &gt;= 10);</span><br><span class="line">&#125;</span><br><span class="line">var passed = [2, 5, 8, 1, 4].some(isBigEnough);</span><br><span class="line">// passed is false</span><br><span class="line">passed = [12, 5, 8, 1, 4].some(isBigEnough);</span><br><span class="line">// passed is true</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/es6-6/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1228,196 +1438,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/es6-2/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lval">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myimg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="紫气楠楠">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/09/es6-2/" itemprop="url">es6基础之字符串相关扩展</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T14:26:48+08:00">
-                2019-03-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/" itemprop="url" rel="index">
-                    <span itemprop="name">es6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/03/09/es6-2/" class="leancloud_visitors" data-flag-title="es6基础之字符串相关扩展">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.3k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本文源自阮老师的ES6入门教程，为了之后方便自己随时查看，将常用的es6部分整理了一下<br><a href="http://es6.ruanyifeng.com/#README" target="_blank" rel="noopener">传送门</a></p>
-<h3 id="字符串的遍历器接口"><a href="#字符串的遍历器接口" class="headerlink" title="字符串的遍历器接口"></a>字符串的遍历器接口</h3><p>ES6 为字符串添加了遍历器接口（Iterator接口），使得字符串可以被for…of循环遍历<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (let num of &apos;foo&apos;) &#123;</span><br><span class="line">  console.log(num)</span><br><span class="line">&#125;</span><br><span class="line">// &quot;f&quot;</span><br><span class="line">// &quot;o&quot;</span><br><span class="line">// &quot;o&quot;</span><br></pre></td></tr></table></figure></p>
-<h3 id="includes-startsWith-endsWith"><a href="#includes-startsWith-endsWith" class="headerlink" title="includes(), startsWith(), endsWith()"></a>includes(), startsWith(), endsWith()</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/09/es6-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1470,7 +1490,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1481,7 +1501,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1492,7 +1512,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
