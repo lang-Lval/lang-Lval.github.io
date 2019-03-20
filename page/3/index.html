@@ -579,7 +579,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  168
+                  236
                 </span>
               
 
@@ -620,7 +620,14 @@
           <p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg" alt="avatar"></p>
 <p>##cli环境中安装vux类库</p>
 <pre><code>1. npm install vux --save
-vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：
+
+2. 安装vux-loader （这个vux文档似乎没介绍，当初没安装结果报了一堆错误） 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vux-loader --save-dev</span><br></pre></td></tr></table></figure>
+
+3. 安装less-loader  （这个是用以正确编译less源码，否则会出现 &apos; Cannot GET / &apos;）
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less less-loader --save-dev</span><br></pre></td></tr></table></figure>
+
+4. vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：
 </code></pre>
           <!--noindex-->
           <div class="post-button text-center">
