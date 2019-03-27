@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T02:55:52.358Z</updated>
+  <updated>2019-03-27T02:56:08.469Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>call()和apply()区别</title>
-    <link href="http://yoursite.com/2019/03/27/2019-3-27/"/>
-    <id>http://yoursite.com/2019/03/27/2019-3-27/</id>
-    <published>2019-03-27T06:24:00.000Z</published>
-    <updated>2019-03-27T02:55:52.358Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p>123</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;call&quot;&gt;&lt;a href=&quot;#call&quot; class=&quot;headerlink&quot; title=&quot;call&quot;&gt;&lt;/a&gt;call&lt;/h3&gt;&lt;p&gt;123&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="js" scheme="http://yoursite.com/categories/js/"/>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
   
   <entry>
     <title>call()和apply()区别</title>
@@ -58,6 +32,29 @@
         &lt;h3 id=&quot;call&quot;&gt;&lt;a href=&quot;#call&quot; class=&quot;headerlink&quot; title=&quot;call&quot;&gt;&lt;/a&gt;call&lt;/h3&gt;&lt;p&gt;1235555&lt;/p&gt;
 
       
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>call()和apply()区别</title>
+    <link href="http://yoursite.com/2019/03/27/2019-3-27/"/>
+    <id>http://yoursite.com/2019/03/27/2019-3-27/</id>
+    <published>2019-03-27T02:58:03.000Z</published>
+    <updated>2019-03-27T05:42:22.842Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。</p><p>call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。<br><a id="more"></a></p><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*apply()方法*/</span><br><span class="line">function.apply(thisObj[, argArray])</span><br><span class="line"></span><br><span class="line">/*call()方法*/</span><br><span class="line">function.call(thisObj[, arg1[, arg2[, [,...argN]]]]);</span><br></pre></td></tr></table></figure><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>改变执行上下文</p><h4 id="什么是执行上下文"><a href="#什么是执行上下文" class="headerlink" title="什么是执行上下文"></a>什么是执行上下文</h4><p>我们在写一个方法的时候，总是会用到一个关键字this，而this的指向就是我们这里所说的执行上下文（执行环境）</p><p>this指向的永远是调用该方法的对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function test1()&#123;</span><br><span class="line">        this.num = 1</span><br><span class="line">        console.log(this.num)</span><br><span class="line">    &#125;</span><br><span class="line">test1()//1</span><br></pre></td></tr></table></figure></p><p>上面代码中的test1是全局对象window下的一个方法，那么调用该方法的对象就是全局对象window，所以this的指向对象就应该是window，所以上面打印结果为1<br>在知道什么是执行上下文后，那么改变执行上下文的含义就更好理解了（函数被调用的时候, 查看this 指向哪个object, 那么那个object 就是当前的 “上下文”。按照江湖流传的说法，就是改变this指向）</p><h4 id="改变执行上下文的意义"><a href="#改变执行上下文的意义" class="headerlink" title="改变执行上下文的意义"></a>改变执行上下文的意义</h4><p>嗯~简单来说，就是为了方便，举个栗子：<br>大壮有一个电热锅，大壮的小伙伴二狗子今天想吃火锅，但二狗子没有电热锅，他又不想为吃一顿火锅再去买个电热锅，于是就借用了大壮的电热锅，这样既可以达到目的，又节省了开支，一举两得</p><p>改变执行上下文也是一样，A对象有一个方法，而B对象因为某种原因也需要用到一样的方法，那么这时候我们去借用A的方法远比再给B扩展一个同样的方法来的要划算，既可以完成需求，又能减少内存的占用，何乐而不为</p><h4 id="异同"><a href="#异同" class="headerlink" title="异同"></a>异同</h4><ol><li><p>相同点：都能够改变方法的执行上下文（执行环境），将一个对象的方法交给另一个对象来执行，并且是立即执行</p></li><li><p>不同点<br>call方法从第二个参数开始可以接收任意个参数，每个参数会映射到相应位置的func的参数上，可以通过参数名调用，但是如果将所有的参数作为数组传入，它们会作为一个整体映射到func对应的第一个参数上，之后参数都为空</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function test (a,b,c) &#123;&#125;</span><br><span class="line"></span><br><span class="line">test.call(obj, 1,2,3)</span><br><span class="line">// function接收到的参数实际上是 1,2,3</span><br><span class="line"></span><br><span class="line">test.call(obj, [1,2,3])</span><br><span class="line">// function接收到的参数实际上是 [1,2,3],undefined,undefined</span><br></pre></td></tr></table></figure></li></ol><p>apply方法最多只有两个参数，第二个参数接收数组或者类数组，但是都会被转换成类数组传入test中，并且会被映射到test对应的参数上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">test.apply(obj, [1,2,3])</span><br><span class="line">// function接收到的参数实际上是 1,2,3</span><br><span class="line"></span><br><span class="line">test.apply(obj, &#123;</span><br><span class="line">    0: 1,</span><br><span class="line">    1: 2,</span><br><span class="line">    2: 3,</span><br><span class="line">    length: 3</span><br><span class="line">&#125;)</span><br><span class="line">// function接收到的参数实际上是 1,2,3</span><br></pre></td></tr></table></figure></p><h4 id="用途-对象继承"><a href="#用途-对象继承" class="headerlink" title="用途:对象继承"></a>用途:对象继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function parent()&#123;</span><br><span class="line">    this.num = 1</span><br><span class="line">    this.sun = function()&#123;</span><br><span class="line">        console.log(this.num+1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function son()&#123;</span><br><span class="line">    parent.call(this)//将this指向parent函数，继承parent内的方法和变量</span><br><span class="line">    this.sun()</span><br><span class="line">&#125;</span><br><span class="line">son()//2</span><br></pre></td></tr></table></figure><p>son通过call方法，继承了parent的sun方法和num变量，同时son还可以扩展自己的其他方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function son()&#123;</span><br><span class="line">        parent.call(this)//将this指向parent函数，继承parent内的方法和变量</span><br><span class="line">        this.sun()</span><br><span class="line">        this.p = 5</span><br><span class="line">        this.fox = function()&#123;//son自己的方法</span><br><span class="line">            console.log(this.p+3)</span><br><span class="line">        &#125;</span><br><span class="line">        fox()</span><br><span class="line">    &#125;</span><br><span class="line">    son()//2 8</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p&gt;apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。&lt;/p&gt;
+&lt;p&gt;call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
