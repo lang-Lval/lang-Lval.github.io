@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[call()和apply()区别]]></title>
     <url>%2F2019%2F03%2F27%2F19-04%2F2019-04-1%2F</url>
-    <content type="text"><![CDATA[call1235555]]></content>
+    <content type="text"><![CDATA[call12355556666]]></content>
       <categories>
         <category>js</category>
       </categories>
@@ -13,7 +13,7 @@
   </entry>
   <entry>
     <title><![CDATA[call()和apply()区别]]></title>
-    <url>%2F2019%2F03%2F27%2F2019-3-27%2F</url>
+    <url>%2F2019%2F03%2F27%2F19-04%2F2019-3-27%2F</url>
     <content type="text"><![CDATA[定义apply：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.apply(A, arguments);即A对象应用B对象的方法。 call：调用一个对象的一个方法，用另一个对象替换当前对象。例如：B.call(A, args1,args2);即A对象调用B对象的方法。 语法12345/*apply()方法*/function.apply(thisObj[, argArray])/*call()方法*/function.call(thisObj[, arg1[, arg2[, [,...argN]]]]); 作用改变执行上下文 什么是执行上下文我们在写一个方法的时候，总是会用到一个关键字this，而this的指向就是我们这里所说的执行上下文（执行环境） this指向的永远是调用该方法的对象12345function test1()&#123; this.num = 1 console.log(this.num) &#125;test1()//1 上面代码中的test1是全局对象window下的一个方法，那么调用该方法的对象就是全局对象window，所以this的指向对象就应该是window，所以上面打印结果为1在知道什么是执行上下文后，那么改变执行上下文的含义就更好理解了（函数被调用的时候, 查看this 指向哪个object, 那么那个object 就是当前的 “上下文”。按照江湖流传的说法，就是改变this指向） 改变执行上下文的意义嗯~简单来说，就是为了方便，举个栗子：大壮有一个电热锅，大壮的小伙伴二狗子今天想吃火锅，但二狗子没有电热锅，他又不想为吃一顿火锅再去买个电热锅，于是就借用了大壮的电热锅，这样既可以达到目的，又节省了开支，一举两得 改变执行上下文也是一样，A对象有一个方法，而B对象因为某种原因也需要用到一样的方法，那么这时候我们去借用A的方法远比再给B扩展一个同样的方法来的要划算，既可以完成需求，又能减少内存的占用，何乐而不为 异同 相同点：都能够改变方法的执行上下文（执行环境），将一个对象的方法交给另一个对象来执行，并且是立即执行 不同点call方法从第二个参数开始可以接收任意个参数，每个参数会映射到相应位置的func的参数上，可以通过参数名调用，但是如果将所有的参数作为数组传入，它们会作为一个整体映射到func对应的第一个参数上，之后参数都为空 1234567function test (a,b,c) &#123;&#125;test.call(obj, 1,2,3)// function接收到的参数实际上是 1,2,3test.call(obj, [1,2,3])// function接收到的参数实际上是 [1,2,3],undefined,undefined apply方法最多只有两个参数，第二个参数接收数组或者类数组，但是都会被转换成类数组传入test中，并且会被映射到test对应的参数上12345678910test.apply(obj, [1,2,3])// function接收到的参数实际上是 1,2,3test.apply(obj, &#123; 0: 1, 1: 2, 2: 3, length: 3&#125;)// function接收到的参数实际上是 1,2,3 用途:对象继承123456789101112function parent()&#123; this.num = 1 this.sun = function()&#123; console.log(this.num+1) &#125;&#125;function son()&#123; parent.call(this)//将this指向parent函数，继承parent内的方法和变量 this.sun()&#125;son()//2 son通过call方法，继承了parent的sun方法和num变量，同时son还可以扩展自己的其他方法12345678910function son()&#123; parent.call(this)//将this指向parent函数，继承parent内的方法和变量 this.sun() this.p = 5 this.fox = function()&#123;//son自己的方法 console.log(this.p+3) &#125; fox() &#125; son()//2 8]]></content>
       <categories>
         <category>js</category>
