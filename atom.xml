@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-25T06:48:55.129Z</updated>
+  <updated>2019-03-27T02:55:52.358Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>call()和apply()区别</title>
+    <link href="http://yoursite.com/2019/03/27/2019-3-27/"/>
+    <id>http://yoursite.com/2019/03/27/2019-3-27/</id>
+    <published>2019-03-27T06:24:00.000Z</published>
+    <updated>2019-03-27T02:55:52.358Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p>123</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;call&quot;&gt;&lt;a href=&quot;#call&quot; class=&quot;headerlink&quot; title=&quot;call&quot;&gt;&lt;/a&gt;call&lt;/h3&gt;&lt;p&gt;123&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>call()和apply()区别</title>
+    <link href="http://yoursite.com/2019/03/27/19-04/2019-04-1/"/>
+    <id>http://yoursite.com/2019/03/27/19-04/2019-04-1/</id>
+    <published>2019-03-27T06:24:00.000Z</published>
+    <updated>2019-03-27T02:56:08.469Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="call"><a href="#call" class="headerlink" title="call"></a>call</h3><p>1235555</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;call&quot;&gt;&lt;a href=&quot;#call&quot; class=&quot;headerlink&quot; title=&quot;call&quot;&gt;&lt;/a&gt;call&lt;/h3&gt;&lt;p&gt;1235555&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>this关键字指向</title>
@@ -436,50 +488,6 @@
     
     
       <category term="搬家" scheme="http://yoursite.com/tags/%E6%90%AC%E5%AE%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue-cli生成vue项目</title>
-    <link href="http://yoursite.com/2019/01/17/first/"/>
-    <id>http://yoursite.com/2019/01/17/first/</id>
-    <published>2019-01-17T07:54:13.000Z</published>
-    <updated>2019-03-19T10:06:23.869Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg" alt="avatar"></p><h3 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h3><p>1.$ cnpm install –global vue-cli </p><p>如果已经安装过了就不用安装了，这里我前面的项目已经安装过了，所以直接从第二步开始<br><a id="more"></a></p><h3 id="my-project为自定义项目名"><a href="#my-project为自定义项目名" class="headerlink" title="my-project为自定义项目名"></a>my-project为自定义项目名</h3><p>2.$ vue init webpack my-project</p><p>需要注意的是项目的名称不能大写，不然会报错<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/2.png" alt="avatar"></p><h3 id="项目初始化时会询问一些安装项，可以根据自己的需求选择"><a href="#项目初始化时会询问一些安装项，可以根据自己的需求选择" class="headerlink" title="项目初始化时会询问一些安装项，可以根据自己的需求选择"></a>项目初始化时会询问一些安装项，可以根据自己的需求选择</h3><p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.png" alt="avatar"></p><p>Project name (my-project) ==&gt;项目名称（我的项目）</p><p>Project description (A Vue.js project) ==&gt;项目描述一个Vue.js 项目</p><p> Author 作者（你的名字）</p><p>nstall vue-router? (Y/n) ==&gt;是否安装Vue路由，也就是以后是spa（但页面应用需要的模块）yes</p><p>Use ESLint to lint your code? (Y/n) ==&gt;使用 ESLint 到你的代码？ （Y [ yes ] / N [ no ]）此处建议选no，如果不是按照ESLint风格，编译时就会报错（就是这里坑了我，找半天没发现逻辑问题）</p><p>Pick an ESLint preset (Use arrow keys) ==&gt;选择一个预置ESLint（使用箭头键） </p><p>Setup unit tests with Karma + Mocha? (Y/n) ==&gt;设置单元测Karma + Mocha？ （Y/ N）</p><p>Setup e2e tests with Nightwatch? (Y/n) ==&gt;设置端到端测试，Nightwatch？这里需要选yes，否则会报websocket的错误 （Y/ N）Y</p><p>3.最后一步就是安心等待啦<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/0.png" alt="avatar"></p><p>完成后运行npm run Dev项目就运行起来啦</p><p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/0.jpg" alt="avatar"></p><p><strong>注：</strong></p><p>Vue取消eslint语法限制</p><p>在build/webpack.base.conf.js文件中，注释或者删除掉：module-&gt;rules中有关eslint的规则</p><p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/4.png" alt="avatar"></p><h3 id="手机预览"><a href="#手机预览" class="headerlink" title="手机预览"></a>手机预览</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 手机预览vue项目 --&gt;</span><br><span class="line">&lt;!-- 1.找到config文件下的index.js 将dev配置中的host:&apos;localhost&apos;改为host:&apos;0.0.0.0&apos; --&gt;</span><br><span class="line">&lt;!-- 2.重新运行项目npm run dev --&gt;</span><br><span class="line">&lt;!-- 3.在浏览器地址输入：本机ip地址:项目所占端口号 如：http://192.168.1.184:8080/#/--&gt;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg&quot; alt=&quot;avatar&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;全局安装-vue-cli&quot;&gt;&lt;a href=&quot;#全局安装-vue-cli&quot; class=&quot;headerlink&quot; title=&quot;全局安装 vue-cli&quot;&gt;&lt;/a&gt;全局安装 vue-cli&lt;/h3&gt;&lt;p&gt;1.$ cnpm install –global vue-cli &lt;/p&gt;
-&lt;p&gt;如果已经安装过了就不用安装了，这里我前面的项目已经安装过了，所以直接从第二步开始&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Git的基本使用</title>
-    <link href="http://yoursite.com/2019/01/17/hello-world/"/>
-    <id>http://yoursite.com/2019/01/17/hello-world/</id>
-    <published>2019-01-17T07:40:55.338Z</published>
-    <updated>2019-02-28T08:47:59.980Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/0.jpg" alt="avatar"></p><p>“ 很早之前便注册了github，一直没有使用，正好这次搭建blogs可以熟悉下好久没用的git，当然，我对git的理解还是很粗浅的，主要还是通过Git教程 - 廖雪峰的官方网站来学习。”</p><p>git的安装就不做介绍了，都是一直下一步的操作，我们直接进入git的操作。</p><a id="more"></a><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>先创建一个本地的版本库（就是一个文件夹，随便在哪建一个）</p><p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/0.png" alt="avatar"></p><h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>   通过git init 将这个文件夹变成git可管理的厂库 进入文件夹内右击打开git bash命令行窗口</p><p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/01.png" alt="avatar"></p><h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>此时你会发现文件夹内多了一个.git的文件，这是用来跟踪和管理版本库的。它是默认隐藏的，如果你看不到，那就需要设置一下让隐藏文件可见<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/02.png" alt="avatar"></p><p>到了这一步，你就可以将自己的项目文件复制进来了然后通过git status 查看当前状态<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/03.jpg" alt="avatar"></p><h3 id="第四步、"><a href="#第四步、" class="headerlink" title="第四步、"></a>第四步、</h3><pre><code>看到文件状态后，再通过git add . 将改文件下的所有目录添加到厂库，然后用git commit -m &quot;注释&quot;把项目提交到仓库。-m后面的引号内是你本次提交的注释，这个可以随便写，或者空着</code></pre><h3 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h3><pre><code>将Git仓库与本地仓库进行关联（这个操作只用执行一次，关联后下次可直接进行提交）</code></pre><p>git remote add origin <a href="https://github.com/langhuonan/langhuonan.github.io.git" target="_blank" rel="noopener">https://github.com/langhuonan/langhuonan.github.io.git</a> </p><p>git remote add origin 后面跟的是你github的仓库地址</p><h3 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h3><p>关联好后我们就可以吧本地库的内容推送到远程仓库github上啦</p><pre><code>git push -u origin master (第一次推送由于远程库是空的，所以要加上-u这个参数，下次再传的时候只需要git push origin master)至此就完成了将本地项目上传到远程库的整个过程</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day2/0.jpg&quot; alt=&quot;avatar&quot;&gt;&lt;/p&gt;
-&lt;p&gt;“ 很早之前便注册了github，一直没有使用，正好这次搭建blogs可以熟悉下好久没用的git，当然，我对git的理解还是很粗浅的，主要还是通过Git教程 - 廖雪峰的官方网站来学习。”&lt;/p&gt;
-&lt;p&gt;git的安装就不做介绍了，都是一直下一步的操作，我们直接进入git的操作。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="web前端" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF/"/>
-    
     
   </entry>
   
