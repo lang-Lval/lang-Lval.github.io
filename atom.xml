@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-28T06:46:04.039Z</updated>
+  <updated>2019-03-28T06:50:03.881Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/03/28/19-03/2019-3-28/"/>
     <id>http://yoursite.com/2019/03/28/19-03/2019-3-28/</id>
     <published>2019-03-28T06:58:03.000Z</published>
-    <updated>2019-03-28T06:46:04.039Z</updated>
+    <updated>2019-03-28T06:50:03.881Z</updated>
     
     <content type="html"><![CDATA[<h3 id="多项选择"><a href="#多项选择" class="headerlink" title="多项选择"></a>多项选择</h3><ol><li>同时可以选中多个， 多选已选中状态再次点击取消选中</li><li>多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除<a id="more"></a></li></ol><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;h3&gt;问题：&lt;/h3&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li :class=&quot;&#123;cur:arr.indexOf(item.id)&gt;-1&#125;&quot; @click=&quot;addcur(item.id)&quot; v-for=&quot;(item,index) in list&quot; :key=&quot;index&quot; ref=&quot;liId&quot;&gt;&#123;&#123;item.txt&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;div class=&quot;btn&quot; @click=&quot;nextquestion&quot;&gt;下一题&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure><h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            list:[</span><br><span class="line">                &#123;id:1,txt:&apos;a第1个&apos;&#125;,</span><br><span class="line">                &#123;id:2,txt:&apos;b第2个&apos;&#125;,</span><br><span class="line">                &#123;id:3,txt:&apos;c第3个&apos;&#125;,</span><br><span class="line">                &#123;id:4,txt:&apos;d第4个&apos;&#125;,</span><br><span class="line">            ],</span><br><span class="line">            arr:[],</span><br><span class="line">            str:&apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure><h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><p>选中思路：新建一个数组，判断当前点击元素的id有没有在数组中存在。如果有就删除掉这个id，如果没有，就添加到数组中<br>选中状态：判断点击元素的id是否在新数组中，如果新数组arr中有这个元素的id，就添加选中的类，如果没有就不添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">addcur:function(id)&#123;</span><br><span class="line">                </span><br><span class="line">        let indexd = this.arr.indexOf(id)//点击元素所在的下标</span><br><span class="line">        // 判断数组中是否有点击元素的id，如果有删除掉，如果没有则添加</span><br><span class="line">            if(indexd&gt;-1)&#123;</span><br><span class="line">            this.arr.splice(indexd,1)</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">            this.arr.push(id)</span><br><span class="line">        &#125;</span><br><span class="line">        // console.log(this.arr.join(&quot;&quot;))</span><br><span class="line">        </span><br><span class="line">        console.log(this.arr)</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -33,10 +33,10 @@
     
     </summary>
     
-      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
     
     
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   

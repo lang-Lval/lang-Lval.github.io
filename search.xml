@@ -5,10 +5,10 @@
     <url>%2F2019%2F03%2F28%2F19-03%2F2019-3-28%2F</url>
     <content type="text"><![CDATA[多项选择 同时可以选中多个， 多选已选中状态再次点击取消选中 多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除 结构123456789&lt;template&gt; &lt;div class=&quot;container&quot;&gt; &lt;h3&gt;问题：&lt;/h3&gt; &lt;ul&gt; &lt;li :class=&quot;&#123;cur:arr.indexOf(item.id)&gt;-1&#125;&quot; @click=&quot;addcur(item.id)&quot; v-for=&quot;(item,index) in list&quot; :key=&quot;index&quot; ref=&quot;liId&quot;&gt;&#123;&#123;item.txt&#125;&#125;&lt;/li&gt; &lt;/ul&gt; &lt;div class=&quot;btn&quot; @click=&quot;nextquestion&quot;&gt;下一题&lt;/div&gt; &lt;/div&gt;&lt;/template&gt; 数据123456789101112data()&#123; return &#123; list:[ &#123;id:1,txt:&apos;a第1个&apos;&#125;, &#123;id:2,txt:&apos;b第2个&apos;&#125;, &#123;id:3,txt:&apos;c第3个&apos;&#125;, &#123;id:4,txt:&apos;d第4个&apos;&#125;, ], arr:[], str:&apos;&apos; &#125; &#125;, js选中思路：新建一个数组，判断当前点击元素的id有没有在数组中存在。如果有就删除掉这个id，如果没有，就添加到数组中选中状态：判断点击元素的id是否在新数组中，如果新数组arr中有这个元素的id，就添加选中的类，如果没有就不添加 1234567891011121314addcur:function(id)&#123; let indexd = this.arr.indexOf(id)//点击元素所在的下标 // 判断数组中是否有点击元素的id，如果有删除掉，如果没有则添加 if(indexd&gt;-1)&#123; this.arr.splice(indexd,1) &#125;else &#123; this.arr.push(id) &#125; // console.log(this.arr.join(&quot;&quot;)) console.log(this.arr) &#125;,]]></content>
       <categories>
-        <category>js</category>
+        <category>vue</category>
       </categories>
       <tags>
-        <tag>js</tag>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
