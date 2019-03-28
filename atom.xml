@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T05:51:53.017Z</updated>
+  <updated>2019-03-28T06:46:04.039Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue 多项选择功能</title>
+    <link href="http://yoursite.com/2019/03/28/19-03/2019-3-28/"/>
+    <id>http://yoursite.com/2019/03/28/19-03/2019-3-28/</id>
+    <published>2019-03-28T06:58:03.000Z</published>
+    <updated>2019-03-28T06:46:04.039Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="多项选择"><a href="#多项选择" class="headerlink" title="多项选择"></a>多项选择</h3><ol><li>同时可以选中多个， 多选已选中状态再次点击取消选中</li><li>多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除<a id="more"></a></li></ol><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;h3&gt;问题：&lt;/h3&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li :class=&quot;&#123;cur:arr.indexOf(item.id)&gt;-1&#125;&quot; @click=&quot;addcur(item.id)&quot; v-for=&quot;(item,index) in list&quot; :key=&quot;index&quot; ref=&quot;liId&quot;&gt;&#123;&#123;item.txt&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;div class=&quot;btn&quot; @click=&quot;nextquestion&quot;&gt;下一题&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure><h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            list:[</span><br><span class="line">                &#123;id:1,txt:&apos;a第1个&apos;&#125;,</span><br><span class="line">                &#123;id:2,txt:&apos;b第2个&apos;&#125;,</span><br><span class="line">                &#123;id:3,txt:&apos;c第3个&apos;&#125;,</span><br><span class="line">                &#123;id:4,txt:&apos;d第4个&apos;&#125;,</span><br><span class="line">            ],</span><br><span class="line">            arr:[],</span><br><span class="line">            str:&apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure><h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><p>选中思路：新建一个数组，判断当前点击元素的id有没有在数组中存在。如果有就删除掉这个id，如果没有，就添加到数组中<br>选中状态：判断点击元素的id是否在新数组中，如果新数组arr中有这个元素的id，就添加选中的类，如果没有就不添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">addcur:function(id)&#123;</span><br><span class="line">                </span><br><span class="line">        let indexd = this.arr.indexOf(id)//点击元素所在的下标</span><br><span class="line">        // 判断数组中是否有点击元素的id，如果有删除掉，如果没有则添加</span><br><span class="line">            if(indexd&gt;-1)&#123;</span><br><span class="line">            this.arr.splice(indexd,1)</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">            this.arr.push(id)</span><br><span class="line">        &#125;</span><br><span class="line">        // console.log(this.arr.join(&quot;&quot;))</span><br><span class="line">        </span><br><span class="line">        console.log(this.arr)</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;多项选择&quot;&gt;&lt;a href=&quot;#多项选择&quot; class=&quot;headerlink&quot; title=&quot;多项选择&quot;&gt;&lt;/a&gt;多项选择&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;同时可以选中多个， 多选已选中状态再次点击取消选中&lt;/li&gt;
+&lt;li&gt;多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>call()和apply()区别</title>
@@ -459,28 +483,6 @@
     
     
       <category term="搬家" scheme="http://yoursite.com/tags/%E6%90%AC%E5%AE%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue-cli生成vue项目</title>
-    <link href="http://yoursite.com/2019/01/17/19-03/first/"/>
-    <id>http://yoursite.com/2019/01/17/19-03/first/</id>
-    <published>2019-01-17T07:54:13.000Z</published>
-    <updated>2019-03-27T05:50:48.610Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg" alt="avatar"></p><h3 id="全局安装-vue-cli"><a href="#全局安装-vue-cli" class="headerlink" title="全局安装 vue-cli"></a>全局安装 vue-cli</h3><p>1.$ cnpm install –global vue-cli </p><p>如果已经安装过了就不用安装了，这里我前面的项目已经安装过了，所以直接从第二步开始<br><a id="more"></a></p><h3 id="my-project为自定义项目名"><a href="#my-project为自定义项目名" class="headerlink" title="my-project为自定义项目名"></a>my-project为自定义项目名</h3><p>2.$ vue init webpack my-project</p><p>需要注意的是项目的名称不能大写，不然会报错<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/2.png" alt="avatar"></p><h3 id="项目初始化时会询问一些安装项，可以根据自己的需求选择"><a href="#项目初始化时会询问一些安装项，可以根据自己的需求选择" class="headerlink" title="项目初始化时会询问一些安装项，可以根据自己的需求选择"></a>项目初始化时会询问一些安装项，可以根据自己的需求选择</h3><p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.png" alt="avatar"></p><p>Project name (my-project) ==&gt;项目名称（我的项目）</p><p>Project description (A Vue.js project) ==&gt;项目描述一个Vue.js 项目</p><p> Author 作者（你的名字）</p><p>nstall vue-router? (Y/n) ==&gt;是否安装Vue路由，也就是以后是spa（但页面应用需要的模块）yes</p><p>Use ESLint to lint your code? (Y/n) ==&gt;使用 ESLint 到你的代码？ （Y [ yes ] / N [ no ]）此处建议选no，如果不是按照ESLint风格，编译时就会报错（就是这里坑了我，找半天没发现逻辑问题）</p><p>Pick an ESLint preset (Use arrow keys) ==&gt;选择一个预置ESLint（使用箭头键） </p><p>Setup unit tests with Karma + Mocha? (Y/n) ==&gt;设置单元测Karma + Mocha？ （Y/ N）</p><p>Setup e2e tests with Nightwatch? (Y/n) ==&gt;设置端到端测试，Nightwatch？这里需要选yes，否则会报websocket的错误 （Y/ N）Y</p><p>3.最后一步就是安心等待啦<br><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/0.png" alt="avatar"></p><p>完成后运行npm run Dev项目就运行起来啦</p><p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/0.jpg" alt="avatar"></p><p><strong>注：</strong></p><p>Vue取消eslint语法限制</p><p>在build/webpack.base.conf.js文件中，注释或者删除掉：module-&gt;rules中有关eslint的规则</p><p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/4.png" alt="avatar"></p><h3 id="手机预览"><a href="#手机预览" class="headerlink" title="手机预览"></a>手机预览</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 手机预览vue项目 --&gt;</span><br><span class="line">&lt;!-- 1.找到config文件下的index.js 将dev配置中的host:&apos;localhost&apos;改为host:&apos;0.0.0.0&apos; --&gt;</span><br><span class="line">&lt;!-- 2.重新运行项目npm run dev --&gt;</span><br><span class="line">&lt;!-- 3.在浏览器地址输入：本机ip地址:项目所占端口号 如：http://192.168.1.184:8080/#/--&gt;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg&quot; alt=&quot;avatar&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;全局安装-vue-cli&quot;&gt;&lt;a href=&quot;#全局安装-vue-cli&quot; class=&quot;headerlink&quot; title=&quot;全局安装 vue-cli&quot;&gt;&lt;/a&gt;全局安装 vue-cli&lt;/h3&gt;&lt;p&gt;1.$ cnpm install –global vue-cli &lt;/p&gt;
-&lt;p&gt;如果已经安装过了就不用安装了，这里我前面的项目已经安装过了，所以直接从第二步开始&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
-    
     
   </entry>
   
