@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-28T06:50:03.881Z</updated>
+  <updated>2019-03-29T10:16:18.128Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ThinkPHP 解决跨越问题</title>
+    <link href="http://yoursite.com/2019/03/29/19-03/2019-3-29/"/>
+    <id>http://yoursite.com/2019/03/29/19-03/2019-3-29/</id>
+    <published>2019-03-29T10:05:03.000Z</published>
+    <updated>2019-03-29T10:16:18.128Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="ThinkPHP-解决跨越问题"><a href="#ThinkPHP-解决跨越问题" class="headerlink" title="ThinkPHP 解决跨越问题"></a>ThinkPHP 解决跨越问题</h3><ol><li>首先在 application目录下的tags.php中找到 app_init，并将其修改为下面的样子<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注册解决跨域的类:</span><br><span class="line">     &apos;app_init&apos;     =&gt; [</span><br><span class="line">        &apos;app\\index\\behavior\\CORS&apos;</span><br><span class="line">    ],</span><br></pre></td></tr></table></figure></li></ol><a id="more"></a><ol start="2"><li>在application-&gt;index目录下新建behavior文件夹-&gt;CORS.php，将下面这段代码复制进去<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">/**</span><br><span class="line"> * Created by PhpStorm.</span><br><span class="line"> * User: Gaoy</span><br><span class="line"> * Date: 2017/12/22</span><br><span class="line"> * Time: 16:13</span><br><span class="line"> */</span><br><span class="line">namespace app\index\behavior;</span><br><span class="line"></span><br><span class="line">use think\Response;</span><br><span class="line"></span><br><span class="line">class CORS &#123;</span><br><span class="line"></span><br><span class="line">    public function appInit()&#123;</span><br><span class="line">        header(&apos;Access-Control-Allow-Origin: *&apos;);</span><br><span class="line">        header(&quot;Access-Control-Allow-Headers: token, Origin, X-Requested-With, Content-Type, Accept, Authorization&quot;);</span><br><span class="line">        header(&apos;Access-Control-Allow-Methods: POST,GET,PUT,DELETE&apos;);</span><br><span class="line"></span><br><span class="line">        if(request()-&gt;isOptions())&#123;</span><br><span class="line">            exit();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><p>╮(╯▽╰)╭ 大工告成，果然还是后台来做跨越简单，jsonp什么的果然弱到爆。。。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;ThinkPHP-解决跨越问题&quot;&gt;&lt;a href=&quot;#ThinkPHP-解决跨越问题&quot; class=&quot;headerlink&quot; title=&quot;ThinkPHP 解决跨越问题&quot;&gt;&lt;/a&gt;ThinkPHP 解决跨越问题&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;首先在 application目录下的tags.php中找到 app_init，并将其修改为下面的样子&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;注册解决跨域的类:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     &amp;apos;app_init&amp;apos;     =&amp;gt; [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;apos;app\\index\\behavior\\CORS&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ],&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>vue 多项选择功能</title>
@@ -462,27 +487,6 @@
     
       <category term="weChat" scheme="http://yoursite.com/categories/weChat/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>将博客搬至CSDN</title>
-    <link href="http://yoursite.com/2019/02/26/blogchange/"/>
-    <id>http://yoursite.com/2019/02/26/blogchange/</id>
-    <published>2019-02-26T06:10:08.000Z</published>
-    <updated>2019-03-01T06:56:08.447Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/public/02.jpg" alt="avatar"></p><h3 id="搬家通知地址"><a href="#搬家通知地址" class="headerlink" title="搬家通知地址"></a>搬家通知地址</h3><p>个人博客地址已搬家到CSDN，希望大家多多支持</p><a id="more"></a><p>最近利用hexo搭了一个博客主页，之前都是混掘金，但感觉掘金上的人越来越少了，是时候踏入下一个江湖啦~</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/public/02.jpg&quot; alt=&quot;avatar&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;搬家通知地址&quot;&gt;&lt;a href=&quot;#搬家通知地址&quot; class=&quot;headerlink&quot; title=&quot;搬家通知地址&quot;&gt;&lt;/a&gt;搬家通知地址&lt;/h3&gt;&lt;p&gt;个人博客地址已搬家到CSDN，希望大家多多支持&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="搬家" scheme="http://yoursite.com/tags/%E6%90%AC%E5%AE%B6/"/>
     
   </entry>
   
