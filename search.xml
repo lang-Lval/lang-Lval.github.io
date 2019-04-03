@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue中引入iconfont]]></title>
+    <url>%2F2019%2F04%2F03%2F19-04%2F19-4-3%2F</url>
+    <content type="text"><![CDATA[vue中引入iconfont 打开 iconFont官网 选择自己喜欢的图标，并且添加购物车 将选好的图标下载到本地,并复制到assets目录下 在main.js中引入文件中的iconfont.css文件 1import &apos;./assets/iconfont/iconfont.css&apos; 然后就可以用啦 1&lt;p id=&quot;pp&quot;&gt;&lt;i class=&quot;iconfont icon-tongzhigonggao&quot;&gt;&lt;/i&gt;666&lt;/p&gt; 注意：如果没有下载css-loader依赖包，可能会报如下错误，需要下载一下npm install css-loader –save123456These relative modules were not found:* ./iconfont.eot?t=1554271744964 in ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/lib??ref--6-2!./src/assets/iconfont/iconfont.css* ./iconfont.svg?t=1554271744964 in ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/lib??ref--6-2!./src/assets/iconfont/iconfont.css* ./iconfont.ttf?t=1554271744964 in ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/lib??ref--6-2!./src/assets/iconfont/iconfont.css* ./iconfont.woff?t=1554271744964 in ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/lib??ref--6-2!./src/assets/iconfont/iconfont.css]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ThinkPHP 解决跨越问题]]></title>
     <url>%2F2019%2F03%2F29%2F19-03%2F2019-3-29%2F</url>
     <content type="text"><![CDATA[ThinkPHP 解决跨越问题 首先在 application目录下的tags.php中找到 app_init，并将其修改为下面的样子1234注册解决跨域的类: &apos;app_init&apos; =&gt; [ &apos;app\\index\\behavior\\CORS&apos; ], 在application-&gt;index目录下新建behavior文件夹-&gt;CORS.php，将下面这段代码复制进去123456789101112131415161718192021222324&lt;?php/** * Created by PhpStorm. * User: Gaoy * Date: 2017/12/22 * Time: 16:13 */namespace app\index\behavior;use think\Response;class CORS &#123; public function appInit()&#123; header(&apos;Access-Control-Allow-Origin: *&apos;); header(&quot;Access-Control-Allow-Headers: token, Origin, X-Requested-With, Content-Type, Accept, Authorization&quot;); header(&apos;Access-Control-Allow-Methods: POST,GET,PUT,DELETE&apos;); if(request()-&gt;isOptions())&#123; exit(); &#125; &#125;&#125; ╮(╯▽╰)╭ 大工告成，果然还是后台来做跨越简单，jsonp什么的果然弱到爆。。。]]></content>
