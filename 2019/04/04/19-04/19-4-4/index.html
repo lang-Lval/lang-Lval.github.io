@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="多项选择 同时可以选中多个， 多选已选中状态再次点击取消选中 多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除">
+<meta name="description" content="vue九宫格抽奖页面结构">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue 多项选择功能">
-<meta property="og:url" content="http://yoursite.com/2019/03/28/19-03/2019-3-28/index.html">
+<meta property="og:title" content="vue九宫格抽奖功能">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/19-04/19-4-4/index.html">
 <meta property="og:site_name" content="紫气楠楠">
-<meta property="og:description" content="多项选择 同时可以选中多个， 多选已选中状态再次点击取消选中 多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除">
+<meta property="og:description" content="vue九宫格抽奖页面结构">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T06:50:03.881Z">
+<meta property="og:updated_time" content="2019-04-04T07:59:15.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue 多项选择功能">
-<meta name="twitter:description" content="多项选择 同时可以选中多个， 多选已选中状态再次点击取消选中 多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除">
+<meta name="twitter:title" content="vue九宫格抽奖功能">
+<meta name="twitter:description" content="vue九宫格抽奖页面结构">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/28/19-03/2019-3-28/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/04/19-04/19-4-4/">
 
 
 
 
 
-  <title>vue 多项选择功能 | 紫气楠楠</title>
+  <title>vue九宫格抽奖功能 | 紫气楠楠</title>
   
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/19-03/2019-3-28/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/19-04/19-4-4/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue 多项选择功能</h1>
+          <h1 class="post-title" itemprop="name headline">vue九宫格抽奖功能</h1>
         
 
         <div class="post-meta">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-28T14:58:03+08:00">
-                2019-03-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T15:47:03+08:00">
+                2019-04-04
               </time>
             
 
@@ -365,7 +365,7 @@
 
           
           
-             <span id="/2019/03/28/19-03/2019-3-28/" class="leancloud_visitors" data-flag-title="vue 多项选择功能">
+             <span id="/2019/04/04/19-04/19-4-4/" class="leancloud_visitors" data-flag-title="vue九宫格抽奖功能">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  386
+                  614
                 </span>
               
 
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -427,15 +427,10 @@
       
 
       
-        <h3 id="多项选择"><a href="#多项选择" class="headerlink" title="多项选择"></a>多项选择</h3><ol>
-<li>同时可以选中多个， 多选已选中状态再次点击取消选中</li>
-<li>多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除<a id="more"></a>
-</li>
-</ol>
-<h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;h3&gt;问题：&lt;/h3&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li :class=&quot;&#123;cur:arr.indexOf(item.id)&gt;-1&#125;&quot; @click=&quot;addcur(item.id)&quot; v-for=&quot;(item,index) in list&quot; :key=&quot;index&quot; ref=&quot;liId&quot;&gt;&#123;&#123;item.txt&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;div class=&quot;btn&quot; @click=&quot;nextquestion&quot;&gt;下一题&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            list:[</span><br><span class="line">                &#123;id:1,txt:&apos;a第1个&apos;&#125;,</span><br><span class="line">                &#123;id:2,txt:&apos;b第2个&apos;&#125;,</span><br><span class="line">                &#123;id:3,txt:&apos;c第3个&apos;&#125;,</span><br><span class="line">                &#123;id:4,txt:&apos;d第4个&apos;&#125;,</span><br><span class="line">            ],</span><br><span class="line">            arr:[],</span><br><span class="line">            str:&apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><p>选中思路：新建一个数组，判断当前点击元素的id有没有在数组中存在。如果有就删除掉这个id，如果没有，就添加到数组中<br>选中状态：判断点击元素的id是否在新数组中，如果新数组arr中有这个元素的id，就添加选中的类，如果没有就不添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">addcur:function(id)&#123;</span><br><span class="line">                </span><br><span class="line">        let indexd = this.arr.indexOf(id)//点击元素所在的下标</span><br><span class="line">        // 判断数组中是否有点击元素的id，如果有删除掉，如果没有则添加</span><br><span class="line">            if(indexd&gt;-1)&#123;</span><br><span class="line">            this.arr.splice(indexd,1)</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">            this.arr.push(id)</span><br><span class="line">        &#125;</span><br><span class="line">        // console.log(this.arr.join(&quot;&quot;))</span><br><span class="line">        </span><br><span class="line">        console.log(this.arr)</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+        <h3 id="vue九宫格抽奖"><a href="#vue九宫格抽奖" class="headerlink" title="vue九宫格抽奖"></a>vue九宫格抽奖</h3><p>页面结构<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;gift-box&quot;&gt;</span><br><span class="line"> &lt;ul&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==0?&apos;active&apos;:&apos;&apos;]&quot;&gt;一等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==1?&apos;active&apos;:&apos;&apos;]&quot;&gt;二等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==2?&apos;active&apos;:&apos;&apos;]&quot;&gt;三等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==3?&apos;active&apos;:&apos;&apos;]&quot;&gt;四等奖&lt;/li&gt;</span><br><span class="line"> &lt;a :class=&quot;&#123;cur:curshow&#125;&quot; @click=&quot;startRoll&quot;&gt;开始&lt;/a&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==4?&apos;active&apos;:&apos;&apos;]&quot;&gt;五等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==5?&apos;active&apos;:&apos;&apos;]&quot;&gt;六等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==6?&apos;active&apos;:&apos;&apos;]&quot;&gt;七等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==7?&apos;active&apos;:&apos;&apos;]&quot;&gt;八等奖&lt;/li&gt;</span><br><span class="line"> &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*&#123;margin:0;padding:0;&#125;</span><br><span class="line">#gift-box&#123;width:310px;height:310px;margin:30px auto;&#125;</span><br><span class="line">ul&#123;width:310px;height:310px;list-style:none;&#125;</span><br><span class="line">ul li,ul a&#123;width:100px;height:100px;border:1px solid #565656;float:left;text-align:center;line-height:100px;&#125;</span><br><span class="line">ul a:hover&#123;cursor:pointer;color:orange;font-size:18px;&#125;</span><br><span class="line">ul .active&#123;background:red;color:#fff;&#125;</span><br><span class="line">.cur &#123;background-color: #ccc;&#125;</span><br></pre></td></tr></table></figure></p>
+<p> 思路：点击开始抽奖，调用转动的方法，如果达到转动次数要求，且转到中奖位置，则停止，否则继续抽奖<br> js<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">       index: -1,// 当前转动到哪个位置，起点位置</span><br><span class="line">       count: 8,//总共有多少位置</span><br><span class="line">       timer: 0,//每次转动定时器</span><br><span class="line">       speed: 200,//初始转动速度</span><br><span class="line">       times: 0,// 转动次数</span><br><span class="line">       cycle: 3,//转动基数：至少需要转动多少次再进入抽奖环节</span><br><span class="line">       prize: 5,//中奖位置</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">     // 开始抽奖</span><br><span class="line">       startRoll:function()&#123;</span><br><span class="line">           this.times+=1//转动次数</span><br><span class="line">           this.oneRoll()// 转动过程调用的每一次转动方法，这里是第一次调用初始化</span><br><span class="line">           this.usePrize()</span><br><span class="line">       &#125;,</span><br><span class="line">       // 转动的方法</span><br><span class="line">       oneRoll:function()&#123;</span><br><span class="line">           let index = this.index //当前转动到的位置</span><br><span class="line">           const count = 8 //总共的位置</span><br><span class="line">           index += 1</span><br><span class="line">           if(index &gt;count - 1)&#123;</span><br><span class="line">               index = 0</span><br><span class="line">           &#125;</span><br><span class="line">           this.index = index</span><br><span class="line">       &#125;,</span><br><span class="line">       //判断是否转到中奖位置，如果是，停止，如果不是，继续转动</span><br><span class="line">       usePrize:function()&#123;</span><br><span class="line">           // 判断是否达到转动次数要求且转到的位置是中奖位置</span><br><span class="line">           if(this.times &gt; this.cycle + 10 &amp;&amp; this.prize === this.index) &#123;</span><br><span class="line">               clearTimeout(this.timer) //清除定时器，转动停止</span><br><span class="line">               this.times = 0</span><br><span class="line">               this.giftopen = true //显示开奖界面</span><br><span class="line">               // alert(&apos;恭喜你，中奖了&apos;)</span><br><span class="line">           &#125;else &#123;</span><br><span class="line">               //否则继续转动</span><br><span class="line">               if(this.times&lt;this.cycle)&#123;</span><br><span class="line">                   this.speed-=5</span><br><span class="line">               &#125;</span><br><span class="line">               this.timer = setTimeout(this.startRoll, this.speed)</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -465,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/27/19-03/2019-3-27/" rel="next" title="call()和apply()区别">
-                <i class="fa fa-chevron-left"></i> call()和apply()区别
+              <a href="/2019/04/03/19-04/19-4-3/" rel="next" title="vue中引入iconfont">
+                <i class="fa fa-chevron-left"></i> vue中引入iconfont
               </a>
             
           </div>
@@ -474,10 +469,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/29/19-03/2019-3-29/" rel="prev" title="ThinkPHP 解决跨越问题">
-                ThinkPHP 解决跨越问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -623,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多项选择"><span class="nav-number">1.</span> <span class="nav-text">多项选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结构"><span class="nav-number">1.1.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据"><span class="nav-number">1.2.</span> <span class="nav-text">数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js"><span class="nav-number">1.3.</span> <span class="nav-text">js</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue九宫格抽奖"><span class="nav-number">1.</span> <span class="nav-text">vue九宫格抽奖</span></a></li></ol></div>
             
 
           </div>

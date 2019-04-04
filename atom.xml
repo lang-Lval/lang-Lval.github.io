@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-04-03T06:32:21.262Z</updated>
+  <updated>2019-04-04T07:59:15.027Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue九宫格抽奖功能</title>
+    <link href="http://yoursite.com/2019/04/04/19-04/19-4-4/"/>
+    <id>http://yoursite.com/2019/04/04/19-04/19-4-4/</id>
+    <published>2019-04-04T07:47:03.000Z</published>
+    <updated>2019-04-04T07:59:15.027Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="vue九宫格抽奖"><a href="#vue九宫格抽奖" class="headerlink" title="vue九宫格抽奖"></a>vue九宫格抽奖</h3><p>页面结构<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;gift-box&quot;&gt;</span><br><span class="line"> &lt;ul&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==0?&apos;active&apos;:&apos;&apos;]&quot;&gt;一等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==1?&apos;active&apos;:&apos;&apos;]&quot;&gt;二等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==2?&apos;active&apos;:&apos;&apos;]&quot;&gt;三等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==3?&apos;active&apos;:&apos;&apos;]&quot;&gt;四等奖&lt;/li&gt;</span><br><span class="line"> &lt;a :class=&quot;&#123;cur:curshow&#125;&quot; @click=&quot;startRoll&quot;&gt;开始&lt;/a&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==4?&apos;active&apos;:&apos;&apos;]&quot;&gt;五等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==5?&apos;active&apos;:&apos;&apos;]&quot;&gt;六等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==6?&apos;active&apos;:&apos;&apos;]&quot;&gt;七等奖&lt;/li&gt;</span><br><span class="line"> &lt;li :class=&quot;[index==7?&apos;active&apos;:&apos;&apos;]&quot;&gt;八等奖&lt;/li&gt;</span><br><span class="line"> &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p><p>样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*&#123;margin:0;padding:0;&#125;</span><br><span class="line">#gift-box&#123;width:310px;height:310px;margin:30px auto;&#125;</span><br><span class="line">ul&#123;width:310px;height:310px;list-style:none;&#125;</span><br><span class="line">ul li,ul a&#123;width:100px;height:100px;border:1px solid #565656;float:left;text-align:center;line-height:100px;&#125;</span><br><span class="line">ul a:hover&#123;cursor:pointer;color:orange;font-size:18px;&#125;</span><br><span class="line">ul .active&#123;background:red;color:#fff;&#125;</span><br><span class="line">.cur &#123;background-color: #ccc;&#125;</span><br></pre></td></tr></table></figure></p><p> 思路：点击开始抽奖，调用转动的方法，如果达到转动次数要求，且转到中奖位置，则停止，否则继续抽奖<br> js<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">       index: -1,// 当前转动到哪个位置，起点位置</span><br><span class="line">       count: 8,//总共有多少位置</span><br><span class="line">       timer: 0,//每次转动定时器</span><br><span class="line">       speed: 200,//初始转动速度</span><br><span class="line">       times: 0,// 转动次数</span><br><span class="line">       cycle: 3,//转动基数：至少需要转动多少次再进入抽奖环节</span><br><span class="line">       prize: 5,//中奖位置</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">     // 开始抽奖</span><br><span class="line">       startRoll:function()&#123;</span><br><span class="line">           this.times+=1//转动次数</span><br><span class="line">           this.oneRoll()// 转动过程调用的每一次转动方法，这里是第一次调用初始化</span><br><span class="line">           this.usePrize()</span><br><span class="line">       &#125;,</span><br><span class="line">       // 转动的方法</span><br><span class="line">       oneRoll:function()&#123;</span><br><span class="line">           let index = this.index //当前转动到的位置</span><br><span class="line">           const count = 8 //总共的位置</span><br><span class="line">           index += 1</span><br><span class="line">           if(index &gt;count - 1)&#123;</span><br><span class="line">               index = 0</span><br><span class="line">           &#125;</span><br><span class="line">           this.index = index</span><br><span class="line">       &#125;,</span><br><span class="line">       //判断是否转到中奖位置，如果是，停止，如果不是，继续转动</span><br><span class="line">       usePrize:function()&#123;</span><br><span class="line">           // 判断是否达到转动次数要求且转到的位置是中奖位置</span><br><span class="line">           if(this.times &gt; this.cycle + 10 &amp;&amp; this.prize === this.index) &#123;</span><br><span class="line">               clearTimeout(this.timer) //清除定时器，转动停止</span><br><span class="line">               this.times = 0</span><br><span class="line">               this.giftopen = true //显示开奖界面</span><br><span class="line">               // alert(&apos;恭喜你，中奖了&apos;)</span><br><span class="line">           &#125;else &#123;</span><br><span class="line">               //否则继续转动</span><br><span class="line">               if(this.times&lt;this.cycle)&#123;</span><br><span class="line">                   this.speed-=5</span><br><span class="line">               &#125;</span><br><span class="line">               this.timer = setTimeout(this.startRoll, this.speed)</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;vue九宫格抽奖&quot;&gt;&lt;a href=&quot;#vue九宫格抽奖&quot; class=&quot;headerlink&quot; title=&quot;vue九宫格抽奖&quot;&gt;&lt;/a&gt;vue九宫格抽奖&lt;/h3&gt;&lt;p&gt;页面结构&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>vue中引入iconfont</title>
@@ -452,39 +474,6 @@
     
       &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg&quot; alt=&quot;avatar&quot;&gt;&lt;/p&gt;
 &lt;h3 id=&quot;vue中使用（vux版）&quot;&gt;&lt;a href=&quot;#vue中使用（vux版）&quot; class=&quot;headerlink&quot; title=&quot;vue中使用（vux版）&quot;&gt;&lt;/a&gt;vue中使用（vux版）&lt;/h3&gt;&lt;h4 id=&quot;微信扫一扫功能&quot;&gt;&lt;a href=&quot;#微信扫一扫功能&quot; class=&quot;headerlink&quot; title=&quot;微信扫一扫功能&quot;&gt;&lt;/a&gt;微信扫一扫功能&lt;/h4&gt;&lt;p&gt;分享接口只有认证公众号才能使用，域名必须备案且在微信后台设置。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue的类库vux安装</title>
-    <link href="http://yoursite.com/2019/03/01/19-03/day5/"/>
-    <id>http://yoursite.com/2019/03/01/19-03/day5/</id>
-    <published>2019-03-01T07:14:55.000Z</published>
-    <updated>2019-03-27T05:50:16.049Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg" alt="avatar"></p><p>##cli环境中安装vux类库</p><pre><code>1. npm install vux --save2. 安装vux-loader （这个vux文档似乎没介绍，当初没安装结果报了一堆错误） <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vux-loader --save-dev</span><br></pre></td></tr></table></figure>3. 安装less-loader  （这个是用以正确编译less源码，否则会出现 &apos; Cannot GET / &apos;）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less less-loader --save-dev</span><br></pre></td></tr></table></figure>4. vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：</code></pre><a id="more"></a><pre><code>const vuxLoader = require(&apos;vux-loader&apos;)const webpackConfig = originalConfig 将原来的 module.exports 代码赋值给变量 webpackConfig (将原文件的module.exports改为let webpackConfig) 5.在文件最后一行复制下面代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports = vuxLoader.merge(webpackConfig, &#123;</span><br><span class="line">  plugins: [&apos;vux-ui&apos;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>6. 在入口文件全局引入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import &#123; XButton &#125; from &apos;vux&apos;</span><br></pre></td></tr></table></figure>例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&apos;x-button&apos;, XButton)</span><br></pre></td></tr></table></figure>使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;x-button&gt;&lt;/x-button&gt;</span><br></pre></td></tr></table></figure>vux样式改变，可以在APP.vue中用样式覆盖，在组件内用scoped无法覆盖</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day1/1.jpg&quot; alt=&quot;avatar&quot;&gt;&lt;/p&gt;
-&lt;p&gt;##cli环境中安装vux类库&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1. npm install vux --save
-
-2. 安装vux-loader （这个vux文档似乎没介绍，当初没安装结果报了一堆错误） 
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install vux-loader --save-dev&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-3. 安装less-loader  （这个是用以正确编译less源码，否则会出现 &amp;apos; Cannot GET / &amp;apos;）
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install less less-loader --save-dev&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-4. vux2必须配合vux-loader使用, 请在build/webpack.base.conf.js里参照如下代码进行配置：
-&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
