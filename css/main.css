@@ -1841,7 +1841,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7dffff;
+  background: #704ad4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3155,7 +3155,7 @@ body {
 .sidebar {
   background: #828282;
 }
-.links-of-author-item a {
+.links-of-author-item {
   text-align: center;
 }
 @-moz-keyframes neon3 {
