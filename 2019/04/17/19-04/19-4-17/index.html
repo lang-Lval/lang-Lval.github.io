@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="紫气楠楠">
 <meta property="og:description" content="什么是视口？在桌面端，视口指的是在桌面端，指的是浏览器的可视区域；而在移动端，它涉及3个视口：Layout Viewport（布局视口），Visual Viewport（视觉视口），Ideal Viewport（理想视口）。 视口单位中的“视口”，桌面端指的是浏览器的可视区域；移动端指的就是Viewport中的Layout Viewport。 视口单位根据CSS3规范，视口单位主要包括以下4个：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-17T06:37:10.706Z">
+<meta property="og:updated_time" content="2019-04-17T07:49:01.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css的视口单位vw、vh的使用">
 <meta name="twitter:description" content="什么是视口？在桌面端，视口指的是在桌面端，指的是浏览器的可视区域；而在移动端，它涉及3个视口：Layout Viewport（布局视口），Visual Viewport（视觉视口），Ideal Viewport（理想视口）。 视口单位中的“视口”，桌面端指的是浏览器的可视区域；移动端指的就是Viewport中的Layout Viewport。 视口单位根据CSS3规范，视口单位主要包括以下4个：">
@@ -391,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  599
+                  726
                 </span>
               
 
@@ -462,6 +462,14 @@ bootstrap的特点就是它的栅栏布局，而使用vw，vh就能够轻松实�
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.row1&#123; </span><br><span class="line">    float: left; </span><br><span class="line">    width:50vw;</span><br><span class="line">&#125;</span><br><span class="line">.row1&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width:25vw;</span><br><span class="line">&#125;</span><br><span class="line">.row1&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width:25vw;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 只要在一行中所有的列加起来等于100vw就实现响应式布局
+</code></pre><h3 id="仅使用vw作为CSS单位"><a href="#仅使用vw作为CSS单位" class="headerlink" title="仅使用vw作为CSS单位"></a>仅使用vw作为CSS单位</h3><pre><code>在仅使用 vw 单位作为唯一应用的一种 CSS 单位的这种做法下，我们遵守：
+
+1.对于设计稿的尺寸转换为vw单位，我们使用Sass函数编译
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//iPhone 6尺寸作为设计稿基准</span><br><span class="line">$vm_base: 375; </span><br><span class="line">@function vw($px) &#123;</span><br><span class="line">    @return ($px / 375) * 100vw;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+2.无论是文本还是布局高宽、间距等都使用 vw 作为 CSS 单位
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.logo&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">    width: vm(40); // 宽度</span><br><span class="line">    height: vm(40); // 高度</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </code></pre><h3 id="vmin、vmax-用处"><a href="#vmin、vmax-用处" class="headerlink" title="vmin、vmax 用处"></a>vmin、vmax 用处</h3><pre><code>做移动页面开发时，如果使用 vw、wh 设置字体大小（比如 5vw），在竖屏和横屏状态下显示的字体大小是不一样的。
 
 由于 vmin 和 vmax 是当前较小的 vw 和 vh 和当前较大的 vw 和 vh。这里就可以用到 vmin 和 vmax。使得文字大小在横竖屏下保持一致。
@@ -723,7 +731,7 @@ bootstrap的特点就是它的栅栏布局，而使用vw，vh就能够轻松实�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是视口？"><span class="nav-number">1.</span> <span class="nav-text">什么是视口？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视口单位"><span class="nav-number">2.</span> <span class="nav-text">视口单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vh，vw与百分比的区别"><span class="nav-number">3.</span> <span class="nav-text">vh，vw与百分比的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视口单位vw-wh的用处"><span class="nav-number">4.</span> <span class="nav-text">视口单位vw,wh的用处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vmin、vmax-用处"><span class="nav-number">5.</span> <span class="nav-text">vmin、vmax 用处</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是视口？"><span class="nav-number">1.</span> <span class="nav-text">什么是视口？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视口单位"><span class="nav-number">2.</span> <span class="nav-text">视口单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vh，vw与百分比的区别"><span class="nav-number">3.</span> <span class="nav-text">vh，vw与百分比的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视口单位vw-wh的用处"><span class="nav-number">4.</span> <span class="nav-text">视口单位vw,wh的用处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仅使用vw作为CSS单位"><span class="nav-number">5.</span> <span class="nav-text">仅使用vw作为CSS单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vmin、vmax-用处"><span class="nav-number">6.</span> <span class="nav-text">vmin、vmax 用处</span></a></li></ol></div>
             
 
           </div>
