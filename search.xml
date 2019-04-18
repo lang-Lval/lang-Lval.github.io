@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue使用axios]]></title>
+    <url>%2F2019%2F04%2F18%2F19-04%2F19-4-18-2%2F</url>
+    <content type="text"><![CDATA[下载npm install axios --save-dev 引用import axios from &#39;axios&#39; 将axios绑定给vue成为一个属性,这样可以在任意组件中使用12345//设置axios请求的默认host//axios.defaults.baseURL = &apos;https://wechat.kayunzh.com&apos;//将axios注入到vue原型上Vue.prototype.$http = axios 使用get方式 12345678910this.$http(&#123; method:&apos;get&apos;, url:&apos;https://wechat.kayunzh.com/gongzhonghao/Jssdk&apos;, params:&#123; // 代码需要上传服务器，否则返回为0 url:location.href.split(&apos;#&apos;)[0], &#125;&#125;).then(res=&gt;&#123; this.init(res.data.data)&#125;) post方式 1234567891011this.$http(&#123; method:&apos;post&apos;, url:&apos;https://ssl2.xupengfei.net/wx/web_page/getUserInfoByCode&apos;, data:&#123; code:geturlcode &#125; &#125;).then(res=&gt;&#123; if(res.data.code==0)&#123; this.$store.commit(&apos;hasopenId&apos;,res.data.data) &#125; &#125;) axios 是基于promise的http库，支持promise API，比如常用的异步回调问题 12345678910111213141516this.$http(&#123; method:&apos;get&apos;, url:&apos;https://wechat.kayunzh.com/gongzhonghao/Jssdk&apos;, params:&#123; // 代码需要上传服务器，否则返回为0 url:location.href.split(&apos;#&apos;)[0], &#125;&#125;).then(res=&gt;&#123; this.init(res.data.data) //请求成功后发送下一个请求 return this.$http(&#123; //发送请求 &#125;)&#125;).then(res=&gt;&#123; //res是上面请求返回的数据&#125;)]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[截取地址栏url参数]]></title>
+    <url>%2F2019%2F04%2F18%2F19-04%2F19-4-18-3%2F</url>
+    <content type="text"><![CDATA[下面是一个截取url参数的方法123456//参数name就是我们要截取的字段参数,比如我们要截取地址栏问号后面的id，可以直接这样调用getsearch(&apos;id&apos;)getsearch:function(name)&#123; var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;); var r = window.location.search.substr(1).match(reg); if(r!=null)return unescape(r[2]); return null;&#125;]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[移动端的视口设置]]></title>
     <url>%2F2019%2F04%2F18%2F19-04%2F19-4-18%2F</url>
     <content type="text"><![CDATA[视口的设置1&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt; 以上代码常见于移动端设置，他的作用是使网页的宽度自动适应手机屏幕的宽度。 下面对每个属性的详细说明： 属性名 取值 描述 width device-width或正整数 定义视口的宽度，单位为像素，一般为device-width：表示宽度为设备屏幕的宽度 height device-width或正整数 定义视口的高度，单位为像素，一般不用写 initial-scale [0.0-10.0] 定义初始缩放值，一般设置为1.0 minimum-scale [0.0-10.0] 定义放大最大比例，它必须小于或等于maximum-scale设置 maximum-scale [0.0-10.0] 定义缩小最小比例，它必须大于或等于minimum-scale设置 user-scalable yes / no 定义是否允许用户手动缩放页面，默认值 yes 注意： viewport 标签只对移动端浏览器有效，对 PC 端浏览器是无效的 当缩放比例为 100% 时，dip 宽度 = CSS 像素宽度 = 理想视口的宽度 = 布局视口的宽度 单独设置 initial-scale 或 width 都会有兼容性问题，所以设置布局视口为理想视口的最佳方法是同时设置这两个属性 即使设置了 user-scalable = no，在 Android Chrome 浏览器中也可以强制启用手动缩放]]></content>
