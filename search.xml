@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vue项目执行npm i安装依赖中出现的问题]]></title>
+    <url>%2F2019%2F04%2F28%2F19-04%2F19-4-28%2F</url>
+    <content type="text"><![CDATA[报错chromedriver 出现原因：没有安装chromedriver 解决方法：执行以下命令1npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue过滤器 filter]]></title>
     <url>%2F2019%2F04%2F25%2F19-04%2F19-4-25%2F</url>
     <content type="text"><![CDATA[过滤器Vue.js 允许你自定义过滤器，可被用于一些常见的文本格式化(比如在123后面加上abc,或者将一些状态值转为具体的描述：state=0显示‘已领取’等)。过滤器可以用在两个地方：双花括号插值和 v-bind 表达式 12345&lt;!-- 在双花括号中 --&gt;&#123;&#123; message | capitalize &#125;&#125;&lt;!-- 在 `v-bind` 中 --&gt;&lt;div v-bind:id=&quot;rawId | formatId&quot;&gt;&lt;/div&gt; 全局过滤器在创建 Vue 实例之前全局定义过滤器: 123456789Vue.filter(&apos;capitalize&apos;, function (value) &#123;if (!value) return &apos;&apos;value = value.toString()return value.charAt(0).toUpperCase() + value.slice(1)&#125;)new Vue(&#123;// ...&#125;) 组件过滤器（局部）12345678910111213141516171819202122&lt;div class=&quot;status&quot;&gt;&#123;&#123;item.is_verify|prizeState&#125;&#125;&lt;/div&gt;//filters过滤器是和生命周期是同级的created()&#123; this.getPrizeList() &#125;,filters:&#123; prizeState:function(val)&#123;//参数val就是上面的item.is_verify,花括号内的插值会是prizeState中return出来的数据 if(val==0)&#123; return &apos;未使用&apos; &#125; if(val==1)&#123; return &apos;已使用&apos; &#125; if(val==11)&#123; return &apos;未开始&apos; &#125; if(val==12)&#123; return &apos;已过期&apos; &#125; &#125; &#125;, 用法1、过滤器函数总接收表达式的值 (之前的操作链的结果) 作为第一个参数。在上述例子中，prizeState 过滤器函数将会收到 item.is_verify 的值作为第一个参数，插值的内容会变为prizeState函数return出去的数据 如上述例子，如果item.is_verify的值是1，插值就会是‘未使用’ 2、过滤器可以串联1&#123;&#123; message | filterA | filterB &#125;&#125; 上面的这个例子中filterA接收的参数是message，filterB接收的是filterA中return出来的结果 3、过滤器是 JavaScript 函数，因此可以接收参数1&#123;&#123; message | filterA(参1, 参2) &#125;&#125; 如上：filterA 被定义为接收三个参数的过滤器函数，第一个参数是message，剩下两个参数是传到filterA中的两参数 注意：全局注册时是filter，没有s的。而组件过滤器是filters，是有s的。]]></content>
