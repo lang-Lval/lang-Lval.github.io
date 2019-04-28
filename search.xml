@@ -327,6 +327,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[vue路由配置组件的标题]]></title>
+    <url>%2F2019%2F01%2F20%2F2019-1-20%2F</url>
+    <content type="text"><![CDATA[下载路由cli生成的项目勾选下载过的就不用再下了 `npm install vue-router` 配置路由文件1234567891011121314151617import Vue from &apos;vue&apos;import Router from &apos;vue-router&apos;import Index from &apos;@/components/index&apos;Vue.use(Router)export default new Router(&#123;routes: [ &#123; path: &apos;/&apos;, component: Index, meta:&#123; title:&apos;首页&apos; &#125; &#125;]&#125;) main.js文件内引入路由`import router from &apos;./router&apos;` 将下面的代码复制到main.js内1234567// 自定义组件标题router.beforeEach((to, from, next) =&gt; &#123; if (to.meta.title) &#123; document.title = to.meta.title &#125; next()&#125;) 将路由挂载到vue实例上 1234567new Vue(&#123; el: &apos;#app&apos;, router,//路由挂载 store, components: &#123; App &#125;, template: &apos;&lt;App/&gt;&apos;&#125;)]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue-cli生成vue项目]]></title>
     <url>%2F2019%2F01%2F17%2F19-03%2Ffirst%2F</url>
     <content type="text"><![CDATA[全局安装 vue-cli1.$ cnpm install –global vue-cli 如果已经安装过了就不用安装了，这里我前面的项目已经安装过了，所以直接从第二步开始 my-project为自定义项目名2.$ vue init webpack my-project 需要注意的是项目的名称不能大写，不然会报错 项目初始化时会询问一些安装项，可以根据自己的需求选择 Project name (my-project) ==&gt;项目名称（我的项目） Project description (A Vue.js project) ==&gt;项目描述一个Vue.js 项目 Author 作者（你的名字） nstall vue-router? (Y/n) ==&gt;是否安装Vue路由，也就是以后是spa（但页面应用需要的模块）yes Use ESLint to lint your code? (Y/n) ==&gt;使用 ESLint 到你的代码？ （Y [ yes ] / N [ no ]）此处建议选no，如果不是按照ESLint风格，编译时就会报错（就是这里坑了我，找半天没发现逻辑问题） Pick an ESLint preset (Use arrow keys) ==&gt;选择一个预置ESLint（使用箭头键） Setup unit tests with Karma + Mocha? (Y/n) ==&gt;设置单元测Karma + Mocha？ （Y/ N） Setup e2e tests with Nightwatch? (Y/n) ==&gt;设置端到端测试，Nightwatch？这里需要选yes，否则会报websocket的错误 （Y/ N）Y 3.最后一步就是安心等待啦 完成后运行npm run Dev项目就运行起来啦 注： Vue取消eslint语法限制 在build/webpack.base.conf.js文件中，注释或者删除掉：module-&gt;rules中有关eslint的规则 vue-cli脚手架搭建环境时报出chromedriver的错误： 出现原因：未设置科学上网 （翻墙）或者. npm 源未设置为国内镜像源 解决方法：执行以下命令1npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver 手机预览1234&lt;!-- 手机预览vue项目 --&gt;&lt;!-- 1.找到config文件下的index.js 将dev配置中的host:&apos;localhost&apos;改为host:&apos;0.0.0.0&apos; --&gt;&lt;!-- 2.重新运行项目npm run dev --&gt;&lt;!-- 3.在浏览器地址输入：本机ip地址:项目所占端口号 如：http://192.168.1.184:8080/#/--&gt;]]></content>
