@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo主题上传报错Template render error]]></title>
+    <url>%2F2019%2F04%2F29%2F19-04%2F19-4-29%2F</url>
+    <content type="text"><![CDATA[模板渲染错误出现原因：文章内有一些不能用的字符，导致.md格式文章转换报错 1..\source\_posts目录下的文章 解决方法：解决方案：仔细检查..\source_posts目录下的文章，有没有“{ }”等符号，或者代码没有被放入代码框内 注意：这里的代码框用多行代码框，单行代码框无效 1&#123;&#123; message | filterA | filterB &#125;&#125;]]></content>
+      <categories>
+        <category>主题相关</category>
+      </categories>
+      <tags>
+        <tag>主题相关</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue项目执行npm i安装依赖中出现的问题]]></title>
     <url>%2F2019%2F04%2F28%2F19-04%2F19-4-28%2F</url>
     <content type="text"><![CDATA[报错chromedriver 出现原因：没有安装chromedriver 解决方法：执行以下命令1npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver]]></content>
