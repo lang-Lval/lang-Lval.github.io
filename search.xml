@@ -327,6 +327,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[css简单初始化]]></title>
+    <url>%2F2019%2F01%2F29%2F19-03%2Fcss%2F</url>
+    <content type="text"><![CDATA[css配合rem、现在基本都不会用rem了，但偶尔rem配合vw、vh，啥的也能有一些用武之地 123456789101112131415161718192021function responsive() &#123; //屏幕的宽度 var screenWidth = window.innerWidth || document.documentElement.clientWidth; if(screenWidth &lt;= 320) &#123; screenWidth = 320; &#125; if(screenWidth &gt;= 750) &#123; screenWidth = 750; &#125; //希望把设计图分成了15rem 750的设计 //如果设计图是640的设计图 分成16份 1rem = 40px var count = 15; //设置html的字体大小 如750的设计图此时html字体大小为50，也就是1rem=50px;在less中，可定义一个变量@r:50rem，下面定义样式是就可以用：设计图量出的大小/@r document.documentElement.style.fontSize = (screenWidth/count).toFixed(2) + &quot;px&quot;;&#125;responsive(); vue初始化css 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#app &#123; font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif; width: 100%; height: 100%; font-size: 15px;&#125;*&#123; margin: 0; padding: 0;&#125;html,body &#123; height: 100%;&#125;input &#123; background:none; outline:none; border:0px;&#125;input:focus, textarea:focus &#123; outline: none;&#125;ul &#123; list-style: none;&#125;input::-webkit-input-placeholder&#123; /* input内的字体要比placeholder设置的字体大，不然会被切割 */ font-size: 14px; line-height: 20px; font-weight: 400;&#125; input:-moz-placeholder&#123; font-size: 14px; line-height: 20px; font-weight: 400;&#125; input::-moz-placeholder&#123; font-size: 14px; line-height: 20px; font-weight: 400;&#125; input:-ms-input-placeholder&#123; font-size: 14px; line-height: 20px; font-weight: 400;&#125;]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue路由配置组件的标题]]></title>
     <url>%2F2019%2F01%2F20%2F2019-1-20%2F</url>
     <content type="text"><![CDATA[下载路由cli生成的项目勾选下载过的就不用再下了 `npm install vue-router` 配置路由文件1234567891011121314151617import Vue from &apos;vue&apos;import Router from &apos;vue-router&apos;import Index from &apos;@/components/index&apos;Vue.use(Router)export default new Router(&#123;routes: [ &#123; path: &apos;/&apos;, component: Index, meta:&#123; title:&apos;首页&apos; &#125; &#125;]&#125;) main.js文件内引入路由`import router from &apos;./router&apos;` 将下面的代码复制到main.js内1234567// 自定义组件标题router.beforeEach((to, from, next) =&gt; &#123; if (to.meta.title) &#123; document.title = to.meta.title &#125; next()&#125;) 将路由挂载到vue实例上 1234567new Vue(&#123; el: &apos;#app&apos;, router,//路由挂载 store, components: &#123; App &#125;, template: &apos;&lt;App/&gt;&apos;&#125;)]]></content>
