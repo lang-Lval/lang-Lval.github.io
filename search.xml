@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[input输入框获取焦点后，底部固定定位的按钮顶起问题]]></title>
+    <url>%2F2019%2F04%2F30%2F19-04%2F19-4-30%2F</url>
+    <content type="text"><![CDATA[问题描述问题：手机H5页面当input输入框获取焦点时，软键盘会弹起，这时：IOS底部固定定位的按钮不会随着键盘弹起而弹起；而安卓底部固定定位的按钮会跟随软键盘弹起而顶起，从而遮挡一部分视图 解决方法一、监听window的resize事件，控制显示隐藏此方法只对安卓有用，iOS没有监听window的resize事件（iOS的话还是用flex布局比较好） 1234567891011// 获取视图原始高度let screenHeight = document.body.offsetHeight // 为window绑定resize事件window.onresize = function () &#123; let changeHeight = document.body.offsetHeight if (changeHeight &lt; screenHeight) &#123; // 隐藏被弹起的固定定位 &#125; else &#123; // 显示 &#125; &#125; 解决方法二、flex布局将屏幕分为上下两部分，主体为一部分，底部一部分，主体部分设置为flex:1,overflow: scroll;内容在主体内滑动，底部固定不动 123456789101112131415161718192021222324252627282930313233343536//样式html,body &#123; height: 100%; width: 100%; &#125;.container &#123; width: 100%; height: 100%; display: flex; flex-direction: column;&#125;//需要滑动的主体内容设置为flex:1;overflow: scroll,这样当内容超出时只会在主体内滑动，而不会被底部固定的部分影响.main &#123; flex:1; width: 100%; background-color:pink; overflow: scroll; &#125;//需要固定不动的部分设置固定的高，.foot &#123; height: 200px; width: 100%; background-color: #000;&#125;//结构&lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;main&quot;&gt; &lt;p&gt;dsadasdsadsadsadasdsadasdsadasdsaddsadasdsadsadsadasdsadasdsadasdsad&lt;/p&gt; &lt;/div&gt; &lt;div class=&quot;foot&quot;&gt; &lt;/div&gt;&lt;/div&gt;]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo主题上传报错Template render error]]></title>
     <url>%2F2019%2F04%2F29%2F19-04%2F19-4-29%2F</url>
     <content type="text"><![CDATA[模板渲染错误出现原因：文章内有一些不能用的字符，导致.md格式文章转换报错 1..\source\_posts目录下的文章 解决方法：解决方案：仔细检查..\source_posts目录下的文章，有没有“{ }”等符号，或者代码没有被放入代码框内 注意：这里的代码框用多行代码框，单行代码框无效 1&#123;&#123; message | filterA | filterB &#125;&#125;]]></content>
