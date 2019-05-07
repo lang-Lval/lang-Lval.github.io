@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="紫气楠楠">
 <meta property="og:description" content="计算属性理解1、computed用来监控自己定义的变量，该变量不在data里面声明，直接在computed里面定义，然后就可以在页面上获取到并进行相应的数据处理 2、computed里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-07T07:17:45.741Z">
+<meta property="og:updated_time" content="2019-05-07T07:20:30.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue的计算属性和侦听器">
 <meta name="twitter:description" content="计算属性理解1、computed用来监控自己定义的变量，该变量不在data里面声明，直接在computed里面定义，然后就可以在页面上获取到并进行相应的数据处理 2、computed里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以。">
@@ -391,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  559
+                  560
                 </span>
               
 
@@ -439,7 +439,7 @@
 <p>现在再运行 vm.fullName = ‘John Doe’ 时，setter 会被调用，vm.firstName 和 vm.lastName 也会相应地被更新。</p>
 <h3 id="侦听器-watch"><a href="#侦听器-watch" class="headerlink" title="侦听器 watch"></a>侦听器 watch</h3><p>虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的侦听器。这就是为什么 Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化。<br>当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的</p>
 <p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;watch-example&quot;&gt;</span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    Ask a yes/no question:</span><br><span class="line">    &lt;input v-model=&quot;question&quot;&gt;</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; answer &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">watch: &#123;</span><br><span class="line">    // 如果 `question` 发生改变，这个函数就会运行</span><br><span class="line">    question: function (newQuestion, oldQuestion) &#123;</span><br><span class="line">      this.answer = &apos;Waiting for you to stop typing...&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
-<p>当我们监听的数据发生变化时，就会运行一个函数，这个函数的第一个参数是变化的值，第二个参数是原来的值</p>
+<p>当我们监听的数据发生变化时，相应的函数就会运行，这个函数的第一个参数是变化的值，第二个参数是原来的值</p>
 
       
     </div>
