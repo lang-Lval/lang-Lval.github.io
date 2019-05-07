@@ -74,7 +74,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="vue,">
 
 
 
@@ -87,19 +87,18 @@
 
 
 
-<meta name="description" content="微信小程序相关及一些小坑1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性">
+<meta name="description" content="计算属性理解1、computed用来监控自己定义的变量，该变量不在data里面声明，直接在computed里面定义，然后就可以在页面上获取到并进行相应的数据处理 2、computed里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以。">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微信小程序基础">
-<meta property="og:url" content="http://yoursite.com/2019/02/28/19-03/weChat/index.html">
+<meta property="og:title" content="vue的计算属性和侦听器">
+<meta property="og:url" content="http://yoursite.com/2019/05/07/19-05/19-5-7/index.html">
 <meta property="og:site_name" content="紫气楠楠">
-<meta property="og:description" content="微信小程序相关及一些小坑1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性">
+<meta property="og:description" content="计算属性理解1、computed用来监控自己定义的变量，该变量不在data里面声明，直接在computed里面定义，然后就可以在页面上获取到并进行相应的数据处理 2、computed里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day3/wechat.jpg">
-<meta property="og:updated_time" content="2019-04-10T06:41:55.382Z">
+<meta property="og:updated_time" content="2019-05-07T07:17:45.741Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信小程序基础">
-<meta name="twitter:description" content="微信小程序相关及一些小坑1.页面滑动小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域scroll-view相关配置属性">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day3/wechat.jpg">
+<meta name="twitter:title" content="vue的计算属性和侦听器">
+<meta name="twitter:description" content="计算属性理解1、computed用来监控自己定义的变量，该变量不在data里面声明，直接在computed里面定义，然后就可以在页面上获取到并进行相应的数据处理 2、computed里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以。">
 
 
 
@@ -129,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/28/19-03/weChat/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/07/19-05/19-5-7/">
 
 
 
 
 
-  <title>微信小程序基础 | 紫气楠楠</title>
+  <title>vue的计算属性和侦听器 | 紫气楠楠</title>
   
 
 
@@ -297,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/19-03/weChat/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/19-05/19-5-7/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -314,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">微信小程序基础</h1>
+          <h1 class="post-title" itemprop="name headline">vue的计算属性和侦听器</h1>
         
 
         <div class="post-meta">
@@ -326,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T15:16:13+08:00">
-                2019-02-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T14:43:03+08:00">
+                2019-05-07
               </time>
             
 
@@ -349,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/小程序/" itemprop="url" rel="index">
-                    <span itemprop="name">小程序</span>
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
                   </a>
                 </span>
 
@@ -366,7 +365,7 @@
 
           
           
-             <span id="/2019/02/28/19-03/weChat/" class="leancloud_visitors" data-flag-title="微信小程序基础">
+             <span id="/2019/05/07/19-05/19-5-7/" class="leancloud_visitors" data-flag-title="vue的计算属性和侦听器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -392,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  958
+                  559
                 </span>
               
 
@@ -408,7 +407,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -429,26 +428,18 @@
       
 
       
-        <p><img src="https://raw.githubusercontent.com/langhuonan/wechat/master/mdImages/day3/wechat.jpg" alt="avatar"></p>
-<h2 id="微信小程序相关及一些小坑"><a href="#微信小程序相关及一些小坑" class="headerlink" title="微信小程序相关及一些小坑"></a>微信小程序相关及一些小坑</h2><h3 id="1-页面滑动"><a href="#1-页面滑动" class="headerlink" title="1.页面滑动"></a>1.页面滑动</h3><p>小程序内容超出父盒子，或者页面超出屏幕都不会出现滚动条滑动，如需要滑动，要使用scroll-view组件包裹着要滑动的区域<br><a href="https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html" target="_blank" rel="noopener">scroll-view</a>相关配置属性<br><a id="more"></a></p>
-<h4 id="scroll-view相关"><a href="#scroll-view相关" class="headerlink" title="scroll-view相关"></a>scroll-view相关</h4><ol>
-<li>scroll-view生效需要设置高度，如果没有设置高度，滑动效果不生效</li>
-<li>去除scroll-view默认滚动条<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">::-webkit-scrollbar&#123;</span><br><span class="line"></span><br><span class="line">width: 0;</span><br><span class="line"></span><br><span class="line">height: 0;</span><br><span class="line"></span><br><span class="line">color: transparent;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="2-闭包问题"><a href="#2-闭包问题" class="headerlink" title="2.闭包问题"></a>2.闭包问题</h3><p>请求后台api中的success函数实际是一个闭包 ， 无法直接通过this来设置setData;<br>解决方案：<br>1.将当前对象赋给一个新对象：let that = this<br>2.使用箭头函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">onLoad: function (options) &#123;</span><br><span class="line">  console.log(options.uselogid)</span><br><span class="line">  wx.request(&#123;</span><br><span class="line">    url: util.Api.getUserPrizeInfo,</span><br><span class="line">    method: &apos;get&apos;,</span><br><span class="line">    data: &#123;</span><br><span class="line">      openid: app.globalData.openid,</span><br><span class="line">      user_log_id: options.uselogid</span><br><span class="line">    &#125;,</span><br><span class="line">    success: (res) =&gt; &#123;</span><br><span class="line">      // console.log(res.data)</span><br><span class="line">      this.setData(&#123;</span><br><span class="line">        cardData: res.data.data,</span><br><span class="line">        qrCode: res.data.data.qrCodeUrl,</span><br><span class="line">        uselogid: options.uselogid,</span><br><span class="line">        status: res.data.data.status</span><br><span class="line">      &#125;)</span><br><span class="line">      console.log(this.data.status)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-背景图片问题"><a href="#3-背景图片问题" class="headerlink" title="3.背景图片问题"></a>3.背景图片问题</h3><p>  小程序中的背景图片写在wxss预览时无法显现<br>  解决方案：<br>  1.将图片转为base64格式，才能在wxss内设置<br>  2.写行内样式，图片用网络图片，本地图片无法预览</p>
-<h3 id="4-路由"><a href="#4-路由" class="headerlink" title="4.路由"></a>4.路由</h3><p> 1.使用navigator标签导航，注意url地址不能带文件后缀<br> 2.在js文件内注册事件跳转<br> wx.navigateTo跳转保留当前页面，也就是说会有返回箭头<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">      url: &apos;/pages/cardDetial/cardDetial?uselogid=&apos; + e.currentTarget.dataset.uselogid,</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
-<p>wx.redirectTo跳转 关闭当前页面，跳转到应用内的某个页面。但是不允许跳转到 tabbar 页面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.redirectTo(&#123;</span><br><span class="line">      url: &apos;/pages/superGift/superGift&apos;,</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-页面间传值"><a href="#5-页面间传值" class="headerlink" title="5.页面间传值"></a>5.页面间传值</h3><p>传值:和web页面差不多，也是在url地址后面拼接参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">        url: &apos;/pages/cardDetial/cardDetial?uselogid=&apos; + e.currentTarget.dataset.uselogid,</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure></p>
-<p>接收：直接在生命周期onLoad里用参数接收<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onLoad: function (options) &#123;</span><br><span class="line">  console.log(options.uselogid)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-<h3 id="6-无法使用外部字体图标"><a href="#6-无法使用外部字体图标" class="headerlink" title="6.无法使用外部字体图标"></a>6.无法使用外部字体图标</h3><p>大部分情况下直接下载iconfont的压缩包，将其内的iconfont.css文件复制到一个新的wxss文件内，然后在app.wxss文件内全局引入@import “/lib/style/iconfont.wxss”;就可以在任意文件中使用了<br>如果出现无法使用的情况，试试下面方法：<br>1，下载font-awesome字体包</p>
-<p>2，打开Transfonter网站，上传字体iconfont.ttf，选择base64编码</p>
-<p>3，convert完毕后点击下载，下载得到的包中有stylesheet.css文件，打开并对照font-awesome.css中的内容进行合并base64部分，加入到微信小程序的xxx.wxss文件中进行使用</p>
-<pre><code>&lt;text class=&quot;iconfont icon-xxxx&quot;&gt;&lt;/text&gt;
-</code></pre><h3 id="7-setData修改数组或对象"><a href="#7-setData修改数组或对象" class="headerlink" title="7.setData修改数组或对象"></a>7.setData修改数组或对象</h3><p>setData无法直接修改引用类型的数据，需要字符串拼接的方式保存到变量中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var closeShow = &quot;redPacket.myClosePackect&quot;</span><br><span class="line">self.setData(&#123;</span><br><span class="line">            </span><br><span class="line">             [closeShow]: false,</span><br><span class="line">             </span><br><span class="line">           &#125;)</span><br></pre></td></tr></table></figure></p>
-<h3 id="8-textarea注意事项"><a href="#8-textarea注意事项" class="headerlink" title="8.textarea注意事项"></a>8.textarea注意事项</h3><p>1.bug: 微信版本 6.3.30，textarea 在列表渲染时，新增加的 textarea 在自动聚焦时的位置计算错误。<br>2.tip: textarea 的 blur 事件会晚于页面上的 tap 事件，如果需要在 button 的点击事件获取 textarea，可以使用 form 的 bindsubmit。<br>3.tip: 不建议在多行文本上对用户的输入进行修改，所以 textarea 的 bindinput 处理函数并不会将返回值反映到 textarea 上。<br>4.tip: textarea 组件是由客户端创建的原生组件，它的层级是最高的，不能通过 z-index 控制层级。<br>5.tip: 请勿在 scroll-view、swiper、picker-view、movable-view 中使用 textarea 组件。<br>6.tip: css 动画对 textarea 组件无效。</p>
-<h3 id="9-原生组件无法被覆盖的问题"><a href="#9-原生组件无法被覆盖的问题" class="headerlink" title="9.原生组件无法被覆盖的问题"></a>9.原生组件无法被覆盖的问题</h3><p>map、video、canvas、camera 等原生组件上不可被标签覆盖，如果需要覆盖，要使用cover-view标签 且只支持嵌套cover-view、cover-image</p>
+        <h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><h5 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h5><p>1、computed用来监控自己定义的变量，该变量不在data里面声明，直接在computed里面定义，然后就可以在页面上获取到并进行相应的数据处理</p>
+<p>2、computed里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以。</p>
+<a id="more"></a>
+<p>案例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div @click=&apos;add&apos;&gt; + &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">data()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        num1: 11,</span><br><span class="line">        num2: 33</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line">      total:function()&#123;</span><br><span class="line">      return this.num1 + this.num2 //总分会随着num1，num2的变化而重新计算</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">      add()&#123;</span><br><span class="line">          this.num1++</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>上面案例中total返回的是num1和num2的总和，且每次点击加号时total的值都会随着num1的变化而变化，由此可知计算属性可以依赖多个Vue 实例的数据，只要其中任一数据变化，计算属性就会重新执行，视图也会更新。</p>
+<h5 id="计算属性的setter"><a href="#计算属性的setter" class="headerlink" title="计算属性的setter"></a>计算属性的setter</h5><p>计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  fullName: &#123;</span><br><span class="line">    // getter</span><br><span class="line">    get: function () &#123;</span><br><span class="line">      return this.firstName + &apos; &apos; + this.lastName</span><br><span class="line">    &#125;,</span><br><span class="line">    // setter</span><br><span class="line">    set: function (newValue) &#123;</span><br><span class="line">      var names = newValue.split(&apos; &apos;)</span><br><span class="line">      this.firstName = names[0]</span><br><span class="line">      this.lastName = names[names.length - 1]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在再运行 vm.fullName = ‘John Doe’ 时，setter 会被调用，vm.firstName 和 vm.lastName 也会相应地被更新。</p>
+<h3 id="侦听器-watch"><a href="#侦听器-watch" class="headerlink" title="侦听器 watch"></a>侦听器 watch</h3><p>虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的侦听器。这就是为什么 Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化。<br>当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;watch-example&quot;&gt;</span><br><span class="line">  &lt;p&gt;</span><br><span class="line">    Ask a yes/no question:</span><br><span class="line">    &lt;input v-model=&quot;question&quot;&gt;</span><br><span class="line">  &lt;/p&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; answer &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">watch: &#123;</span><br><span class="line">    // 如果 `question` 发生改变，这个函数就会运行</span><br><span class="line">    question: function (newQuestion, oldQuestion) &#123;</span><br><span class="line">      this.answer = &apos;Waiting for you to stop typing...&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
+<p>当我们监听的数据发生变化时，就会运行一个函数，这个函数的第一个参数是变化的值，第二个参数是原来的值</p>
 
       
     </div>
@@ -472,6 +463,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
 
       
       
@@ -481,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/blogchange/" rel="next" title="将博客搬至CSDN">
-                <i class="fa fa-chevron-left"></i> 将博客搬至CSDN
+              <a href="/2019/05/06/19-05/19-5-6/" rel="next" title="vue图片上传">
+                <i class="fa fa-chevron-left"></i> vue图片上传
               </a>
             
           </div>
@@ -490,10 +487,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/01/19-03/day5/" rel="prev" title="vue的类库vux安装">
-                vue的类库vux安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -701,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#微信小程序相关及一些小坑"><span class="nav-number">1.</span> <span class="nav-text">微信小程序相关及一些小坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-页面滑动"><span class="nav-number">1.1.</span> <span class="nav-text">1.页面滑动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll-view相关"><span class="nav-number">1.1.1.</span> <span class="nav-text">scroll-view相关</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-闭包问题"><span class="nav-number">1.2.</span> <span class="nav-text">2.闭包问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-背景图片问题"><span class="nav-number">1.3.</span> <span class="nav-text">3.背景图片问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-路由"><span class="nav-number">1.4.</span> <span class="nav-text">4.路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-页面间传值"><span class="nav-number">1.5.</span> <span class="nav-text">5.页面间传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-无法使用外部字体图标"><span class="nav-number">1.6.</span> <span class="nav-text">6.无法使用外部字体图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-setData修改数组或对象"><span class="nav-number">1.7.</span> <span class="nav-text">7.setData修改数组或对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-textarea注意事项"><span class="nav-number">1.8.</span> <span class="nav-text">8.textarea注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-原生组件无法被覆盖的问题"><span class="nav-number">1.9.</span> <span class="nav-text">9.原生组件无法被覆盖的问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算属性"><span class="nav-number">1.</span> <span class="nav-text">计算属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#理解"><span class="nav-number">1.0.1.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算属性的setter"><span class="nav-number">1.0.2.</span> <span class="nav-text">计算属性的setter</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#侦听器-watch"><span class="nav-number">2.</span> <span class="nav-text">侦听器 watch</span></a></li></div>
             
 
           </div>
