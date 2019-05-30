@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[小程序左滑显示删除功能]]></title>
+    <url>%2F2019%2F05%2F30%2F19-05%2F19-5-27%2F</url>
+    <content type="text"><![CDATA[思路 采用分层思想，每个item分为上下两层，上面一层放内容，下面一层放删除按钮 上面一层采用绝对定位，下面一层放到需要显示的位置，通过动态设置right属性的值，来实现向左滑动漏出下面的删除按钮 通过touchstart，touchmove 这几个事件来判断滑动的方向，从而设置right的值 在需要滑动的item上注册事件123&lt;view class=&apos;address-list&apos; bindtouchstart=&apos;touchStart&apos; bindtouchmove=&apos;touchMove&apos;&gt;&lt;/view&gt; js12345678910111213141516171819202122232425262728293031323334353637data:&#123; movedel:&#123; clientStart:&apos;&apos;,//滑动开始的位置 clientMove:&apos;&apos;,//滑动的位置 stydel:&apos;0rpx&apos;,//内容初始的right距离 delWidth: 80 //露出删除按钮的宽度 &#125;&#125;// 开始滑动 touchStart(e)&#123; let start = &quot;movedel.clientStart&quot; this.setData(&#123; [start]: e.touches[0].clientX &#125;) &#125;, // 滑动 touchMove(e)&#123; let move = &apos;movedel.clientMove&apos; this.setData(&#123; [move]: e.touches[0].clientX &#125;) let distance = this.data.movedel.clientStart - this.data.movedel.clientMove let right = &apos;movedel.stydel&apos; if(distance&lt;=0)&#123;//右滑 this.setData(&#123; [right]:&apos;0rpx&apos; &#125;) &#125; if (distance &gt; this.data.movedel.delWidth)&#123; //左滑 this.setData(&#123; [right]: &apos;80rpx&apos; &#125;) &#125; &#125;,]]></content>
+      <categories>
+        <category>小程序</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[vue的axios拦截器使用]]></title>
     <url>%2F2019%2F05%2F10%2F19-05%2F19-5-10%2F</url>
     <content type="text"><![CDATA[axios拦截器下载并使用axios后可以对全局进行拦截器设置。拦截器在发送请求前或响应返回时做一些特殊的处理。 下面是一个为axios添加请求loading的例子： 添加请求拦截器12345678//定义一个请求拦截器axios.interceptors.request.use(function(config)&#123; Vue.$vux.loading.show(); //在请求发出之前进行一些操作 return config&#125;,function (error) &#123; // 对请求错误做些什么 // return Promise.reject(error)&#125;); 添加响应拦截器12345678//定义一个响应拦截器axios.interceptors.response.use(function(config)&#123; Vue.$vux.loading.hide();;//在这里对返回的数据进行处理 return config&#125;,function (error) &#123; // 对请求错误做些什么 // return Promise.reject(error)&#125;); 移除拦截器12var myInterceptor = axios.interceptors.request.use(function () &#123;/*...*/&#125;);axios.interceptors.request.eject(myInterceptor); 为axios实例添加拦截器12var instance = axios.create();instance.interceptors.request.use(function () &#123;/*...*/&#125;); 某一个函数不希望受到全局拦截器的影响解决方法：在函数内从新添加一个拦截器如下：为请求函数添加一个新的拦截器使之不受全局拦截器影响1const $ajax = this.$http.create() 例：下面函数不受全局拦截器影响123456789101112pollopenid()&#123; const $ajax = this.$http.create() $ajax(&#123; method:&apos;post&apos;, url:&apos;&apos;, data:&#123; &#125; &#125;).then(res=&gt;&#123; &#125;) &#125;]]></content>
