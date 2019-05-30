@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  280
+                  497
                 </span>
               
 
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -435,7 +435,9 @@
 </li>
 <li><p>上面一层采用绝对定位，下面一层放到需要显示的位置，通过动态设置right属性的值，来实现向左滑动漏出下面的删除按钮</p>
 </li>
-<li><p>通过touchstart，touchmove 这几个事件来判断滑动的方向，从而设置right的值</p>
+<li><p>通过touchstart，touchmove 这几个事件来判断滑动的方向</p>
+</li>
+<li><p>通过item的index值确定滑动的是哪一项，设置滑动项的right值</p>
 </li>
 </ol>
           <!--noindex-->
