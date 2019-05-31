@@ -2,11 +2,22 @@
 <search>
   <entry>
     <title><![CDATA[小程序左滑显示删除功能]]></title>
-    <url>%2F2019%2F05%2F30%2F19-05%2F19-5-27%2F</url>
+    <url>%2F2019%2F05%2F30%2F19-05%2F19-5-30%2F</url>
     <content type="text"><![CDATA[思路 采用分层思想，每个item分为上下两层，上面一层放内容，下面一层放删除按钮 上面一层采用绝对定位，下面一层放到需要显示的位置，通过动态设置right属性的值，来实现向左滑动漏出下面的删除按钮 通过touchstart，touchmove 这几个事件来判断滑动的方向 通过item的index值确定滑动的是哪一项，设置滑动项的right值 在需要滑动的item上注册事件123456789101112131415&lt;view class=&apos;address-list&apos; data-index=&quot;&#123;&#123;index&#125;&#125;&quot; bindtouchstart=&apos;touchStart&apos; bindtouchmove=&apos;touchMove&apos;&gt; &lt;!-- 删除按钮 --&gt; &lt;view class=&apos;del&apos;&gt;&lt;image src=&apos;&#123;&#123;AppImg.address_del&#125;&#125;&apos;&gt;&lt;/image&gt;&lt;/view&gt; &lt;!-- 内容 --&gt; &lt;view class=&apos;adsInfo&apos; style=&quot;right:&#123;&#123;item.right&#125;&#125;&quot;&gt; &lt;view class=&apos;icontrue&apos;&gt;&lt;image src=&apos;&#123;&#123;AppImg.address_right&#125;&#125;&apos;&gt;&lt;/image&gt;&lt;/view&gt; &lt;view class=&apos;info&apos;&gt; &lt;view class=&apos;info-name&apos;&gt;涂山苏苏&lt;/view&gt; &lt;view class=&apos;info-address&apos;&gt;海市上海市浦东新海市上海市浦东新海市上海市浦东新&lt;/view&gt; &lt;/view&gt; &lt;view class=&apos;iconmsg&apos;&gt;&lt;image src=&apos;&#123;&#123;AppImg.address_change&#125;&#125;&apos;&gt;&lt;/image&gt;&lt;/view&gt; &lt;/view&gt;&lt;/view&gt; js12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152data:&#123; movedel:&#123; clientStart:&apos;&apos;,//滑动开始的位置 clientMove:&apos;&apos;,//滑动的位置 &#125;, addressList:[ &#123;id:1,right:&apos;&apos;&#125;, &#123; id: 2, right: &apos;&apos; &#125; ]&#125;// 开始滑动 touchStart(e)&#123; let start = &quot;movedel.clientStart&quot; this.setData(&#123; [start]: e.touches[0].clientX &#125;) &#125;, // 滑动 touchStart(e)&#123; let start = &quot;movedel.clientStart&quot; this.setData(&#123; [start]: e.touches[0].clientX &#125;) &#125;, // 滑动 touchMove(e)&#123; let move = &apos;movedel.clientMove&apos; this.setData(&#123; [move]: e.touches[0].clientX &#125;) let distance = this.data.movedel.clientStart - this.data.movedel.clientMove //确定滑动的是哪一项 let index = e.currentTarget.dataset.index let list = this.data.addressList if(distance&lt;=0)&#123; list[index].right = &apos;0&apos;; this.setData(&#123; addressList:list &#125;) &#125; if(distance&gt;=80)&#123; list[index].right = &apos;80rpx&apos;; this.setData(&#123; addressList: list &#125;) &#125; &#125;,]]></content>
       <categories>
         <category>小程序</category>
       </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[小程序商品秒杀]]></title>
+    <url>%2F2019%2F05%2F18%2F19-05%2F19-5-31%2F</url>
+    <content type="text"><![CDATA[思路： 获取当前时间，同时得到活动结束时间数组； 循环活动结束时间数组，计算每个商品活动结束时间的倒计时天、时、分、秒； 用 setData 方法刷新数据； 每个一秒执行一次倒计时函数 setInterval(this.countTime,1000) wxml12345&lt;view class=&apos;goods-box&apos; wx:for=&quot;&#123;&#123;goodsData&#125;&#125;&quot; wx:key=&quot;index&quot;&gt;&lt;view class=&apos;time-txt&apos;&gt;距离开始还剩：&#123;&#123;item.now&#125;&#125;&lt;/view&gt;&lt;/view&gt; js 1234567891011121314151617181920212223242526272829303132333435363738394041424344 data&#123; goodsData:[ &#123; id: 1, status: 0, endtime: &apos;2019-05-29 15:06:00&apos;, now:&apos;&apos; &#125;, &#123; id: 2, status: 1, endtime: &apos;2019-05-31 15:06:00&apos;, now:&apos;&apos; &#125;, &#123; id: 3, status: 2, endtime: &apos;2019-06-01 15:06:00&apos;, now:&apos;&apos; &#125;, &#123; id: 4, status: 3, endtime: &apos;2019-05-31 19:06:00&apos;, now:&apos;&apos; &#125; ], &#125;onLoad: function (options) &#123; this.countTime() setInterval(this.countTime,1000)&#125;,// 倒计时countTime()&#123; let now = new Date().getTime() let endList = this.data.goodsData endList.forEach(v=&gt;&#123; let end = new Date(v.endtime).getTime() //时间差 let diftime = end - now let h, m, s; if (diftime &gt; 0)&#123; h = Math.floor(diftime / 1000 / 60 / 60 % 24); m = Math.floor(diftime / 1000 / 60 % 60); s = Math.floor(diftime / 1000 % 60); s = s &lt; 10 ? &quot;0&quot; + s : s m = m &lt; 10 ? &quot;0&quot; + m : m h = h &lt; 10 ? &quot;0&quot; + h : h v.now = h + &quot;时&quot; + m + &quot;分&quot; + s + &quot;秒&quot; //递归每秒调用countTime方法，显示动态时间效果 // setTimeout(this.countTime, 1000) &#125;else&#123; //已结束 v.now = &apos;00时00分00秒&apos; &#125; &#125;) this.setData(&#123; goodsData: endList &#125;)&#125;,]]></content>
+      <categories>
+        <category>秒杀</category>
+      </categories>
+      <tags>
+        <tag>秒杀</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[vue的axios拦截器使用]]></title>
