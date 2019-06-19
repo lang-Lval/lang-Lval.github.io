@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue项目中使用md5加密]]></title>
+    <url>%2F2019%2F06%2F19%2F19-06%2F19-6-19%2F</url>
+    <content type="text"><![CDATA[安装npm install --save js-md5 组件内引入需要的组件内引用import md5 from &#39;js-md5&#39;;使用12let psd = &apos;123123&apos;md5(psd) // 4297f44b13955235245b2497399d7a93 全局引入在main.js中将md5注入到vue原型上 123import md5 from &apos;js-md5&apos;;Vue.prototype.$md5 = md5; 使用：12let psd = &apos;123123&apos;this.$md5(psd) // 4297f44b13955235245b2497399d7a93 例：密码：用户密码md5加密后的字符串+openid 再次经过MD5加密后的字符串12345678910111213data()&#123; return:&#123; psd:&apos;123123&apos;, openid:&apos;123456&apos; &#125;&#125;,methods:&#123; addpsd:&#123; let psd = this.$md5(this.psd)+this.openid //先将用户密码进行md5加密，再拼接上openid得到一个字符串 let mdpsd = this.$md5(psd) //将上面的字符串再进行一次md5加密 console.log(mdpsd) &#125;&#125;]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[小程序canvas绘制图片并保存]]></title>
     <url>%2F2019%2F06%2F18%2F19-06%2F19-6-18%2F</url>
     <content type="text"><![CDATA[准备画布1&lt;canvas style=&quot;width: 300px; height: 369px;&quot; canvas-id=&apos;myCanvas&apos;&gt;&lt;/canvas&gt; 建立canvas绘图的上下文对象1const ctx = wx.createCanvasContext(&apos;myCanvas&apos;) 绘制先绘制一个和画布等同大小的白色矩形作为底图12345ctx.setFillStyle(&apos;#fff&apos;) //设置填充色ctx.fillRect(0, 0, this.shiftSize(300), this.shiftSize(369))ctx.draw()ctx.save()//保存当前的绘图上下文。ctx.beginPath()//开始创建一个路径 绘制文字1234ctx.setFillStyle(&apos;#EB4E3F&apos;)ctx.setFontSize(this.shiftSize(12))ctx.fillText(&apos;啦啦啦&apos;, this.shiftSize(15), this.shiftSize(325))ctx.draw(true)//参数为 true，则保留当前画布上的内容,否则画布前面的内容会被清空 绘制图片并裁剪为圆形1234567ctx.arc(this.shiftSize(40), this.shiftSize(35), this.shiftSize(25), 0, 2 * Math.PI)//画一个圆形裁剪区域ctx.setStrokeStyle(&apos;#999&apos;)ctx.stroke()ctx.clip()//裁剪ctx.drawImage(this.data.goodsInfo.img_url, this.shiftSize(15), this.shiftSize(10), this.shiftSize(50), this.shiftSize(50))//绘制图片ctx.restore()//恢复之前保存的绘图上下文ctx.draw(true)//绘制到canvas 注：canvas画布的默认单位是px，所以我们需要换算一下单位123456shiftSize: function (w) &#123; if (this.data.windowV) &#123; return w / this.data.windowV; &#125; return w; &#125;, 保存绘制的图片到相册1234567891011121314151617181920saveCanvasImg()&#123; wx.canvasToTempFilePath(&#123;//把当前画布指定区域的内容导出生成指定大小的图片 canvasId: &apos;myCanvas&apos;, success(res) &#123; wx.authorize(&#123;//向用户发起授权请求 scope: &apos;scope.writePhotosAlbum&apos;,//保存相册授权 success:()=&gt;&#123; wx.saveImageToPhotosAlbum(&#123;//保存图片到系统相册 filePath: res.tempFilePath, success:()=&gt;&#123; wx.showToast(&#123; title: &apos;图片保存成功&apos; &#125;) &#125; &#125;) &#125; &#125;) &#125; &#125;) &#125;]]></content>
@@ -9,17 +20,6 @@
       </categories>
       <tags>
         <tag>canvas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[md5加密]]></title>
-    <url>%2F2019%2F06%2F18%2F19-06%2F19-6-19%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>js vue</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
