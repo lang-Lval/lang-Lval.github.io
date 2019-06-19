@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-18T08:37:39.058Z</updated>
+  <updated>2019-06-19T03:07:47.705Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/06/18/19-06/19-6-18/"/>
     <id>http://yoursite.com/2019/06/18/19-06/19-6-18/</id>
     <published>2019-06-18T02:01:03.000Z</published>
-    <updated>2019-06-18T08:37:39.058Z</updated>
+    <updated>2019-06-19T03:07:47.705Z</updated>
     
     <content type="html"><![CDATA[<h3 id="准备画布"><a href="#准备画布" class="headerlink" title="准备画布"></a>准备画布</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas style=&quot;width: 300px; height: 369px;&quot; canvas-id=&apos;myCanvas&apos;&gt;&lt;/canvas&gt;</span><br></pre></td></tr></table></figure><h3 id="建立canvas绘图的上下文对象"><a href="#建立canvas绘图的上下文对象" class="headerlink" title="建立canvas绘图的上下文对象"></a>建立canvas绘图的上下文对象</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const ctx = wx.createCanvasContext(&apos;myCanvas&apos;)</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="绘制"><a href="#绘制" class="headerlink" title="绘制"></a>绘制</h3><p>先绘制一个和画布等同大小的白色矩形作为底图<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.setFillStyle(&apos;#fff&apos;) //设置填充色</span><br><span class="line">ctx.fillRect(0, 0, this.shiftSize(300), this.shiftSize(369))</span><br><span class="line">ctx.draw()</span><br><span class="line">ctx.save()//保存当前的绘图上下文。</span><br><span class="line">ctx.beginPath()//开始创建一个路径</span><br></pre></td></tr></table></figure></p><p>绘制文字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.setFillStyle(&apos;#EB4E3F&apos;)</span><br><span class="line">ctx.setFontSize(this.shiftSize(12))</span><br><span class="line">ctx.fillText(&apos;啦啦啦&apos;, this.shiftSize(15), this.shiftSize(325))</span><br><span class="line">ctx.draw(true)//参数为 true，则保留当前画布上的内容,否则画布前面的内容会被清空</span><br></pre></td></tr></table></figure></p><p>绘制图片并裁剪为圆形<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ctx.arc(this.shiftSize(40), this.shiftSize(35), this.shiftSize(25), 0, 2 * Math.PI)//画一个圆形裁剪区域</span><br><span class="line">ctx.setStrokeStyle(&apos;#999&apos;)</span><br><span class="line">ctx.stroke()</span><br><span class="line">ctx.clip()//裁剪</span><br><span class="line">ctx.drawImage(this.data.goodsInfo.img_url, this.shiftSize(15), this.shiftSize(10), this.shiftSize(50), this.shiftSize(50))//绘制图片</span><br><span class="line">ctx.restore()//恢复之前保存的绘图上下文</span><br><span class="line">ctx.draw(true)//绘制到canvas</span><br></pre></td></tr></table></figure></p><p>注：canvas画布的默认单位是px，所以我们需要换算一下单位<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shiftSize: function (w) &#123;</span><br><span class="line">    if (this.data.windowV) &#123;</span><br><span class="line">      return w / this.data.windowV;</span><br><span class="line">    &#125;</span><br><span class="line">    return w;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p><h3 id="保存绘制的图片到相册"><a href="#保存绘制的图片到相册" class="headerlink" title="保存绘制的图片到相册"></a>保存绘制的图片到相册</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">saveCanvasImg()&#123;</span><br><span class="line">    wx.canvasToTempFilePath(&#123;//把当前画布指定区域的内容导出生成指定大小的图片</span><br><span class="line">      canvasId: &apos;myCanvas&apos;,</span><br><span class="line">      success(res) &#123;</span><br><span class="line">        wx.authorize(&#123;//向用户发起授权请求</span><br><span class="line">          scope: &apos;scope.writePhotosAlbum&apos;,//保存相册授权</span><br><span class="line">          success:()=&gt;&#123;</span><br><span class="line">            wx.saveImageToPhotosAlbum(&#123;//保存图片到系统相册</span><br><span class="line">              filePath: res.tempFilePath,</span><br><span class="line">              success:()=&gt;&#123;</span><br><span class="line">                wx.showToast(&#123;</span><br><span class="line">                  title: &apos;图片保存成功&apos;</span><br><span class="line">                &#125;)</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -32,10 +32,28 @@
     
     </summary>
     
-      <category term="canvas" scheme="http://yoursite.com/categories/canvas/"/>
+      <category term="canvas js" scheme="http://yoursite.com/categories/canvas-js/"/>
     
     
       <category term="canvas" scheme="http://yoursite.com/tags/canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>md5加密</title>
+    <link href="http://yoursite.com/2019/06/18/19-06/19-6-19/"/>
+    <id>http://yoursite.com/2019/06/18/19-06/19-6-19/</id>
+    <published>2019-06-18T02:01:03.000Z</published>
+    <updated>2019-06-19T03:07:31.869Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="js vue" scheme="http://yoursite.com/categories/js-vue/"/>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
@@ -485,30 +503,6 @@
     
     
       <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue 多项选择功能</title>
-    <link href="http://yoursite.com/2019/03/28/19-03/2019-3-28/"/>
-    <id>http://yoursite.com/2019/03/28/19-03/2019-3-28/</id>
-    <published>2019-03-28T06:58:03.000Z</published>
-    <updated>2019-03-28T06:50:03.881Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="多项选择"><a href="#多项选择" class="headerlink" title="多项选择"></a>多项选择</h3><ol><li>同时可以选中多个， 多选已选中状态再次点击取消选中</li><li>多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除<a id="more"></a></li></ol><h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;h3&gt;问题：&lt;/h3&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li :class=&quot;&#123;cur:arr.indexOf(item.id)&gt;-1&#125;&quot; @click=&quot;addcur(item.id)&quot; v-for=&quot;(item,index) in list&quot; :key=&quot;index&quot; ref=&quot;liId&quot;&gt;&#123;&#123;item.txt&#125;&#125;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">        &lt;div class=&quot;btn&quot; @click=&quot;nextquestion&quot;&gt;下一题&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure><h4 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            list:[</span><br><span class="line">                &#123;id:1,txt:&apos;a第1个&apos;&#125;,</span><br><span class="line">                &#123;id:2,txt:&apos;b第2个&apos;&#125;,</span><br><span class="line">                &#123;id:3,txt:&apos;c第3个&apos;&#125;,</span><br><span class="line">                &#123;id:4,txt:&apos;d第4个&apos;&#125;,</span><br><span class="line">            ],</span><br><span class="line">            arr:[],</span><br><span class="line">            str:&apos;&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure><h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><p>选中思路：新建一个数组，判断当前点击元素的id有没有在数组中存在。如果有就删除掉这个id，如果没有，就添加到数组中<br>选中状态：判断点击元素的id是否在新数组中，如果新数组arr中有这个元素的id，就添加选中的类，如果没有就不添加</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">addcur:function(id)&#123;</span><br><span class="line">                </span><br><span class="line">        let indexd = this.arr.indexOf(id)//点击元素所在的下标</span><br><span class="line">        // 判断数组中是否有点击元素的id，如果有删除掉，如果没有则添加</span><br><span class="line">            if(indexd&gt;-1)&#123;</span><br><span class="line">            this.arr.splice(indexd,1)</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">            this.arr.push(id)</span><br><span class="line">        &#125;</span><br><span class="line">        // console.log(this.arr.join(&quot;&quot;))</span><br><span class="line">        </span><br><span class="line">        console.log(this.arr)</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;多项选择&quot;&gt;&lt;a href=&quot;#多项选择&quot; class=&quot;headerlink&quot; title=&quot;多项选择&quot;&gt;&lt;/a&gt;多项选择&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;同时可以选中多个， 多选已选中状态再次点击取消选中&lt;/li&gt;
-&lt;li&gt;多选选中项的记录，选择几个记录几个，选中再取消时需要将本条记录的数据同时消除&lt;/li&gt;&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
   </entry>
   
