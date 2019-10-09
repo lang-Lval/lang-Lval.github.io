@@ -63,6 +63,107 @@
   </entry>
   
   <entry>
+    <title>小程序动画创建及动画结束的监听事件</title>
+    <link href="http://yoursite.com/2019/06/17/19-10/07/"/>
+    <id>http://yoursite.com/2019/06/17/19-10/07/</id>
+    <published>2019-06-17T02:01:03.000Z</published>
+    <updated>2019-10-09T08:02:55.723Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="小程序动画创建"><a href="#小程序动画创建" class="headerlink" title="小程序动画创建"></a>小程序动画创建</h3><p>绑定动画数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; bindtap=&apos;move&apos;&gt;</span><br><span class="line">  &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure></p><p>设置动画</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">animationData: &apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">move()&#123;</span><br><span class="line">//创建动画</span><br><span class="line">var animation = wx.createAnimation(&#123;</span><br><span class="line">          duration: 400,</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">//描述动画步骤</span><br><span class="line">animation.top(-500).scale(0.8).step()</span><br><span class="line"></span><br><span class="line">//导出动画数据传递给组件的animation属性,否则动画不会执行</span><br><span class="line">this.setData(&#123;</span><br><span class="line">          animationData:animation.export()</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="监听动画事件（开始，结束）"><a href="#监听动画事件（开始，结束）" class="headerlink" title="监听动画事件（开始，结束）"></a>监听动画事件（开始，结束）</h3><p>动画执行过程中使用 bindtransitionend bindanimationstart bindanimationiteration bindanimationend 来监听动画事件</p><p>bindtransitionend：监听CSS 渐变结束或 wx.createAnimation 结束一个阶段</p><p>注意：bindtransitionend监听的是wx.createAnimation 结束一个阶段而不是整个动画的结束（也就是一个step()结束）</p><p>bindanimationstart：监听CSS 动画开始</p><p>bindanimationiteration：CSS 动画结束一个阶段</p><p>bindanimationend：CSS 动画结束</p><p>注意：bindanimationstart bindanimationiteration bindanimationend无法监听到wx.createAnimation创建的动画</p><h4 id="注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。"><a href="#注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。" class="headerlink" title="注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。"></a>注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。</h4><p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//监听动画的事件需要和绑定动画的节点在一起</span><br><span class="line">&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; &gt;</span><br><span class="line">      &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;</span><br><span class="line">    &lt;/view&gt;</span><br></pre></td></tr></table></figure></p><p>js部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">animationend()&#123;</span><br><span class="line">    console.log(&apos;动画结束了&apos;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;小程序动画创建&quot;&gt;&lt;a href=&quot;#小程序动画创建&quot; class=&quot;headerlink&quot; title=&quot;小程序动画创建&quot;&gt;&lt;/a&gt;小程序动画创建&lt;/h3&gt;&lt;p&gt;绑定动画数据&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="wechat" scheme="http://yoursite.com/categories/wechat/"/>
+    
+    
+      <category term="wechat" scheme="http://yoursite.com/tags/wechat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>canvas字体换行</title>
+    <link href="http://yoursite.com/2019/06/17/19-06/19-6-17/"/>
+    <id>http://yoursite.com/2019/06/17/19-06/19-6-17/</id>
+    <published>2019-06-17T02:01:03.000Z</published>
+    <updated>2019-06-17T02:14:23.619Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="canvas绘制的字体换行"><a href="#canvas绘制的字体换行" class="headerlink" title="canvas绘制的字体换行"></a>canvas绘制的字体换行</h3><p>问题描述：canvas绘制的字体是不会自动换行的，也没有相关的api，所以我们想要canvas文字自动换行，只能利用js从字体长度或字数入手</p><p>相关api：canvas measureText()在画布上输出文本之前，检查字体的宽度<br>利用这个方法我们可以在文字超出指定长度后做换行处理</p><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;mask_operation&quot; v-show=&quot;cvsshow&quot; @click=&quot;createdImg&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;cvs-box&quot;&gt;</span><br><span class="line">        &lt;canvas id=&quot;mycvs&quot; ref=&quot;cvs&quot; width=&quot;300&quot; height=&quot;369&quot;&gt;&lt;/canvas&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">createdImg()&#123;</span><br><span class="line">    //$refs.cvs获取vue的dom节点（原生的直接document获取dom节点）</span><br><span class="line">    let cvs = this.$refs.cvs</span><br><span class="line">    let ctx=cvs.getContext(&quot;2d&quot;);</span><br><span class="line">    this.drawtext(ctx,&apos;在画布上输出文本之前，检查字体的宽度&apos;,15,245,168)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 文字换行</span><br><span class="line">drawtext(ctx,t,x,y,w)&#123;</span><br><span class="line">    //参数说明</span><br><span class="line">    //ctx：canvas的 2d 对象，t：绘制的文字，x,y:文字坐标，w：文字最大宽度</span><br><span class="line">    let chr = t.split(&quot;&quot;)</span><br><span class="line">    let temp = &quot;&quot;</span><br><span class="line">    let row = []</span><br><span class="line"></span><br><span class="line">    for (let a = 0; a&lt;chr.length;a++)&#123;</span><br><span class="line">        if( ctx.measureText(temp).width &lt; w &amp;&amp; ctx.measureText(temp+(chr[a])).width &lt;= w)&#123;</span><br><span class="line">            temp += chr[a];</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            row.push(temp);</span><br><span class="line">            temp = chr[a];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    row.push(temp)</span><br><span class="line">    for(let b=0;b&lt;row.length;b++)&#123;</span><br><span class="line">        ctx.fillText(row[b],x,y+(b+1)*20);//每行字体y坐标间隔20</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;canvas绘制的字体换行&quot;&gt;&lt;a href=&quot;#canvas绘制的字体换行&quot; class=&quot;headerlink&quot; title=&quot;canvas绘制的字体换行&quot;&gt;&lt;/a&gt;canvas绘制的字体换行&lt;/h3&gt;&lt;p&gt;问题描述：canvas绘制的字体是不会自动换行的，也没有相关的api，所以我们想要canvas文字自动换行，只能利用js从字体长度或字数入手&lt;/p&gt;
+&lt;p&gt;相关api：canvas measureText()在画布上输出文本之前，检查字体的宽度&lt;br&gt;利用这个方法我们可以在文字超出指定长度后做换行处理&lt;/p&gt;
+&lt;h3 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;div class=&amp;quot;mask_operation&amp;quot; v-show=&amp;quot;cvsshow&amp;quot; @click=&amp;quot;createdImg&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;div class=&amp;quot;cvs-box&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;canvas id=&amp;quot;mycvs&amp;quot; ref=&amp;quot;cvs&amp;quot; width=&amp;quot;300&amp;quot; height=&amp;quot;369&amp;quot;&amp;gt;&amp;lt;/canvas&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="canvas" scheme="http://yoursite.com/categories/canvas/"/>
+    
+    
+      <category term="canvas" scheme="http://yoursite.com/tags/canvas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序picker组件BUG，fields属性为month时，IOS显示不正确</title>
+    <link href="http://yoursite.com/2019/06/17/19-10/06/"/>
+    <id>http://yoursite.com/2019/06/17/19-10/06/</id>
+    <published>2019-06-17T02:01:03.000Z</published>
+    <updated>2019-10-09T08:01:58.236Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题描述：picker组件BUG，fields属性为month时，苹果手机上下拉显示1年、2年、3年…;</p><p>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;picker mode=&apos;date&apos; value=&quot;&#123;&#123;date&#125;&#125;&quot; fields=&apos;month&apos; start=&quot;1970-01-01&quot; end=&quot;2080-01-01&quot; bindchange=&quot;bindDateChange&quot;&gt;</span><br><span class="line">   &lt;view&gt;&#123;&#123;date&#125;&#125; &lt;icon class=&quot;iconfont icon-xiala-&quot;&gt;&lt;/icon&gt;&lt;/view&gt;</span><br><span class="line">&lt;/picker&gt;</span><br></pre></td></tr></table></figure></p><p>  把start和end的时间格式改成YYYY-MM-DD，就行了，例如： start=”1970-01-01” end=”2080-01-01”</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;问题描述：picker组件BUG，fields属性为month时，苹果手机上下拉显示1年、2年、3年…;&lt;/p&gt;
+&lt;p&gt;解决方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="wechat" scheme="http://yoursite.com/categories/wechat/"/>
+    
+    
+      <category term="wechat" scheme="http://yoursite.com/tags/wechat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue-scroller的使用</title>
+    <link href="http://yoursite.com/2019/06/17/19-10/01/"/>
+    <id>http://yoursite.com/2019/06/17/19-10/01/</id>
+    <published>2019-06-17T02:01:03.000Z</published>
+    <updated>2019-10-09T07:55:18.644Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用npm 安装<br>npm install vue-scroller -d</p><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js里面使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import VueScroller from &apos;vue-scroller&apos;</span><br><span class="line">Vue.use(VueScroller)</span><br></pre></td></tr></table></figure></p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>注意：scroller的使用最好设置一个高<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;scroller style=&quot;top: 100px;&quot; :height=&apos;400&apos; :on-refresh=&quot;refresh&quot; :on-infinite=&quot;infinite&quot; ref=&quot;myscroller&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=&quot;order-box&quot; v-for=&quot;(item,index) in orderList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">                </span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/scroller&gt;</span><br></pre></td></tr></table></figure></p><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">           return&#123;</span><br><span class="line">                status:&apos;all&apos;,</span><br><span class="line">                orderList:[],</span><br><span class="line">                page:0,</span><br><span class="line">                all_page:1,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure><h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">refresh (done) &#123;</span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">done();</span><br><span class="line">                &#125;,1500)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><h3 id="上拉加载更多"><a href="#上拉加载更多" class="headerlink" title="上拉加载更多"></a>上拉加载更多</h3><p>注意：done的使用，如果在数据没有赋值到模板前就调用，就会一直触发下拉函数，所以我们要在请求成功的回调中模板赋值后调用</p><p>下拉的函数是绑定属性的方式绑定在scroller标签上的，所以我们不需要在created里面调用一次请求函数，页面初始化的时候回自动调用一次下拉的函数，从而获取到第一页的数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//下拉触发</span><br><span class="line"></span><br><span class="line">infinite (done) &#123;</span><br><span class="line">                if(this.page&gt;=this.all_page)&#123;</span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">this.$refs.myscroller.finishInfinite(true);</span><br><span class="line">&#125;,1500)</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    </span><br><span class="line">                    setTimeout(()=&gt;&#123;</span><br><span class="line">                        this.page++;</span><br><span class="line">                        this.getorderList(done)</span><br><span class="line"></span><br><span class="line">&#125;,500);</span><br><span class="line">                &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">getorderList(done)&#123;</span><br><span class="line">                this.$http(&#123;</span><br><span class="line">                    method:&apos;post&apos;,</span><br><span class="line">                    url:&apos;/seckill/server/orderList&apos;,</span><br><span class="line">                    data:&#123;</span><br><span class="line">                        jwt:this.jwt,</span><br><span class="line">                        status:this.status,</span><br><span class="line">                        page:this.page,</span><br><span class="line">                        page_size:5</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).then(res=&gt;&#123;</span><br><span class="line">                    if(res.data.code == 0)&#123;</span><br><span class="line">                        </span><br><span class="line">                        </span><br><span class="line">                        this.orderList.push.apply(this.orderList,res.data.data.list)</span><br><span class="line">                        this.$refs.myscroller.finishInfinite(true)</span><br><span class="line"></span><br><span class="line">                        this.page = res.data.data.page</span><br><span class="line">this.all_page = res.data.data.all_page</span><br><span class="line">                        done();</span><br><span class="line">                    &#125;else&#123;</span><br><span class="line">                       </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>如果涉及到tab栏切换，需要重新设置scroller的状态.finishInfinite(false)参数为false时会从新调用一次上拉函数，从而重置当前scroller的状态</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">goodsAll()&#123;</span><br><span class="line">               this.status = &apos;all&apos;</span><br><span class="line">               this.page = 0</span><br><span class="line">this.all_page = 1</span><br><span class="line">this.$refs.myscroller.finishInfinite(false);</span><br><span class="line">               this.orderList = []</span><br><span class="line">           &#125;,</span><br></pre></td></tr></table></figure><p>注：</p><p>triggerPullToRefresh() 触发下拉刷新</p><p>finishPullToRefresh() 完成下拉刷新</p><p>this.$refs.my_scroller.finishInfinite(false)<br>finishInfinite(isNoMoreData :Boolean) 当参数为false时，上拉获取数据可以重新调用。当参数为true，上拉获取数据回调函数停止使用,下拉下部不再显示loading，会显示‘’暂无更多数据</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;使用npm 安装&lt;br&gt;npm install vue-scroller -d&lt;/p&gt;
+&lt;h3 id=&quot;引入&quot;&gt;&lt;a href=&quot;#引入&quot; 
+      
+    
+    </summary>
+    
+      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vue监听移动端软件键盘搜索（enter）事件</title>
     <link href="http://yoursite.com/2019/06/17/19-10/04/"/>
     <id>http://yoursite.com/2019/06/17/19-10/04/</id>
@@ -113,78 +214,28 @@
   </entry>
   
   <entry>
-    <title>canvas字体换行</title>
-    <link href="http://yoursite.com/2019/06/17/19-06/19-6-17/"/>
-    <id>http://yoursite.com/2019/06/17/19-06/19-6-17/</id>
+    <title>深拷贝</title>
+    <link href="http://yoursite.com/2019/06/17/19-10/05/"/>
+    <id>http://yoursite.com/2019/06/17/19-10/05/</id>
     <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-06-17T02:14:23.619Z</updated>
+    <updated>2019-10-09T07:59:57.837Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="canvas绘制的字体换行"><a href="#canvas绘制的字体换行" class="headerlink" title="canvas绘制的字体换行"></a>canvas绘制的字体换行</h3><p>问题描述：canvas绘制的字体是不会自动换行的，也没有相关的api，所以我们想要canvas文字自动换行，只能利用js从字体长度或字数入手</p><p>相关api：canvas measureText()在画布上输出文本之前，检查字体的宽度<br>利用这个方法我们可以在文字超出指定长度后做换行处理</p><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;mask_operation&quot; v-show=&quot;cvsshow&quot; @click=&quot;createdImg&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;cvs-box&quot;&gt;</span><br><span class="line">        &lt;canvas id=&quot;mycvs&quot; ref=&quot;cvs&quot; width=&quot;300&quot; height=&quot;369&quot;&gt;&lt;/canvas&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">createdImg()&#123;</span><br><span class="line">    //$refs.cvs获取vue的dom节点（原生的直接document获取dom节点）</span><br><span class="line">    let cvs = this.$refs.cvs</span><br><span class="line">    let ctx=cvs.getContext(&quot;2d&quot;);</span><br><span class="line">    this.drawtext(ctx,&apos;在画布上输出文本之前，检查字体的宽度&apos;,15,245,168)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 文字换行</span><br><span class="line">drawtext(ctx,t,x,y,w)&#123;</span><br><span class="line">    //参数说明</span><br><span class="line">    //ctx：canvas的 2d 对象，t：绘制的文字，x,y:文字坐标，w：文字最大宽度</span><br><span class="line">    let chr = t.split(&quot;&quot;)</span><br><span class="line">    let temp = &quot;&quot;</span><br><span class="line">    let row = []</span><br><span class="line"></span><br><span class="line">    for (let a = 0; a&lt;chr.length;a++)&#123;</span><br><span class="line">        if( ctx.measureText(temp).width &lt; w &amp;&amp; ctx.measureText(temp+(chr[a])).width &lt;= w)&#123;</span><br><span class="line">            temp += chr[a];</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            row.push(temp);</span><br><span class="line">            temp = chr[a];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    row.push(temp)</span><br><span class="line">    for(let b=0;b&lt;row.length;b++)&#123;</span><br><span class="line">        ctx.fillText(row[b],x,y+(b+1)*20);//每行字体y坐标间隔20</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;canvas绘制的字体换行&quot;&gt;&lt;a href=&quot;#canvas绘制的字体换行&quot; class=&quot;headerlink&quot; title=&quot;canvas绘制的字体换行&quot;&gt;&lt;/a&gt;canvas绘制的字体换行&lt;/h3&gt;&lt;p&gt;问题描述：canvas绘制的字体是不会自动换行的，也没有相关的api，所以我们想要canvas文字自动换行，只能利用js从字体长度或字数入手&lt;/p&gt;
-&lt;p&gt;相关api：canvas measureText()在画布上输出文本之前，检查字体的宽度&lt;br&gt;利用这个方法我们可以在文字超出指定长度后做换行处理&lt;/p&gt;
-&lt;h3 id=&quot;HTML&quot;&gt;&lt;a href=&quot;#HTML&quot; class=&quot;headerlink&quot; title=&quot;HTML&quot;&gt;&lt;/a&gt;HTML&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;div class=&amp;quot;mask_operation&amp;quot; v-show=&amp;quot;cvsshow&amp;quot; @click=&amp;quot;createdImg&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;div class=&amp;quot;cvs-box&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;lt;canvas id=&amp;quot;mycvs&amp;quot; ref=&amp;quot;cvs&amp;quot; width=&amp;quot;300&amp;quot; height=&amp;quot;369&amp;quot;&amp;gt;&amp;lt;/canvas&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="canvas" scheme="http://yoursite.com/categories/canvas/"/>
-    
-    
-      <category term="canvas" scheme="http://yoursite.com/tags/canvas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue-scroller的使用</title>
-    <link href="http://yoursite.com/2019/06/17/19-10/01/"/>
-    <id>http://yoursite.com/2019/06/17/19-10/01/</id>
-    <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-10-09T07:55:18.644Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用npm 安装<br>npm install vue-scroller -d</p><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js里面使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import VueScroller from &apos;vue-scroller&apos;</span><br><span class="line">Vue.use(VueScroller)</span><br></pre></td></tr></table></figure></p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>注意：scroller的使用最好设置一个高<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;scroller style=&quot;top: 100px;&quot; :height=&apos;400&apos; :on-refresh=&quot;refresh&quot; :on-infinite=&quot;infinite&quot; ref=&quot;myscroller&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=&quot;order-box&quot; v-for=&quot;(item,index) in orderList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">                </span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/scroller&gt;</span><br></pre></td></tr></table></figure></p><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">           return&#123;</span><br><span class="line">                status:&apos;all&apos;,</span><br><span class="line">                orderList:[],</span><br><span class="line">                page:0,</span><br><span class="line">                all_page:1,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure><h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">refresh (done) &#123;</span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">done();</span><br><span class="line">                &#125;,1500)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><h3 id="上拉加载更多"><a href="#上拉加载更多" class="headerlink" title="上拉加载更多"></a>上拉加载更多</h3><p>注意：done的使用，如果在数据没有赋值到模板前就调用，就会一直触发下拉函数，所以我们要在请求成功的回调中模板赋值后调用</p><p>下拉的函数是绑定属性的方式绑定在scroller标签上的，所以我们不需要在created里面调用一次请求函数，页面初始化的时候回自动调用一次下拉的函数，从而获取到第一页的数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//下拉触发</span><br><span class="line"></span><br><span class="line">infinite (done) &#123;</span><br><span class="line">                if(this.page&gt;=this.all_page)&#123;</span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">this.$refs.myscroller.finishInfinite(true);</span><br><span class="line">&#125;,1500)</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    </span><br><span class="line">                    setTimeout(()=&gt;&#123;</span><br><span class="line">                        this.page++;</span><br><span class="line">                        this.getorderList(done)</span><br><span class="line"></span><br><span class="line">&#125;,500);</span><br><span class="line">                &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">getorderList(done)&#123;</span><br><span class="line">                this.$http(&#123;</span><br><span class="line">                    method:&apos;post&apos;,</span><br><span class="line">                    url:&apos;/seckill/server/orderList&apos;,</span><br><span class="line">                    data:&#123;</span><br><span class="line">                        jwt:this.jwt,</span><br><span class="line">                        status:this.status,</span><br><span class="line">                        page:this.page,</span><br><span class="line">                        page_size:5</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).then(res=&gt;&#123;</span><br><span class="line">                    if(res.data.code == 0)&#123;</span><br><span class="line">                        </span><br><span class="line">                        </span><br><span class="line">                        this.orderList.push.apply(this.orderList,res.data.data.list)</span><br><span class="line">                        this.$refs.myscroller.finishInfinite(true)</span><br><span class="line"></span><br><span class="line">                        this.page = res.data.data.page</span><br><span class="line">this.all_page = res.data.data.all_page</span><br><span class="line">                        done();</span><br><span class="line">                    &#125;else&#123;</span><br><span class="line">                       </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>如果涉及到tab栏切换，需要重新设置scroller的状态.finishInfinite(false)参数为false时会从新调用一次上拉函数，从而重置当前scroller的状态</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">goodsAll()&#123;</span><br><span class="line">               this.status = &apos;all&apos;</span><br><span class="line">               this.page = 0</span><br><span class="line">this.all_page = 1</span><br><span class="line">this.$refs.myscroller.finishInfinite(false);</span><br><span class="line">               this.orderList = []</span><br><span class="line">           &#125;,</span><br></pre></td></tr></table></figure><p>注：</p><p>triggerPullToRefresh() 触发下拉刷新</p><p>finishPullToRefresh() 完成下拉刷新</p><p>this.$refs.my_scroller.finishInfinite(false)<br>finishInfinite(isNoMoreData :Boolean) 当参数为false时，上拉获取数据可以重新调用。当参数为true，上拉获取数据回调函数停止使用,下拉下部不再显示loading，会显示‘’暂无更多数据</p>]]></content>
+    <content type="html"><![CDATA[<p>最简单的深拷贝(JSON.stringify() 和JSON.parse())<br>先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;使用npm 安装&lt;br&gt;npm install vue-scroller -d&lt;/p&gt;
-&lt;h3 id=&quot;引入&quot;&gt;&lt;a href=&quot;#引入&quot; 
+        &lt;p&gt;最简单的深拷贝(JSON.stringify() 和JSON.parse())&lt;br&gt;先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可&lt;/p&gt;
+
       
     
     </summary>
     
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
     
     
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序picker组件BUG，fields属性为month时，IOS显示不正确</title>
-    <link href="http://yoursite.com/2019/06/17/19-10/06/"/>
-    <id>http://yoursite.com/2019/06/17/19-10/06/</id>
-    <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-10-09T08:01:58.236Z</updated>
-    
-    <content type="html"><![CDATA[<p>问题描述：picker组件BUG，fields属性为month时，苹果手机上下拉显示1年、2年、3年…;</p><p>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;picker mode=&apos;date&apos; value=&quot;&#123;&#123;date&#125;&#125;&quot; fields=&apos;month&apos; start=&quot;1970-01-01&quot; end=&quot;2080-01-01&quot; bindchange=&quot;bindDateChange&quot;&gt;</span><br><span class="line">   &lt;view&gt;&#123;&#123;date&#125;&#125; &lt;icon class=&quot;iconfont icon-xiala-&quot;&gt;&lt;/icon&gt;&lt;/view&gt;</span><br><span class="line">&lt;/picker&gt;</span><br></pre></td></tr></table></figure></p><p>  把start和end的时间格式改成YYYY-MM-DD，就行了，例如： start=”1970-01-01” end=”2080-01-01”</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;问题描述：picker组件BUG，fields属性为month时，苹果手机上下拉显示1年、2年、3年…;&lt;/p&gt;
-&lt;p&gt;解决方法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="wechat" scheme="http://yoursite.com/categories/wechat/"/>
-    
-    
-      <category term="wechat" scheme="http://yoursite.com/tags/wechat/"/>
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
     
   </entry>
   
@@ -202,57 +253,6 @@
       
       
         &lt;h3 id=&quot;在一些高版本的ISO上设置placeholder显示的字体大小的时候-有时候会被遮挡掉一部分&quot;&gt;&lt;a href=&quot;#在一些高版本的ISO上设置placeholder显示的字体大小的时候-有时候会被遮挡掉一部分&quot; class=&quot;headerlink&quot; title=&quot;
-      
-    
-    </summary>
-    
-      <category term="js" scheme="http://yoursite.com/categories/js/"/>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序动画创建及动画结束的监听事件</title>
-    <link href="http://yoursite.com/2019/06/17/19-10/07/"/>
-    <id>http://yoursite.com/2019/06/17/19-10/07/</id>
-    <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-10-09T08:02:55.723Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="小程序动画创建"><a href="#小程序动画创建" class="headerlink" title="小程序动画创建"></a>小程序动画创建</h3><p>绑定动画数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; bindtap=&apos;move&apos;&gt;</span><br><span class="line">  &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure></p><p>设置动画</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">animationData: &apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">move()&#123;</span><br><span class="line">//创建动画</span><br><span class="line">var animation = wx.createAnimation(&#123;</span><br><span class="line">          duration: 400,</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">//描述动画步骤</span><br><span class="line">animation.top(-500).scale(0.8).step()</span><br><span class="line"></span><br><span class="line">//导出动画数据传递给组件的animation属性,否则动画不会执行</span><br><span class="line">this.setData(&#123;</span><br><span class="line">          animationData:animation.export()</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="监听动画事件（开始，结束）"><a href="#监听动画事件（开始，结束）" class="headerlink" title="监听动画事件（开始，结束）"></a>监听动画事件（开始，结束）</h3><p>动画执行过程中使用 bindtransitionend bindanimationstart bindanimationiteration bindanimationend 来监听动画事件</p><p>bindtransitionend：监听CSS 渐变结束或 wx.createAnimation 结束一个阶段</p><p>注意：bindtransitionend监听的是wx.createAnimation 结束一个阶段而不是整个动画的结束（也就是一个step()结束）</p><p>bindanimationstart：监听CSS 动画开始</p><p>bindanimationiteration：CSS 动画结束一个阶段</p><p>bindanimationend：CSS 动画结束</p><p>注意：bindanimationstart bindanimationiteration bindanimationend无法监听到wx.createAnimation创建的动画</p><h4 id="注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。"><a href="#注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。" class="headerlink" title="注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。"></a>注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。</h4><p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//监听动画的事件需要和绑定动画的节点在一起</span><br><span class="line">&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; &gt;</span><br><span class="line">      &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;</span><br><span class="line">    &lt;/view&gt;</span><br></pre></td></tr></table></figure></p><p>js部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">animationend()&#123;</span><br><span class="line">    console.log(&apos;动画结束了&apos;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;小程序动画创建&quot;&gt;&lt;a href=&quot;#小程序动画创建&quot; class=&quot;headerlink&quot; title=&quot;小程序动画创建&quot;&gt;&lt;/a&gt;小程序动画创建&lt;/h3&gt;&lt;p&gt;绑定动画数据&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="wechat" scheme="http://yoursite.com/categories/wechat/"/>
-    
-    
-      <category term="wechat" scheme="http://yoursite.com/tags/wechat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深拷贝</title>
-    <link href="http://yoursite.com/2019/06/17/19-10/05/"/>
-    <id>http://yoursite.com/2019/06/17/19-10/05/</id>
-    <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-10-09T07:59:57.837Z</updated>
-    
-    <content type="html"><![CDATA[<p>最简单的深拷贝(JSON.stringify() 和JSON.parse())<br>先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最简单的深拷贝(JSON.stringify() 和JSON.parse())&lt;br&gt;先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可&lt;/p&gt;
-
       
     
     </summary>

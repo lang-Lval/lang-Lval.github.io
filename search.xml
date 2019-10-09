@@ -23,6 +23,50 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[小程序动画创建及动画结束的监听事件]]></title>
+    <url>%2F2019%2F06%2F17%2F19-10%2F07%2F</url>
+    <content type="text"><![CDATA[小程序动画创建绑定动画数据1234&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; bindtap=&apos;move&apos;&gt; &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;&lt;/view&gt; 设置动画 12345678910111213141516171819data()&#123; animationData: &apos;&apos;&#125;move()&#123; //创建动画 var animation = wx.createAnimation(&#123; duration: 400, &#125;) //描述动画步骤 animation.top(-500).scale(0.8).step() //导出动画数据传递给组件的animation属性,否则动画不会执行 this.setData(&#123; animationData:animation.export() &#125;)&#125; 监听动画事件（开始，结束）动画执行过程中使用 bindtransitionend bindanimationstart bindanimationiteration bindanimationend 来监听动画事件 bindtransitionend：监听CSS 渐变结束或 wx.createAnimation 结束一个阶段 注意：bindtransitionend监听的是wx.createAnimation 结束一个阶段而不是整个动画的结束（也就是一个step()结束） bindanimationstart：监听CSS 动画开始 bindanimationiteration：CSS 动画结束一个阶段 bindanimationend：CSS 动画结束 注意：bindanimationstart bindanimationiteration bindanimationend无法监听到wx.createAnimation创建的动画 注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。例：1234//监听动画的事件需要和绑定动画的节点在一起&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; &gt; &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt; &lt;/view&gt; js部分123animationend()&#123; console.log(&apos;动画结束了&apos;) &#125;]]></content>
+      <categories>
+        <category>wechat</category>
+      </categories>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[canvas字体换行]]></title>
+    <url>%2F2019%2F06%2F17%2F19-06%2F19-6-17%2F</url>
+    <content type="text"><![CDATA[canvas绘制的字体换行问题描述：canvas绘制的字体是不会自动换行的，也没有相关的api，所以我们想要canvas文字自动换行，只能利用js从字体长度或字数入手 相关api：canvas measureText()在画布上输出文本之前，检查字体的宽度利用这个方法我们可以在文字超出指定长度后做换行处理 HTML12345&lt;div class=&quot;mask_operation&quot; v-show=&quot;cvsshow&quot; @click=&quot;createdImg&quot;&gt; &lt;div class=&quot;cvs-box&quot;&gt; &lt;canvas id=&quot;mycvs&quot; ref=&quot;cvs&quot; width=&quot;300&quot; height=&quot;369&quot;&gt;&lt;/canvas&gt; &lt;/div&gt;&lt;/div&gt; js123456789101112131415161718192021222324252627282930createdImg()&#123; //$refs.cvs获取vue的dom节点（原生的直接document获取dom节点） let cvs = this.$refs.cvs let ctx=cvs.getContext(&quot;2d&quot;); this.drawtext(ctx,&apos;在画布上输出文本之前，检查字体的宽度&apos;,15,245,168)&#125;// 文字换行drawtext(ctx,t,x,y,w)&#123; //参数说明 //ctx：canvas的 2d 对象，t：绘制的文字，x,y:文字坐标，w：文字最大宽度 let chr = t.split(&quot;&quot;) let temp = &quot;&quot; let row = [] for (let a = 0; a&lt;chr.length;a++)&#123; if( ctx.measureText(temp).width &lt; w &amp;&amp; ctx.measureText(temp+(chr[a])).width &lt;= w)&#123; temp += chr[a]; &#125;else&#123; row.push(temp); temp = chr[a]; &#125; &#125; row.push(temp) for(let b=0;b&lt;row.length;b++)&#123; ctx.fillText(row[b],x,y+(b+1)*20);//每行字体y坐标间隔20 &#125;&#125;,]]></content>
+      <categories>
+        <category>canvas</category>
+      </categories>
+      <tags>
+        <tag>canvas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小程序picker组件BUG，fields属性为month时，IOS显示不正确]]></title>
+    <url>%2F2019%2F06%2F17%2F19-10%2F06%2F</url>
+    <content type="text"><![CDATA[问题描述：picker组件BUG，fields属性为month时，苹果手机上下拉显示1年、2年、3年…; 解决方法：123&lt;picker mode=&apos;date&apos; value=&quot;&#123;&#123;date&#125;&#125;&quot; fields=&apos;month&apos; start=&quot;1970-01-01&quot; end=&quot;2080-01-01&quot; bindchange=&quot;bindDateChange&quot;&gt; &lt;view&gt;&#123;&#123;date&#125;&#125; &lt;icon class=&quot;iconfont icon-xiala-&quot;&gt;&lt;/icon&gt;&lt;/view&gt;&lt;/picker&gt; 把start和end的时间格式改成YYYY-MM-DD，就行了，例如： start=”1970-01-01” end=”2080-01-01”]]></content>
+      <categories>
+        <category>wechat</category>
+      </categories>
+      <tags>
+        <tag>wechat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue-scroller的使用]]></title>
+    <url>%2F2019%2F06%2F17%2F19-10%2F01%2F</url>
+    <content type="text"><![CDATA[安装使用npm 安装npm install vue-scroller -d 引入在main.js里面使用12import VueScroller from &apos;vue-scroller&apos;Vue.use(VueScroller) 使用注意：scroller的使用最好设置一个高1234567&lt;scroller style=&quot;top: 100px;&quot; :height=&apos;400&apos; :on-refresh=&quot;refresh&quot; :on-infinite=&quot;infinite&quot; ref=&quot;myscroller&quot;&gt; &lt;div class=&quot;order-box&quot; v-for=&quot;(item,index) in orderList&quot; :key=&quot;index&quot;&gt; &lt;/div&gt; &lt;/scroller&gt; 数据12345678data()&#123; return&#123; status:&apos;all&apos;, orderList:[], page:0, all_page:1, &#125; &#125;, 下拉刷新12345refresh (done) &#123; setTimeout(()=&gt;&#123; done(); &#125;,1500) &#125;, 上拉加载更多注意：done的使用，如果在数据没有赋值到模板前就调用，就会一直触发下拉函数，所以我们要在请求成功的回调中模板赋值后调用 下拉的函数是绑定属性的方式绑定在scroller标签上的，所以我们不需要在created里面调用一次请求函数，页面初始化的时候回自动调用一次下拉的函数，从而获取到第一页的数据 123456789101112131415161718192021222324252627282930313233343536373839404142//下拉触发infinite (done) &#123; if(this.page&gt;=this.all_page)&#123; setTimeout(()=&gt;&#123; this.$refs.myscroller.finishInfinite(true); &#125;,1500) &#125;else&#123; setTimeout(()=&gt;&#123; this.page++; this.getorderList(done) &#125;,500); &#125; &#125;,getorderList(done)&#123; this.$http(&#123; method:&apos;post&apos;, url:&apos;/seckill/server/orderList&apos;, data:&#123; jwt:this.jwt, status:this.status, page:this.page, page_size:5 &#125; &#125;).then(res=&gt;&#123; if(res.data.code == 0)&#123; this.orderList.push.apply(this.orderList,res.data.data.list) this.$refs.myscroller.finishInfinite(true) this.page = res.data.data.page this.all_page = res.data.data.all_page done(); &#125;else&#123; &#125; &#125;) &#125;, 注意如果涉及到tab栏切换，需要重新设置scroller的状态.finishInfinite(false)参数为false时会从新调用一次上拉函数，从而重置当前scroller的状态 1234567goodsAll()&#123; this.status = &apos;all&apos; this.page = 0 this.all_page = 1 this.$refs.myscroller.finishInfinite(false); this.orderList = [] &#125;, 注： triggerPullToRefresh() 触发下拉刷新 finishPullToRefresh() 完成下拉刷新 this.$refs.my_scroller.finishInfinite(false)finishInfinite(isNoMoreData :Boolean) 当参数为false时，上拉获取数据可以重新调用。当参数为true，上拉获取数据回调函数停止使用,下拉下部不再显示loading，会显示‘’暂无更多数据]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue监听移动端软件键盘搜索（enter）事件]]></title>
     <url>%2F2019%2F06%2F17%2F19-10%2F04%2F</url>
     <content type="text"><![CDATA[vue监听移动端软键盘搜索事件vue中监听手机键盘的【完成】或【搜索】按钮触发事件，需要两个条件1.form表单，输入框2.@keyup.13 事件 或者 直接@keyup 然后事件的处理函数里判断 event.keyCode === 13123456789&lt;input type=&quot;text&quot; @keyup.13 = &quot;handleKeyUp&quot; placeholder=&quot;请输入用户手机号&quot; v-model=&quot;inputValue&quot;&gt;methods:&#123; handleKeyUp()&#123; alert(&apos;搜索触发&apos;) &#125;,&#125;]]></content>
@@ -45,42 +89,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[canvas字体换行]]></title>
-    <url>%2F2019%2F06%2F17%2F19-06%2F19-6-17%2F</url>
-    <content type="text"><![CDATA[canvas绘制的字体换行问题描述：canvas绘制的字体是不会自动换行的，也没有相关的api，所以我们想要canvas文字自动换行，只能利用js从字体长度或字数入手 相关api：canvas measureText()在画布上输出文本之前，检查字体的宽度利用这个方法我们可以在文字超出指定长度后做换行处理 HTML12345&lt;div class=&quot;mask_operation&quot; v-show=&quot;cvsshow&quot; @click=&quot;createdImg&quot;&gt; &lt;div class=&quot;cvs-box&quot;&gt; &lt;canvas id=&quot;mycvs&quot; ref=&quot;cvs&quot; width=&quot;300&quot; height=&quot;369&quot;&gt;&lt;/canvas&gt; &lt;/div&gt;&lt;/div&gt; js123456789101112131415161718192021222324252627282930createdImg()&#123; //$refs.cvs获取vue的dom节点（原生的直接document获取dom节点） let cvs = this.$refs.cvs let ctx=cvs.getContext(&quot;2d&quot;); this.drawtext(ctx,&apos;在画布上输出文本之前，检查字体的宽度&apos;,15,245,168)&#125;// 文字换行drawtext(ctx,t,x,y,w)&#123; //参数说明 //ctx：canvas的 2d 对象，t：绘制的文字，x,y:文字坐标，w：文字最大宽度 let chr = t.split(&quot;&quot;) let temp = &quot;&quot; let row = [] for (let a = 0; a&lt;chr.length;a++)&#123; if( ctx.measureText(temp).width &lt; w &amp;&amp; ctx.measureText(temp+(chr[a])).width &lt;= w)&#123; temp += chr[a]; &#125;else&#123; row.push(temp); temp = chr[a]; &#125; &#125; row.push(temp) for(let b=0;b&lt;row.length;b++)&#123; ctx.fillText(row[b],x,y+(b+1)*20);//每行字体y坐标间隔20 &#125;&#125;,]]></content>
-      <categories>
-        <category>canvas</category>
-      </categories>
-      <tags>
-        <tag>canvas</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[vue-scroller的使用]]></title>
-    <url>%2F2019%2F06%2F17%2F19-10%2F01%2F</url>
-    <content type="text"><![CDATA[安装使用npm 安装npm install vue-scroller -d 引入在main.js里面使用12import VueScroller from &apos;vue-scroller&apos;Vue.use(VueScroller) 使用注意：scroller的使用最好设置一个高1234567&lt;scroller style=&quot;top: 100px;&quot; :height=&apos;400&apos; :on-refresh=&quot;refresh&quot; :on-infinite=&quot;infinite&quot; ref=&quot;myscroller&quot;&gt; &lt;div class=&quot;order-box&quot; v-for=&quot;(item,index) in orderList&quot; :key=&quot;index&quot;&gt; &lt;/div&gt; &lt;/scroller&gt; 数据12345678data()&#123; return&#123; status:&apos;all&apos;, orderList:[], page:0, all_page:1, &#125; &#125;, 下拉刷新12345refresh (done) &#123; setTimeout(()=&gt;&#123; done(); &#125;,1500) &#125;, 上拉加载更多注意：done的使用，如果在数据没有赋值到模板前就调用，就会一直触发下拉函数，所以我们要在请求成功的回调中模板赋值后调用 下拉的函数是绑定属性的方式绑定在scroller标签上的，所以我们不需要在created里面调用一次请求函数，页面初始化的时候回自动调用一次下拉的函数，从而获取到第一页的数据 123456789101112131415161718192021222324252627282930313233343536373839404142//下拉触发infinite (done) &#123; if(this.page&gt;=this.all_page)&#123; setTimeout(()=&gt;&#123; this.$refs.myscroller.finishInfinite(true); &#125;,1500) &#125;else&#123; setTimeout(()=&gt;&#123; this.page++; this.getorderList(done) &#125;,500); &#125; &#125;,getorderList(done)&#123; this.$http(&#123; method:&apos;post&apos;, url:&apos;/seckill/server/orderList&apos;, data:&#123; jwt:this.jwt, status:this.status, page:this.page, page_size:5 &#125; &#125;).then(res=&gt;&#123; if(res.data.code == 0)&#123; this.orderList.push.apply(this.orderList,res.data.data.list) this.$refs.myscroller.finishInfinite(true) this.page = res.data.data.page this.all_page = res.data.data.all_page done(); &#125;else&#123; &#125; &#125;) &#125;, 注意如果涉及到tab栏切换，需要重新设置scroller的状态.finishInfinite(false)参数为false时会从新调用一次上拉函数，从而重置当前scroller的状态 1234567goodsAll()&#123; this.status = &apos;all&apos; this.page = 0 this.all_page = 1 this.$refs.myscroller.finishInfinite(false); this.orderList = [] &#125;, 注： triggerPullToRefresh() 触发下拉刷新 finishPullToRefresh() 完成下拉刷新 this.$refs.my_scroller.finishInfinite(false)finishInfinite(isNoMoreData :Boolean) 当参数为false时，上拉获取数据可以重新调用。当参数为true，上拉获取数据回调函数停止使用,下拉下部不再显示loading，会显示‘’暂无更多数据]]></content>
-      <categories>
-        <category>vue</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[小程序picker组件BUG，fields属性为month时，IOS显示不正确]]></title>
-    <url>%2F2019%2F06%2F17%2F19-10%2F06%2F</url>
-    <content type="text"><![CDATA[问题描述：picker组件BUG，fields属性为month时，苹果手机上下拉显示1年、2年、3年…; 解决方法：123&lt;picker mode=&apos;date&apos; value=&quot;&#123;&#123;date&#125;&#125;&quot; fields=&apos;month&apos; start=&quot;1970-01-01&quot; end=&quot;2080-01-01&quot; bindchange=&quot;bindDateChange&quot;&gt; &lt;view&gt;&#123;&#123;date&#125;&#125; &lt;icon class=&quot;iconfont icon-xiala-&quot;&gt;&lt;/icon&gt;&lt;/view&gt;&lt;/picker&gt; 把start和end的时间格式改成YYYY-MM-DD，就行了，例如： start=”1970-01-01” end=”2080-01-01”]]></content>
-      <categories>
-        <category>wechat</category>
-      </categories>
-      <tags>
-        <tag>wechat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[input属性placeholder在iOS中显示不完整的解决方法]]></title>
-    <url>%2F2019%2F06%2F17%2F19-10%2F03%2F</url>
-    <content type="text"><![CDATA[在一些高版本的ISO上设置placeholder显示的字体大小的时候,有时候会被遮挡掉一部分出现原因：input 里面的字体大小小于placeholder的字体大小 解决方法: 设置input字体大于placeholder的字体 1234567input&#123; font-size: 16px;&#125;::-webkit-input-placeholder&#123; font-size: 13px;&#125;]]></content>
+    <title><![CDATA[深拷贝]]></title>
+    <url>%2F2019%2F06%2F17%2F19-10%2F05%2F</url>
+    <content type="text"><![CDATA[最简单的深拷贝(JSON.stringify() 和JSON.parse())先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可]]></content>
       <categories>
         <category>js</category>
       </categories>
@@ -89,20 +100,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[小程序动画创建及动画结束的监听事件]]></title>
-    <url>%2F2019%2F06%2F17%2F19-10%2F07%2F</url>
-    <content type="text"><![CDATA[小程序动画创建绑定动画数据1234&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; bindtap=&apos;move&apos;&gt; &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;&lt;/view&gt; 设置动画 12345678910111213141516171819data()&#123; animationData: &apos;&apos;&#125;move()&#123; //创建动画 var animation = wx.createAnimation(&#123; duration: 400, &#125;) //描述动画步骤 animation.top(-500).scale(0.8).step() //导出动画数据传递给组件的animation属性,否则动画不会执行 this.setData(&#123; animationData:animation.export() &#125;)&#125; 监听动画事件（开始，结束）动画执行过程中使用 bindtransitionend bindanimationstart bindanimationiteration bindanimationend 来监听动画事件 bindtransitionend：监听CSS 渐变结束或 wx.createAnimation 结束一个阶段 注意：bindtransitionend监听的是wx.createAnimation 结束一个阶段而不是整个动画的结束（也就是一个step()结束） bindanimationstart：监听CSS 动画开始 bindanimationiteration：CSS 动画结束一个阶段 bindanimationend：CSS 动画结束 注意：bindanimationstart bindanimationiteration bindanimationend无法监听到wx.createAnimation创建的动画 注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。例：1234//监听动画的事件需要和绑定动画的节点在一起&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; &gt; &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt; &lt;/view&gt; js部分123animationend()&#123; console.log(&apos;动画结束了&apos;) &#125;]]></content>
-      <categories>
-        <category>wechat</category>
-      </categories>
-      <tags>
-        <tag>wechat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[深拷贝]]></title>
-    <url>%2F2019%2F06%2F17%2F19-10%2F05%2F</url>
-    <content type="text"><![CDATA[最简单的深拷贝(JSON.stringify() 和JSON.parse())先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可]]></content>
+    <title><![CDATA[input属性placeholder在iOS中显示不完整的解决方法]]></title>
+    <url>%2F2019%2F06%2F17%2F19-10%2F03%2F</url>
+    <content type="text"><![CDATA[在一些高版本的ISO上设置placeholder显示的字体大小的时候,有时候会被遮挡掉一部分出现原因：input 里面的字体大小小于placeholder的字体大小 解决方法: 设置input字体大于placeholder的字体 1234567input&#123; font-size: 16px;&#125;::-webkit-input-placeholder&#123; font-size: 13px;&#125;]]></content>
       <categories>
         <category>js</category>
       </categories>
