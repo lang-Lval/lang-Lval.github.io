@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/19-04/19-4-18-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/18/19-05/19-5-31/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -314,7 +314,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/18/19-04/19-4-18-2/" itemprop="url">vue使用axios</a></h1>
+                <a class="post-title-link" href="/2019/05/18/19-05/19-5-31/" itemprop="url">小程序商品秒杀</a></h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T15:23:03+08:00">
-                2019-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-18T15:20:03+08:00">
+                2019-05-18
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/秒杀/" itemprop="url" rel="index">
+                    <span itemprop="name">秒杀</span>
                   </a>
                 </span>
 
@@ -366,7 +366,7 @@
 
           
           
-             <span id="/2019/04/18/19-04/19-4-18-2/" class="leancloud_visitors" data-flag-title="vue使用axios">
+             <span id="/2019/05/18/19-05/19-5-31/" class="leancloud_visitors" data-flag-title="小程序商品秒杀">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  282
+                  362
                 </span>
               
 
@@ -430,12 +430,16 @@
 
       
         
-          <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><code>npm install axios --save-dev</code></p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p><code>import axios from &#39;axios&#39;</code></p>
-<h3 id="将axios绑定给vue成为一个属性-这样可以在任意组件中使用"><a href="#将axios绑定给vue成为一个属性-这样可以在任意组件中使用" class="headerlink" title="将axios绑定给vue成为一个属性,这样可以在任意组件中使用"></a>将axios绑定给vue成为一个属性,这样可以在任意组件中使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//设置axios请求的默认host</span><br><span class="line">//axios.defaults.baseURL = &apos;https://wechat.kayunzh.com&apos;</span><br><span class="line"></span><br><span class="line">//将axios注入到vue原型上</span><br><span class="line">Vue.prototype.$http = axios</span><br></pre></td></tr></table></figure>
+          <p>思路：</p>
+<ol>
+<li>获取当前时间，同时得到活动结束时间数组；</li>
+<li>循环活动结束时间数组，计算每个商品活动结束时间的倒计时天、时、分、秒；</li>
+<li>用 setData 方法刷新数据；</li>
+<li>每个一秒执行一次倒计时函数 setInterval(this.countTime,1000)</li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/04/18/19-04/19-4-18-2/#more" rel="contents">
+            <a class="btn" href="/2019/05/18/19-05/19-5-31/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -486,7 +490,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/19-04/19-4-18-3/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/19-05/19-5-10/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -505,7 +509,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/18/19-04/19-4-18-3/" itemprop="url">截取地址栏url参数</a></h1>
+                <a class="post-title-link" href="/2019/05/10/19-05/19-5-10/" itemprop="url">vue的axios拦截器使用</a></h1>
         
 
         <div class="post-meta">
@@ -517,8 +521,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T14:43:03+08:00">
-                2019-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-10T11:20:03+08:00">
+                2019-05-10
               </time>
             
 
@@ -540,8 +544,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
                   </a>
                 </span>
 
@@ -557,7 +561,7 @@
 
           
           
-             <span id="/2019/04/18/19-04/19-4-18-3/" class="leancloud_visitors" data-flag-title="截取地址栏url参数">
+             <span id="/2019/05/10/19-05/19-5-10/" class="leancloud_visitors" data-flag-title="vue的axios拦截器使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -583,7 +587,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  91
+                  326
                 </span>
               
 
@@ -621,9 +625,16 @@
 
       
         
-          
-            <h3 id="下面是一个截取url参数的方法"><a href="#下面是一个截取url参数的方法" class="headerlink" title="下面是一个截取url参数的方法"></a>下面是一个截取url参数的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//参数name就是我们要截取的字段参数,比如我们要截取地址栏问号后面的id，可以直接这样调用getsearch(&apos;id&apos;)</span><br><span class="line">getsearch:function(name)&#123;</span><br><span class="line">    var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;);</span><br><span class="line">    var r = window.location.search.substr(1).match(reg);</span><br><span class="line">    if(r!=null)return unescape(r[2]); return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
+          <h3 id="axios拦截器"><a href="#axios拦截器" class="headerlink" title="axios拦截器"></a>axios拦截器</h3><p>下载并使用axios后可以对全局进行拦截器设置。拦截器在发送请求前或响应返回时做一些特殊的处理。 </p>
+<p>下面是一个为axios添加请求loading的例子：</p>
+<h3 id="添加请求拦截器"><a href="#添加请求拦截器" class="headerlink" title="添加请求拦截器"></a>添加请求拦截器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//定义一个请求拦截器</span><br><span class="line">axios.interceptors.request.use(function(config)&#123;</span><br><span class="line">  Vue.$vux.loading.show(); //在请求发出之前进行一些操作</span><br><span class="line">  return config</span><br><span class="line">&#125;,function (error) &#123;</span><br><span class="line">  　　// 对请求错误做些什么</span><br><span class="line">  // return Promise.reject(error)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/10/19-05/19-5-10/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -670,7 +681,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/19-04/19-4-18/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/19-05/19-5-7/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -689,7 +700,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/18/19-04/19-4-18/" itemprop="url">移动端的视口设置</a></h1>
+                <a class="post-title-link" href="/2019/05/07/19-05/19-5-7/" itemprop="url">vue的计算属性和侦听器</a></h1>
         
 
         <div class="post-meta">
@@ -701,8 +712,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-18T14:23:03+08:00">
-                2019-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T14:43:03+08:00">
+                2019-05-07
               </time>
             
 
@@ -724,8 +735,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
                   </a>
                 </span>
 
@@ -741,7 +752,7 @@
 
           
           
-             <span id="/2019/04/18/19-04/19-4-18/" class="leancloud_visitors" data-flag-title="移动端的视口设置">
+             <span id="/2019/05/07/19-05/19-5-7/" class="leancloud_visitors" data-flag-title="vue的计算属性和侦听器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -767,7 +778,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  366
+                  560
                 </span>
               
 
@@ -783,7 +794,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -805,58 +816,15 @@
 
       
         
-          
-            <h3 id="视口的设置"><a href="#视口的设置" class="headerlink" title="视口的设置"></a>视口的设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>以上代码常见于移动端设置，他的作用是使网页的宽度自动适应手机屏幕的宽度。</p>
-<p>下面对每个属性的详细说明：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">属性名</th>
-<th style="text-align:center">取值</th>
-<th style="text-align:right">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">width</td>
-<td style="text-align:center">device-width或正整数</td>
-<td style="text-align:right">定义视口的宽度，单位为像素，一般为device-width：表示宽度为设备屏幕的宽度</td>
-</tr>
-<tr>
-<td style="text-align:left">height</td>
-<td style="text-align:center">device-width或正整数</td>
-<td style="text-align:right">定义视口的高度，单位为像素，一般不用写</td>
-</tr>
-<tr>
-<td style="text-align:left">initial-scale</td>
-<td style="text-align:center">[0.0-10.0]</td>
-<td style="text-align:right">定义初始缩放值，一般设置为1.0</td>
-</tr>
-<tr>
-<td style="text-align:left">minimum-scale</td>
-<td style="text-align:center">[0.0-10.0]</td>
-<td style="text-align:right">定义放大最大比例，它必须小于或等于maximum-scale设置</td>
-</tr>
-<tr>
-<td style="text-align:left">maximum-scale</td>
-<td style="text-align:center">[0.0-10.0]</td>
-<td style="text-align:right">定义缩小最小比例，它必须大于或等于minimum-scale设置</td>
-</tr>
-<tr>
-<td style="text-align:left">user-scalable</td>
-<td style="text-align:center">yes / no</td>
-<td style="text-align:right">定义是否允许用户手动缩放页面，默认值 yes</td>
-</tr>
-</tbody>
-</table>
-<p>注意：</p>
-<p>viewport 标签只对移动端浏览器有效，对 PC 端浏览器是无效的</p>
-<p>当缩放比例为 100% 时，dip 宽度 = CSS 像素宽度 = 理想视口的宽度 = 布局视口的宽度</p>
-<p>单独设置 initial-scale 或 width 都会有兼容性问题，所以设置布局视口为理想视口的最佳方法是同时设置这两个属性</p>
-<p>即使设置了 user-scalable = no，在 Android Chrome 浏览器中也可以强制启用手动缩放</p>
-
-          
+          <h3 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h3><h5 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h5><p>1、computed用来监控自己定义的变量，该变量不在data里面声明，直接在computed里面定义，然后就可以在页面上获取到并进行相应的数据处理</p>
+<p>2、computed里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/07/19-05/19-5-7/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -903,7 +871,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/19-04/19-4-17/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/06/19-05/19-5-6/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -922,7 +890,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/17/19-04/19-4-17/" itemprop="url">css的视口单位vw、vh的使用</a></h1>
+                <a class="post-title-link" href="/2019/05/06/19-05/19-5-6/" itemprop="url">vue图片上传</a></h1>
         
 
         <div class="post-meta">
@@ -934,8 +902,198 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-17T14:20:03+08:00">
-                2019-04-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-06T13:43:03+08:00">
+                2019-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/06/19-05/19-5-6/" class="leancloud_visitors" data-flag-title="vue图片上传">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  657
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="将图片上传功能封装为一个组件（组件）"><a href="#将图片上传功能封装为一个组件（组件）" class="headerlink" title="将图片上传功能封装为一个组件（组件）"></a>将图片上传功能封装为一个组件（<imgupload>组件）</imgupload></h3><p>思路：使用input的file类型来上传图片，然后在利用FileReader读取到文件中的数据。</p>
+<p>FileReader提供了如下方法：<br><img src="/2019/05/06/19-05/19-5-6/blog01.png" alt="zi">)<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/06/19-05/19-5-6/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/19-04/19-4-30/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lval">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myimg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="紫气楠楠">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/30/19-04/19-4-30/" itemprop="url">input输入框获取焦点后，底部固定定位的按钮顶起问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-30T09:43:03+08:00">
+                2019-04-30
               </time>
             
 
@@ -974,7 +1132,7 @@
 
           
           
-             <span id="/2019/04/17/19-04/19-4-17/" class="leancloud_visitors" data-flag-title="css的视口单位vw、vh的使用">
+             <span id="/2019/04/30/19-04/19-4-30/" class="leancloud_visitors" data-flag-title="input输入框获取焦点后，底部固定定位的按钮顶起问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1000,7 +1158,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  726
+                  374
                 </span>
               
 
@@ -1016,7 +1174,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               
             </div>
@@ -1038,20 +1196,12 @@
 
       
         
-          <h3 id="什么是视口？"><a href="#什么是视口？" class="headerlink" title="什么是视口？"></a>什么是视口？</h3><p>在桌面端，视口指的是在桌面端，指的是浏览器的可视区域；而在移动端，它涉及3个视口：Layout Viewport（布局视口），Visual Viewport（视觉视口），Ideal Viewport（理想视口）。</p>
-<p>视口单位中的“视口”，桌面端指的是浏览器的可视区域；移动端指的就是Viewport中的Layout Viewport。</p>
-<h3 id="视口单位"><a href="#视口单位" class="headerlink" title="视口单位"></a>视口单位</h3><p>根据CSS3规范，视口单位主要包括以下4个：</p>
-<pre><code>1.vw：1vw等于视口宽度的1%。
-
-2.vh：1vh等于视口高度的1%。
-
-3.vmin：选取vw和vh中最小的那个。
-
-4.vmax：选取vw和vh中最大的那个
-</code></pre>
+          <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>问题：手机H5页面当input输入框获取焦点时，软键盘会弹起，这时：IOS底部固定定位的按钮不会随着键盘弹起而弹起；而安卓底部固定定位的按钮会跟随软键盘弹起而顶起，从而遮挡一部分视图</p>
+<h3 id="解决方法一、监听window的resize事件，控制显示隐藏"><a href="#解决方法一、监听window的resize事件，控制显示隐藏" class="headerlink" title="解决方法一、监听window的resize事件，控制显示隐藏"></a>解决方法一、监听window的resize事件，控制显示隐藏</h3><p>此方法只对安卓有用，iOS没有监听window的resize事件（iOS的话还是用flex布局比较好）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 获取视图原始高度</span><br><span class="line">let screenHeight = document.body.offsetHeight	</span><br><span class="line">// 为window绑定resize事件</span><br><span class="line">window.onresize = function () &#123;</span><br><span class="line">      let changeHeight = document.body.offsetHeight</span><br><span class="line">      if (changeHeight &lt; screenHeight) &#123;</span><br><span class="line">        // 隐藏被弹起的固定定位</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        // 显示</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/04/17/19-04/19-4-17/#more" rel="contents">
+            <a class="btn" href="/2019/04/30/19-04/19-4-30/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1102,7 +1252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/19-04/19-4-10/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/19-04/19-4-29/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -1121,7 +1271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/10/19-04/19-4-10/" itemprop="url">小程序swiper组件用箭头控制无法衔接</a></h1>
+                <a class="post-title-link" href="/2019/04/29/19-04/19-4-29/" itemprop="url">hexo主题上传报错Template render error</a></h1>
         
 
         <div class="post-meta">
@@ -1133,8 +1283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-10T14:23:03+08:00">
-                2019-04-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-29T13:45:03+08:00">
+                2019-04-29
               </time>
             
 
@@ -1156,8 +1306,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/小程序/" itemprop="url" rel="index">
-                    <span itemprop="name">小程序</span>
+                  <a href="/categories/主题相关/" itemprop="url" rel="index">
+                    <span itemprop="name">主题相关</span>
                   </a>
                 </span>
 
@@ -1173,7 +1323,7 @@
 
           
           
-             <span id="/2019/04/10/19-04/19-4-10/" class="leancloud_visitors" data-flag-title="小程序swiper组件用箭头控制无法衔接">
+             <span id="/2019/04/29/19-04/19-4-29/" class="leancloud_visitors" data-flag-title="hexo主题上传报错Template render error">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1199,7 +1349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  710
+                  109
                 </span>
               
 
@@ -1215,7 +1365,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -1237,203 +1387,13 @@
 
       
         
-          <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>小程序组件swiper左右滑动，自动轮播时circular衔接效果都是没有问题的，但当我们用左右箭头模拟轮播的时候，衔接效果却失效了，问题出在哪里？<br>我们来看下面一段代码：<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/10/19-04/19-4-10/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/04/19-04/19-4-4/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lval">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myimg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="紫气楠楠">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/04/19-04/19-4-4/" itemprop="url">vue九宫格抽奖功能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T15:47:03+08:00">
-                2019-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <h3 id="模板渲染错误"><a href="#模板渲染错误" class="headerlink" title="模板渲染错误"></a>模板渲染错误</h3><p>出现原因：文章内有一些不能用的字符，导致.md格式文章转换报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\source\_posts目录下的文章</span><br></pre></td></tr></table></figure>
+<p>解决方法：解决方案：仔细检查..\source_posts目录下的文章，有没有“{ }”等符号，或者代码没有被放入代码框内</p>
+<p>注意：这里的代码框用多行代码框，单行代码框无效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; message | filterA | filterB &#125;&#125;</span><br></pre></td></tr></table></figure>
           
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/04/04/19-04/19-4-4/" class="leancloud_visitors" data-flag-title="vue九宫格抽奖功能">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  614
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="vue九宫格抽奖"><a href="#vue九宫格抽奖" class="headerlink" title="vue九宫格抽奖"></a>vue九宫格抽奖</h3><p>页面结构<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/04/19-04/19-4-4/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -1471,7 +1431,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1519,7 +1479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1541,7 +1501,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1613,15 +1573,15 @@
                 </li>
               
                 <li>
+                  <a href="/2019/06/17/19-10/04/" title="vue监听移动端软件键盘搜索（enter）事件" target="_blank">vue监听移动端软件键盘搜索（enter）事件</a>
+                </li>
+              
+                <li>
+                  <a href="/2019/06/17/19-10/wechat_pay/" title="小程序接入微信支付" target="_blank">小程序接入微信支付</a>
+                </li>
+              
+                <li>
                   <a href="/2019/06/17/19-06/19-6-17/" title="canvas字体换行" target="_blank">canvas字体换行</a>
-                </li>
-              
-                <li>
-                  <a href="/2019/05/30/19-05/19-5-30/" title="小程序左滑显示删除功能" target="_blank">小程序左滑显示删除功能</a>
-                </li>
-              
-                <li>
-                  <a href="/2019/05/18/19-05/19-5-31/" title="小程序商品秒杀" target="_blank">小程序商品秒杀</a>
                 </li>
               
             </ul>
