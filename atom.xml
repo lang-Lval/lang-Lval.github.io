@@ -63,29 +63,6 @@
   </entry>
   
   <entry>
-    <title>vue-scroller的使用</title>
-    <link href="http://yoursite.com/2019/06/17/19-10/01/"/>
-    <id>http://yoursite.com/2019/06/17/19-10/01/</id>
-    <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-10-09T08:15:36.408Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用npm 安装<br>npm install vue-scroller -d</p><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js里面使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import VueScroller from &apos;vue-scroller&apos;</span><br><span class="line">Vue.use(VueScroller)</span><br></pre></td></tr></table></figure></p><a id="more"></a><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>注意：scroller的使用最好设置一个高<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;scroller style=&quot;top: 100px;&quot; :height=&apos;400&apos; :on-refresh=&quot;refresh&quot; :on-infinite=&quot;infinite&quot; ref=&quot;myscroller&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=&quot;order-box&quot; v-for=&quot;(item,index) in orderList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">                </span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/scroller&gt;</span><br></pre></td></tr></table></figure></p><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">           return&#123;</span><br><span class="line">                status:&apos;all&apos;,</span><br><span class="line">                orderList:[],</span><br><span class="line">                page:0,</span><br><span class="line">                all_page:1,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure><h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">refresh (done) &#123;</span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">done();</span><br><span class="line">                &#125;,1500)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><h3 id="上拉加载更多"><a href="#上拉加载更多" class="headerlink" title="上拉加载更多"></a>上拉加载更多</h3><p>注意：done的使用，如果在数据没有赋值到模板前就调用，就会一直触发下拉函数，所以我们要在请求成功的回调中模板赋值后调用</p><p>下拉的函数是绑定属性的方式绑定在scroller标签上的，所以我们不需要在created里面调用一次请求函数，页面初始化的时候回自动调用一次下拉的函数，从而获取到第一页的数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//下拉触发</span><br><span class="line"></span><br><span class="line">infinite (done) &#123;</span><br><span class="line">                if(this.page&gt;=this.all_page)&#123;</span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">this.$refs.myscroller.finishInfinite(true);</span><br><span class="line">&#125;,1500)</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    </span><br><span class="line">                    setTimeout(()=&gt;&#123;</span><br><span class="line">                        this.page++;</span><br><span class="line">                        this.getorderList(done)</span><br><span class="line"></span><br><span class="line">&#125;,500);</span><br><span class="line">                &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">getorderList(done)&#123;</span><br><span class="line">                this.$http(&#123;</span><br><span class="line">                    method:&apos;post&apos;,</span><br><span class="line">                    url:&apos;/seckill/server/orderList&apos;,</span><br><span class="line">                    data:&#123;</span><br><span class="line">                        jwt:this.jwt,</span><br><span class="line">                        status:this.status,</span><br><span class="line">                        page:this.page,</span><br><span class="line">                        page_size:5</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).then(res=&gt;&#123;</span><br><span class="line">                    if(res.data.code == 0)&#123;</span><br><span class="line">                        </span><br><span class="line">                        </span><br><span class="line">                        this.orderList.push.apply(this.orderList,res.data.data.list)</span><br><span class="line">                        this.$refs.myscroller.finishInfinite(true)</span><br><span class="line"></span><br><span class="line">                        this.page = res.data.data.page</span><br><span class="line">this.all_page = res.data.data.all_page</span><br><span class="line">                        done();</span><br><span class="line">                    &#125;else&#123;</span><br><span class="line">                       </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>如果涉及到tab栏切换，需要重新设置scroller的状态.finishInfinite(false)参数为false时会从新调用一次上拉函数，从而重置当前scroller的状态</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">goodsAll()&#123;</span><br><span class="line">               this.status = &apos;all&apos;</span><br><span class="line">               this.page = 0</span><br><span class="line">this.all_page = 1</span><br><span class="line">this.$refs.myscroller.finishInfinite(false);</span><br><span class="line">               this.orderList = []</span><br><span class="line">           &#125;,</span><br></pre></td></tr></table></figure><p>注：</p><p>triggerPullToRefresh() 触发下拉刷新</p><p>finishPullToRefresh() 完成下拉刷新</p><p>this.$refs.my_scroller.finishInfinite(false)<br>finishInfinite(isNoMoreData :Boolean) 当参数为false时，上拉获取数据可以重新调用。当参数为true，上拉获取数据回调函数停止使用,下拉下部不再显示loading，会显示‘’暂无更多数据</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;使用npm 安装&lt;br&gt;npm install vue-scroller -d&lt;/p&gt;
-&lt;h3 id=&quot;引入&quot;&gt;&lt;a href=&quot;#引入&quot; class=&quot;headerlink&quot; title=&quot;引入&quot;&gt;&lt;/a&gt;引入&lt;/h3&gt;&lt;p&gt;在main.js里面使用&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import VueScroller from &amp;apos;vue-scroller&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Vue.use(VueScroller)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
     <title>canvas字体换行</title>
     <link href="http://yoursite.com/2019/06/17/19-06/19-6-17/"/>
     <id>http://yoursite.com/2019/06/17/19-06/19-6-17/</id>
@@ -110,6 +87,29 @@
   </entry>
   
   <entry>
+    <title>vue-scroller的使用</title>
+    <link href="http://yoursite.com/2019/06/17/19-10/01/"/>
+    <id>http://yoursite.com/2019/06/17/19-10/01/</id>
+    <published>2019-06-17T02:01:03.000Z</published>
+    <updated>2019-10-09T08:15:36.408Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用npm 安装<br>npm install vue-scroller -d</p><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js里面使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import VueScroller from &apos;vue-scroller&apos;</span><br><span class="line">Vue.use(VueScroller)</span><br></pre></td></tr></table></figure></p><a id="more"></a><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>注意：scroller的使用最好设置一个高<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;scroller style=&quot;top: 100px;&quot; :height=&apos;400&apos; :on-refresh=&quot;refresh&quot; :on-infinite=&quot;infinite&quot; ref=&quot;myscroller&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=&quot;order-box&quot; v-for=&quot;(item,index) in orderList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">                </span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/scroller&gt;</span><br></pre></td></tr></table></figure></p><h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">           return&#123;</span><br><span class="line">                status:&apos;all&apos;,</span><br><span class="line">                orderList:[],</span><br><span class="line">                page:0,</span><br><span class="line">                all_page:1,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure><h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">refresh (done) &#123;</span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">done();</span><br><span class="line">                &#125;,1500)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><h3 id="上拉加载更多"><a href="#上拉加载更多" class="headerlink" title="上拉加载更多"></a>上拉加载更多</h3><p>注意：done的使用，如果在数据没有赋值到模板前就调用，就会一直触发下拉函数，所以我们要在请求成功的回调中模板赋值后调用</p><p>下拉的函数是绑定属性的方式绑定在scroller标签上的，所以我们不需要在created里面调用一次请求函数，页面初始化的时候回自动调用一次下拉的函数，从而获取到第一页的数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//下拉触发</span><br><span class="line"></span><br><span class="line">infinite (done) &#123;</span><br><span class="line">                if(this.page&gt;=this.all_page)&#123;</span><br><span class="line">setTimeout(()=&gt;&#123;</span><br><span class="line">this.$refs.myscroller.finishInfinite(true);</span><br><span class="line">&#125;,1500)</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    </span><br><span class="line">                    setTimeout(()=&gt;&#123;</span><br><span class="line">                        this.page++;</span><br><span class="line">                        this.getorderList(done)</span><br><span class="line"></span><br><span class="line">&#125;,500);</span><br><span class="line">                &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">getorderList(done)&#123;</span><br><span class="line">                this.$http(&#123;</span><br><span class="line">                    method:&apos;post&apos;,</span><br><span class="line">                    url:&apos;/seckill/server/orderList&apos;,</span><br><span class="line">                    data:&#123;</span><br><span class="line">                        jwt:this.jwt,</span><br><span class="line">                        status:this.status,</span><br><span class="line">                        page:this.page,</span><br><span class="line">                        page_size:5</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).then(res=&gt;&#123;</span><br><span class="line">                    if(res.data.code == 0)&#123;</span><br><span class="line">                        </span><br><span class="line">                        </span><br><span class="line">                        this.orderList.push.apply(this.orderList,res.data.data.list)</span><br><span class="line">                        this.$refs.myscroller.finishInfinite(true)</span><br><span class="line"></span><br><span class="line">                        this.page = res.data.data.page</span><br><span class="line">this.all_page = res.data.data.all_page</span><br><span class="line">                        done();</span><br><span class="line">                    &#125;else&#123;</span><br><span class="line">                       </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>如果涉及到tab栏切换，需要重新设置scroller的状态.finishInfinite(false)参数为false时会从新调用一次上拉函数，从而重置当前scroller的状态</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">goodsAll()&#123;</span><br><span class="line">               this.status = &apos;all&apos;</span><br><span class="line">               this.page = 0</span><br><span class="line">this.all_page = 1</span><br><span class="line">this.$refs.myscroller.finishInfinite(false);</span><br><span class="line">               this.orderList = []</span><br><span class="line">           &#125;,</span><br></pre></td></tr></table></figure><p>注：</p><p>triggerPullToRefresh() 触发下拉刷新</p><p>finishPullToRefresh() 完成下拉刷新</p><p>this.$refs.my_scroller.finishInfinite(false)<br>finishInfinite(isNoMoreData :Boolean) 当参数为false时，上拉获取数据可以重新调用。当参数为true，上拉获取数据回调函数停止使用,下拉下部不再显示loading，会显示‘’暂无更多数据</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;使用npm 安装&lt;br&gt;npm install vue-scroller -d&lt;/p&gt;
+&lt;h3 id=&quot;引入&quot;&gt;&lt;a href=&quot;#引入&quot; class=&quot;headerlink&quot; title=&quot;引入&quot;&gt;&lt;/a&gt;引入&lt;/h3&gt;&lt;p&gt;在main.js里面使用&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import VueScroller from &amp;apos;vue-scroller&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Vue.use(VueScroller)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vue中在某一页面禁掉移动设备的物理返回键</title>
     <link href="http://yoursite.com/2019/06/17/19-10/02/"/>
     <id>http://yoursite.com/2019/06/17/19-10/02/</id>
@@ -122,82 +122,6 @@
     
       &lt;h3 id=&quot;1-挂载完成后，判断浏览器是否支持popstate&quot;&gt;&lt;a href=&quot;#1-挂载完成后，判断浏览器是否支持popstate&quot; class=&quot;headerlink&quot; title=&quot;1.挂载完成后，判断浏览器是否支持popstate&quot;&gt;&lt;/a&gt;1.挂载完成后，判断浏览器是否支持popstate&lt;/h3&gt;&lt;p&gt;History 对象包含用户（在浏览器窗口中）访问过的 URL。&lt;br&gt;History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。&lt;br&gt;通过监听history的pushState来判断页面的状态&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mounted()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            if (window.history &amp;amp;&amp;amp; window.history.pushState) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            // 往历史记录里面添加一条新的当前页面的url&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            history.pushState(null, null, document.URL);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            // 给 popstate 绑定一个方法 监听页面刷新&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            window.addEventListener(&amp;apos;popstate&amp;apos;, this.goBack, false);//false阻止默认事件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
-    
-    
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序接入微信支付</title>
-    <link href="http://yoursite.com/2019/06/17/19-10/wechat_pay/"/>
-    <id>http://yoursite.com/2019/06/17/19-10/wechat_pay/</id>
-    <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-10-09T07:53:35.853Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="小程序接入微信支付"><a href="#小程序接入微信支付" class="headerlink" title="小程序接入微信支付"></a>小程序接入微信支付</h3><p>思路：小程序提供了微信支付的api我们只要填写对应参数就行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">goodsbuy(data)&#123;</span><br><span class="line">//参数data是从后台获取的相关数据</span><br><span class="line">    wx.requestPayment(&#123; //支付api</span><br><span class="line">      timeStamp: data.timeStamp,//时间戳</span><br><span class="line">      nonceStr: data.nonceStr,//随机字符串</span><br><span class="line">      package: data.package,//统一下单接口返回的 prepay_id 参数值</span><br><span class="line">      signType: &apos;MD5&apos;,//签名算法</span><br><span class="line">      paySign: data.sign,//签名</span><br><span class="line">      success:res=&gt;&#123;</span><br><span class="line">        alert(&apos;success&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p><p>注：支付的签名算法需要用到key，这个放在前端来做是很不安全的，所以一般都是后台做好签名直接返回我们需要的数据填入即可，但我们也要做一些了解<br>例：利用md5做的签名，要先下载一个md5并导入小程序<br>var MD5 = require(“../../utils/MD5Encode.js”);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let newdata = parseInt(new Date().getTime() / 1000) + “”, //将时间戳转为字符串</span><br><span class="line">//拼接参数进行md5加密</span><br><span class="line">   let countMD5 = &quot;appId=&quot; + data.appid + &quot;&amp;nonceStr=&quot; + data.nonce_str + &quot;&amp;package=&quot; +</span><br><span class="line">   data.prepay_id + &quot;&amp;signType=MD5&quot; + &quot;&amp;timeStamp=&quot; + newdata + &quot;&amp;key=&quot; + data.key;</span><br><span class="line">MD5.hexMD5(countMD5).toUpperCase()</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;小程序接入微信支付&quot;&gt;&lt;a href=&quot;#小程序接入微信支付&quot; class=&quot;headerlink&quot; title=&quot;小程序接入微信支付&quot;&gt;&lt;/a&gt;小程序接入微信支付&lt;/h3&gt;&lt;p&gt;思路：小程序提供了微信支付的api我们只要填写对应参数就行&lt;br&gt;&lt;figure c
-      
-    
-    </summary>
-    
-      <category term="wechat" scheme="http://yoursite.com/categories/wechat/"/>
-    
-    
-      <category term="wechat" scheme="http://yoursite.com/tags/wechat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深拷贝</title>
-    <link href="http://yoursite.com/2019/06/17/19-10/05/"/>
-    <id>http://yoursite.com/2019/06/17/19-10/05/</id>
-    <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-10-09T07:59:57.837Z</updated>
-    
-    <content type="html"><![CDATA[<p>最简单的深拷贝(JSON.stringify() 和JSON.parse())<br>先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最简单的深拷贝(JSON.stringify() 和JSON.parse())&lt;br&gt;先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="js" scheme="http://yoursite.com/categories/js/"/>
-    
-    
-      <category term="js" scheme="http://yoursite.com/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue监听移动端软件键盘搜索（enter）事件</title>
-    <link href="http://yoursite.com/2019/06/17/19-10/04/"/>
-    <id>http://yoursite.com/2019/06/17/19-10/04/</id>
-    <published>2019-06-17T02:01:03.000Z</published>
-    <updated>2019-10-09T07:59:33.966Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="vue监听移动端软键盘搜索事件"><a href="#vue监听移动端软键盘搜索事件" class="headerlink" title="vue监听移动端软键盘搜索事件"></a>vue监听移动端软键盘搜索事件</h3><p>vue中监听手机键盘的【完成】或【搜索】按钮触发事件，需要两个条件<br>1.form表单，输入框<br><a href="mailto:2.@keyup.13" target="_blank" rel="noopener">2.@keyup.13</a> 事件 或者 直接@keyup 然后事件的处理函数里判断 event.keyCode === 13<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; @keyup.13 = &quot;handleKeyUp&quot; placeholder=&quot;请输入用户手机号&quot; v-model=&quot;inputValue&quot;&gt;</span><br><span class="line"></span><br><span class="line">methods:&#123;</span><br><span class="line"></span><br><span class="line">handleKeyUp()&#123;</span><br><span class="line">               alert(&apos;搜索触发&apos;)</span><br><span class="line">     &#125;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;vue监听移动端软键盘搜索事件&quot;&gt;&lt;a href=&quot;#vue监听移动端软键盘搜索事件&quot; class=&quot;headerlink&quot; title=&quot;vue监听移动端软键盘搜索事件&quot;&gt;&lt;/a&gt;vue监听移动端软键盘搜索事件&lt;/h3&gt;&lt;p&gt;vue中监听手机键盘的【完成】或【搜
-      
     
     </summary>
     
@@ -260,6 +184,32 @@
   </entry>
   
   <entry>
+    <title>深拷贝</title>
+    <link href="http://yoursite.com/2019/06/17/19-10/05/"/>
+    <id>http://yoursite.com/2019/06/17/19-10/05/</id>
+    <published>2019-06-17T02:01:03.000Z</published>
+    <updated>2019-10-09T07:59:57.837Z</updated>
+    
+    <content type="html"><![CDATA[<p>最简单的深拷贝(JSON.stringify() 和JSON.parse())<br>先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最简单的深拷贝(JSON.stringify() 和JSON.parse())&lt;br&gt;先把对象使用JSON.stringify()转为字符串，再赋值给另外一个变量，然后使用JSON.parse()转回来即可&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>小程序动画创建及动画结束的监听事件</title>
     <link href="http://yoursite.com/2019/06/17/19-10/07/"/>
     <id>http://yoursite.com/2019/06/17/19-10/07/</id>
@@ -273,6 +223,56 @@
       &lt;h3 id=&quot;小程序动画创建&quot;&gt;&lt;a href=&quot;#小程序动画创建&quot; class=&quot;headerlink&quot; title=&quot;小程序动画创建&quot;&gt;&lt;/a&gt;小程序动画创建&lt;/h3&gt;&lt;p&gt;绑定动画数据&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;view class=&amp;quot;img-box&amp;quot; animation=&amp;apos;&amp;#123;&amp;#123;animationData&amp;#125;&amp;#125;&amp;apos; bindtransitionend=&amp;apos;animationend&amp;apos; bindtap=&amp;apos;move&amp;apos;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;image src=&amp;quot;&amp;#123;&amp;#123;AppImg.total_bg&amp;#125;&amp;#125;&amp;quot;&amp;gt;&amp;lt;/image&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/view&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;设置动画&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;data()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	animationData: &amp;apos;&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;move()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		//创建动画&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		var animation = wx.createAnimation(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          duration: 400,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		//描述动画步骤&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		animation.top(-500).scale(0.8).step()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		//导出动画数据传递给组件的animation属性,否则动画不会执行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		this.setData(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;          animationData:animation.export()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="wechat" scheme="http://yoursite.com/categories/wechat/"/>
+    
+    
+      <category term="wechat" scheme="http://yoursite.com/tags/wechat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue监听移动端软件键盘搜索（enter）事件</title>
+    <link href="http://yoursite.com/2019/06/17/19-10/04/"/>
+    <id>http://yoursite.com/2019/06/17/19-10/04/</id>
+    <published>2019-06-17T02:01:03.000Z</published>
+    <updated>2019-10-09T07:59:33.966Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="vue监听移动端软键盘搜索事件"><a href="#vue监听移动端软键盘搜索事件" class="headerlink" title="vue监听移动端软键盘搜索事件"></a>vue监听移动端软键盘搜索事件</h3><p>vue中监听手机键盘的【完成】或【搜索】按钮触发事件，需要两个条件<br>1.form表单，输入框<br><a href="mailto:2.@keyup.13" target="_blank" rel="noopener">2.@keyup.13</a> 事件 或者 直接@keyup 然后事件的处理函数里判断 event.keyCode === 13<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; @keyup.13 = &quot;handleKeyUp&quot; placeholder=&quot;请输入用户手机号&quot; v-model=&quot;inputValue&quot;&gt;</span><br><span class="line"></span><br><span class="line">methods:&#123;</span><br><span class="line"></span><br><span class="line">handleKeyUp()&#123;</span><br><span class="line">               alert(&apos;搜索触发&apos;)</span><br><span class="line">     &#125;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;vue监听移动端软键盘搜索事件&quot;&gt;&lt;a href=&quot;#vue监听移动端软键盘搜索事件&quot; class=&quot;headerlink&quot; title=&quot;vue监听移动端软键盘搜索事件&quot;&gt;&lt;/a&gt;vue监听移动端软键盘搜索事件&lt;/h3&gt;&lt;p&gt;vue中监听手机键盘的【完成】或【搜
+      
+    
+    </summary>
+    
+      <category term="vue" scheme="http://yoursite.com/categories/vue/"/>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序接入微信支付</title>
+    <link href="http://yoursite.com/2019/06/17/19-10/wechat_pay/"/>
+    <id>http://yoursite.com/2019/06/17/19-10/wechat_pay/</id>
+    <published>2019-06-17T02:01:03.000Z</published>
+    <updated>2019-10-09T07:53:35.853Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="小程序接入微信支付"><a href="#小程序接入微信支付" class="headerlink" title="小程序接入微信支付"></a>小程序接入微信支付</h3><p>思路：小程序提供了微信支付的api我们只要填写对应参数就行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">goodsbuy(data)&#123;</span><br><span class="line">//参数data是从后台获取的相关数据</span><br><span class="line">    wx.requestPayment(&#123; //支付api</span><br><span class="line">      timeStamp: data.timeStamp,//时间戳</span><br><span class="line">      nonceStr: data.nonceStr,//随机字符串</span><br><span class="line">      package: data.package,//统一下单接口返回的 prepay_id 参数值</span><br><span class="line">      signType: &apos;MD5&apos;,//签名算法</span><br><span class="line">      paySign: data.sign,//签名</span><br><span class="line">      success:res=&gt;&#123;</span><br><span class="line">        alert(&apos;success&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p><p>注：支付的签名算法需要用到key，这个放在前端来做是很不安全的，所以一般都是后台做好签名直接返回我们需要的数据填入即可，但我们也要做一些了解<br>例：利用md5做的签名，要先下载一个md5并导入小程序<br>var MD5 = require(“../../utils/MD5Encode.js”);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let newdata = parseInt(new Date().getTime() / 1000) + “”, //将时间戳转为字符串</span><br><span class="line">//拼接参数进行md5加密</span><br><span class="line">   let countMD5 = &quot;appId=&quot; + data.appid + &quot;&amp;nonceStr=&quot; + data.nonce_str + &quot;&amp;package=&quot; +</span><br><span class="line">   data.prepay_id + &quot;&amp;signType=MD5&quot; + &quot;&amp;timeStamp=&quot; + newdata + &quot;&amp;key=&quot; + data.key;</span><br><span class="line">MD5.hexMD5(countMD5).toUpperCase()</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;小程序接入微信支付&quot;&gt;&lt;a href=&quot;#小程序接入微信支付&quot; class=&quot;headerlink&quot; title=&quot;小程序接入微信支付&quot;&gt;&lt;/a&gt;小程序接入微信支付&lt;/h3&gt;&lt;p&gt;思路：小程序提供了微信支付的api我们只要填写对应参数就行&lt;br&gt;&lt;figure c
+      
     
     </summary>
     
