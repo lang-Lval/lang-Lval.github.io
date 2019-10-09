@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="紫气楠楠">
 <meta property="og:description" content="小程序动画创建绑定动画数据1234&amp;lt;view class=&amp;quot;img-box&amp;quot; animation=&amp;apos;&amp;#123;&amp;#123;animationData&amp;#125;&amp;#125;&amp;apos; bindtransitionend=&amp;apos;animationend&amp;apos; bindtap=&amp;apos;move&amp;apos;&amp;gt;  &amp;lt;image src=&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-09T08:02:55.723Z">
+<meta property="og:updated_time" content="2019-10-09T08:16:09.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序动画创建及动画结束的监听事件">
 <meta name="twitter:description" content="小程序动画创建绑定动画数据1234&amp;lt;view class=&amp;quot;img-box&amp;quot; animation=&amp;apos;&amp;#123;&amp;#123;animationData&amp;#125;&amp;#125;&amp;apos; bindtransitionend=&amp;apos;animationend&amp;apos; bindtap=&amp;apos;move&amp;apos;&amp;gt;  &amp;lt;image src=&amp;">
@@ -431,6 +431,7 @@
         <h3 id="小程序动画创建"><a href="#小程序动画创建" class="headerlink" title="小程序动画创建"></a>小程序动画创建</h3><p>绑定动画数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; bindtap=&apos;move&apos;&gt;</span><br><span class="line">  &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
 <p>设置动画</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">	animationData: &apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">move()&#123;</span><br><span class="line">		//创建动画</span><br><span class="line">		var animation = wx.createAnimation(&#123;</span><br><span class="line">          duration: 400,</span><br><span class="line">        &#125;)</span><br><span class="line">		</span><br><span class="line">		//描述动画步骤</span><br><span class="line">		animation.top(-500).scale(0.8).step()</span><br><span class="line">		</span><br><span class="line">		//导出动画数据传递给组件的animation属性,否则动画不会执行</span><br><span class="line">		this.setData(&#123;</span><br><span class="line">          animationData:animation.export()</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="监听动画事件（开始，结束）"><a href="#监听动画事件（开始，结束）" class="headerlink" title="监听动画事件（开始，结束）"></a>监听动画事件（开始，结束）</h3><p>动画执行过程中使用 bindtransitionend bindanimationstart bindanimationiteration bindanimationend 来监听动画事件</p>
 <p>bindtransitionend：监听CSS 渐变结束或 wx.createAnimation 结束一个阶段</p>
 <p>注意：bindtransitionend监听的是wx.createAnimation 结束一个阶段而不是整个动画的结束（也就是一个step()结束）</p>
@@ -478,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/17/19-06/19-6-17/" rel="next" title="canvas字体换行">
-                <i class="fa fa-chevron-left"></i> canvas字体换行
+              <a href="/2019/05/30/19-05/19-5-30/" rel="next" title="小程序左滑显示删除功能">
+                <i class="fa fa-chevron-left"></i> 小程序左滑显示删除功能
               </a>
             
           </div>
@@ -488,8 +489,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/18/19-06/19-6-18/" rel="prev" title="小程序canvas绘制图片并保存">
-                小程序canvas绘制图片并保存 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/17/19-10/06/" rel="prev" title="小程序picker组件BUG，fields属性为month时，IOS显示不正确">
+                小程序picker组件BUG，fields属性为month时，IOS显示不正确 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -668,7 +669,7 @@
                 </li>
               
                 <li>
-                  <a href="/2019/06/17/19-10/07/" title="小程序动画创建及动画结束的监听事件" target="_blank">小程序动画创建及动画结束的监听事件</a>
+                  <a href="/2019/06/17/19-10/01/" title="vue-scroller的使用" target="_blank">vue-scroller的使用</a>
                 </li>
               
                 <li>
@@ -676,7 +677,7 @@
                 </li>
               
                 <li>
-                  <a href="/2019/06/17/19-10/06/" title="小程序picker组件BUG，fields属性为month时，IOS显示不正确" target="_blank">小程序picker组件BUG，fields属性为month时，IOS显示不正确</a>
+                  <a href="/2019/06/17/19-10/02/" title="vue中在某一页面禁掉移动设备的物理返回键" target="_blank">vue中在某一页面禁掉移动设备的物理返回键</a>
                 </li>
               
             </ul>

@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="紫气楠楠">
 <meta property="og:description" content="1.挂载完成后，判断浏览器是否支持popstateHistory 对象包含用户（在浏览器窗口中）访问过的 URL。History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。通过监听history的pushState来判断页面的状态 12345678mounted()&amp;#123;            if (window.history &amp;amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-09T07:57:05.988Z">
+<meta property="og:updated_time" content="2019-10-09T08:16:28.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中在某一页面禁掉移动设备的物理返回键">
 <meta name="twitter:description" content="1.挂载完成后，判断浏览器是否支持popstateHistory 对象包含用户（在浏览器窗口中）访问过的 URL。History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。通过监听history的pushState来判断页面的状态 12345678mounted()&amp;#123;            if (window.history &amp;amp;">
@@ -430,6 +430,7 @@
       
         <h3 id="1-挂载完成后，判断浏览器是否支持popstate"><a href="#1-挂载完成后，判断浏览器是否支持popstate" class="headerlink" title="1.挂载完成后，判断浏览器是否支持popstate"></a>1.挂载完成后，判断浏览器是否支持popstate</h3><p>History 对象包含用户（在浏览器窗口中）访问过的 URL。<br>History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。<br>通过监听history的pushState来判断页面的状态</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mounted()&#123;</span><br><span class="line">            if (window.history &amp;&amp; window.history.pushState) &#123;</span><br><span class="line">            // 往历史记录里面添加一条新的当前页面的url</span><br><span class="line">            history.pushState(null, null, document.URL);</span><br><span class="line">            // 给 popstate 绑定一个方法 监听页面刷新</span><br><span class="line">            window.addEventListener(&apos;popstate&apos;, this.goBack, false);//false阻止默认事件</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="2-页面销毁时，取消监听。否则其他vue路由页面也会被监听"><a href="#2-页面销毁时，取消监听。否则其他vue路由页面也会被监听" class="headerlink" title="2.页面销毁时，取消监听。否则其他vue路由页面也会被监听"></a>2.页面销毁时，取消监听。否则其他vue路由页面也会被监听</h3><p>在页面销毁的生命周期中取消监听<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">destroyed()&#123;</span><br><span class="line">            window.removeEventListener(&apos;popstate&apos;, this.goBack, false);//false阻止默认事件</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure></p>
 <h3 id="3-将监听操作写在methods里面，removeEventListener取消监听内容必须跟开启监听保持一致，所以函数拿到methods里面写"><a href="#3-将监听操作写在methods里面，removeEventListener取消监听内容必须跟开启监听保持一致，所以函数拿到methods里面写" class="headerlink" title="3.将监听操作写在methods里面，removeEventListener取消监听内容必须跟开启监听保持一致，所以函数拿到methods里面写"></a>3.将监听操作写在methods里面，removeEventListener取消监听内容必须跟开启监听保持一致，所以函数拿到methods里面写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">goBack()&#123;</span><br><span class="line">        history.pushState(null, null, document.URL);</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
 <p>注：history.pushState()方法向浏览器历史添加了一个状态。pushState()方法带有三个参数：一个状态对象、一个标题(现在被忽略了)以及一个可选的URL地址</p>
@@ -475,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/30/19-05/19-5-30/" rel="next" title="小程序左滑显示删除功能">
-                <i class="fa fa-chevron-left"></i> 小程序左滑显示删除功能
+              <a href="/2019/06/17/19-10/wechat_pay/" rel="next" title="小程序接入微信支付">
+                <i class="fa fa-chevron-left"></i> 小程序接入微信支付
               </a>
             
           </div>
@@ -485,8 +486,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/17/19-10/03/" rel="prev" title="input属性placeholder在iOS中显示不完整的解决方法">
-                input属性placeholder在iOS中显示不完整的解决方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/17/19-06/19-6-17/" rel="prev" title="canvas字体换行">
+                canvas字体换行 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -665,7 +666,7 @@
                 </li>
               
                 <li>
-                  <a href="/2019/06/17/19-10/07/" title="小程序动画创建及动画结束的监听事件" target="_blank">小程序动画创建及动画结束的监听事件</a>
+                  <a href="/2019/06/17/19-10/01/" title="vue-scroller的使用" target="_blank">vue-scroller的使用</a>
                 </li>
               
                 <li>
@@ -673,7 +674,7 @@
                 </li>
               
                 <li>
-                  <a href="/2019/06/17/19-10/06/" title="小程序picker组件BUG，fields属性为month时，IOS显示不正确" target="_blank">小程序picker组件BUG，fields属性为month时，IOS显示不正确</a>
+                  <a href="/2019/06/17/19-10/02/" title="vue中在某一页面禁掉移动设备的物理返回键" target="_blank">vue中在某一页面禁掉移动设备的物理返回键</a>
                 </li>
               
             </ul>

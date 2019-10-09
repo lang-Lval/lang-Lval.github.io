@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="安装使用npm 安装npm install vue-scroller -d 引入在main.js里面使用12import VueScroller from &amp;apos;vue-scroller&amp;apos;Vue.use(VueScroller) 使用注意：scroller的使用最好设置一个高1234567&amp;lt;scroller style=&amp;quot;top: 100px;&amp;quot; :hei">
+<meta name="description" content="安装使用npm 安装npm install vue-scroller -d 引入在main.js里面使用12import VueScroller from &amp;apos;vue-scroller&amp;apos;Vue.use(VueScroller)">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-scroller的使用">
 <meta property="og:url" content="http://yoursite.com/2019/06/17/19-10/01/index.html">
 <meta property="og:site_name" content="紫气楠楠">
-<meta property="og:description" content="安装使用npm 安装npm install vue-scroller -d 引入在main.js里面使用12import VueScroller from &amp;apos;vue-scroller&amp;apos;Vue.use(VueScroller) 使用注意：scroller的使用最好设置一个高1234567&amp;lt;scroller style=&amp;quot;top: 100px;&amp;quot; :hei">
+<meta property="og:description" content="安装使用npm 安装npm install vue-scroller -d 引入在main.js里面使用12import VueScroller from &amp;apos;vue-scroller&amp;apos;Vue.use(VueScroller)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-09T07:55:18.644Z">
+<meta property="og:updated_time" content="2019-10-09T08:15:36.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-scroller的使用">
-<meta name="twitter:description" content="安装使用npm 安装npm install vue-scroller -d 引入在main.js里面使用12import VueScroller from &amp;apos;vue-scroller&amp;apos;Vue.use(VueScroller) 使用注意：scroller的使用最好设置一个高1234567&amp;lt;scroller style=&amp;quot;top: 100px;&amp;quot; :hei">
+<meta name="twitter:description" content="安装使用npm 安装npm install vue-scroller -d 引入在main.js里面使用12import VueScroller from &amp;apos;vue-scroller&amp;apos;Vue.use(VueScroller)">
 
 
 
@@ -430,6 +430,7 @@
       
         <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用npm 安装<br>npm install vue-scroller -d</p>
 <h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js里面使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import VueScroller from &apos;vue-scroller&apos;</span><br><span class="line">Vue.use(VueScroller)</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>注意：scroller的使用最好设置一个高<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;scroller style=&quot;top: 100px;&quot; :height=&apos;400&apos; :on-refresh=&quot;refresh&quot; :on-infinite=&quot;infinite&quot; ref=&quot;myscroller&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=&quot;order-box&quot; v-for=&quot;(item,index) in orderList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">                </span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/scroller&gt;</span><br></pre></td></tr></table></figure></p>
 <h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">           return&#123;</span><br><span class="line">                status:&apos;all&apos;,</span><br><span class="line">                orderList:[],</span><br><span class="line">                page:0,</span><br><span class="line">                all_page:1,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
 <h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">refresh (done) &#123;</span><br><span class="line">				setTimeout(()=&gt;&#123;</span><br><span class="line">					done();</span><br><span class="line">                &#125;,1500)</span><br><span class="line">			&#125;,</span><br></pre></td></tr></table></figure>
@@ -480,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/17/19-10/04/" rel="next" title="vue监听移动端软件键盘搜索（enter）事件">
-                <i class="fa fa-chevron-left"></i> vue监听移动端软件键盘搜索（enter）事件
+              <a href="/2019/06/17/19-06/19-6-17/" rel="next" title="canvas字体换行">
+                <i class="fa fa-chevron-left"></i> canvas字体换行
               </a>
             
           </div>
@@ -490,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/17/19-10/06/" rel="prev" title="小程序picker组件BUG，fields属性为month时，IOS显示不正确">
-                小程序picker组件BUG，fields属性为month时，IOS显示不正确 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/18/19-06/19-6-18/" rel="prev" title="小程序canvas绘制图片并保存">
+                小程序canvas绘制图片并保存 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -670,7 +671,7 @@
                 </li>
               
                 <li>
-                  <a href="/2019/06/17/19-10/07/" title="小程序动画创建及动画结束的监听事件" target="_blank">小程序动画创建及动画结束的监听事件</a>
+                  <a href="/2019/06/17/19-10/01/" title="vue-scroller的使用" target="_blank">vue-scroller的使用</a>
                 </li>
               
                 <li>
@@ -678,7 +679,7 @@
                 </li>
               
                 <li>
-                  <a href="/2019/06/17/19-10/06/" title="小程序picker组件BUG，fields属性为month时，IOS显示不正确" target="_blank">小程序picker组件BUG，fields属性为month时，IOS显示不正确</a>
+                  <a href="/2019/06/17/19-10/02/" title="vue中在某一页面禁掉移动设备的物理返回键" target="_blank">vue中在某一页面禁掉移动设备的物理返回键</a>
                 </li>
               
             </ul>

@@ -675,7 +675,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/19-10/07/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/19-10/01/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -694,7 +694,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/17/19-10/07/" itemprop="url">小程序动画创建及动画结束的监听事件</a></h1>
+                <a class="post-title-link" href="/2019/06/17/19-10/01/" itemprop="url">vue-scroller的使用</a></h1>
         
 
         <div class="post-meta">
@@ -729,8 +729,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/wechat/" itemprop="url" rel="index">
-                    <span itemprop="name">wechat</span>
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
                   </a>
                 </span>
 
@@ -746,7 +746,7 @@
 
           
           
-             <span id="/2019/06/17/19-10/07/" class="leancloud_visitors" data-flag-title="小程序动画创建及动画结束的监听事件">
+             <span id="/2019/06/17/19-10/01/" class="leancloud_visitors" data-flag-title="vue-scroller的使用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -772,7 +772,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  350
+                  521
                 </span>
               
 
@@ -788,7 +788,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -810,21 +810,15 @@
 
       
         
-          
-            <h3 id="小程序动画创建"><a href="#小程序动画创建" class="headerlink" title="小程序动画创建"></a>小程序动画创建</h3><p>绑定动画数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; bindtap=&apos;move&apos;&gt;</span><br><span class="line">  &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;</span><br><span class="line">&lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
-<p>设置动画</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">	animationData: &apos;&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">move()&#123;</span><br><span class="line">		//创建动画</span><br><span class="line">		var animation = wx.createAnimation(&#123;</span><br><span class="line">          duration: 400,</span><br><span class="line">        &#125;)</span><br><span class="line">		</span><br><span class="line">		//描述动画步骤</span><br><span class="line">		animation.top(-500).scale(0.8).step()</span><br><span class="line">		</span><br><span class="line">		//导出动画数据传递给组件的animation属性,否则动画不会执行</span><br><span class="line">		this.setData(&#123;</span><br><span class="line">          animationData:animation.export()</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="监听动画事件（开始，结束）"><a href="#监听动画事件（开始，结束）" class="headerlink" title="监听动画事件（开始，结束）"></a>监听动画事件（开始，结束）</h3><p>动画执行过程中使用 bindtransitionend bindanimationstart bindanimationiteration bindanimationend 来监听动画事件</p>
-<p>bindtransitionend：监听CSS 渐变结束或 wx.createAnimation 结束一个阶段</p>
-<p>注意：bindtransitionend监听的是wx.createAnimation 结束一个阶段而不是整个动画的结束（也就是一个step()结束）</p>
-<p>bindanimationstart：监听CSS 动画开始</p>
-<p>bindanimationiteration：CSS 动画结束一个阶段</p>
-<p>bindanimationend：CSS 动画结束</p>
-<p>注意：bindanimationstart bindanimationiteration bindanimationend无法监听到wx.createAnimation创建的动画</p>
-<h4 id="注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。"><a href="#注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。" class="headerlink" title="注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。"></a>注：这几个事件都不是冒泡事件，需要绑定在真正发生了动画的节点上才会生效。</h4><p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//监听动画的事件需要和绑定动画的节点在一起</span><br><span class="line">&lt;view class=&quot;img-box&quot; animation=&apos;&#123;&#123;animationData&#125;&#125;&apos; bindtransitionend=&apos;animationend&apos; &gt;</span><br><span class="line">      &lt;image src=&quot;&#123;&#123;AppImg.total_bg&#125;&#125;&quot;&gt;&lt;/image&gt;</span><br><span class="line">    &lt;/view&gt;</span><br></pre></td></tr></table></figure></p>
-<p>js部分<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">animationend()&#123;</span><br><span class="line">    console.log(&apos;动画结束了&apos;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用npm 安装<br>npm install vue-scroller -d</p>
+<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js里面使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import VueScroller from &apos;vue-scroller&apos;</span><br><span class="line">Vue.use(VueScroller)</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/17/19-10/01/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1062,7 +1056,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/19-10/06/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/19-10/02/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lval">
@@ -1081,194 +1075,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/17/19-10/06/" itemprop="url">小程序picker组件BUG，fields属性为month时，IOS显示不正确</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T10:01:03+08:00">
-                2019-06-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/wechat/" itemprop="url" rel="index">
-                    <span itemprop="name">wechat</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/06/17/19-10/06/" class="leancloud_visitors" data-flag-title="小程序picker组件BUG，fields属性为month时，IOS显示不正确">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  118
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问题描述：picker组件BUG，fields属性为month时，苹果手机上下拉显示1年、2年、3年…;</p>
-<p>解决方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;picker mode=&apos;date&apos; value=&quot;&#123;&#123;date&#125;&#125;&quot; fields=&apos;month&apos; start=&quot;1970-01-01&quot; end=&quot;2080-01-01&quot; bindchange=&quot;bindDateChange&quot;&gt;</span><br><span class="line">   &lt;view&gt;&#123;&#123;date&#125;&#125; &lt;icon class=&quot;iconfont icon-xiala-&quot;&gt;&lt;/icon&gt;&lt;/view&gt;</span><br><span class="line">&lt;/picker&gt;</span><br></pre></td></tr></table></figure></p>
-<p>  把start和end的时间格式改成YYYY-MM-DD，就行了，例如： start=”1970-01-01” end=”2080-01-01”</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/19-10/01/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lval">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/myimg/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="紫气楠楠">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/17/19-10/01/" itemprop="url">vue-scroller的使用</a></h1>
+                <a class="post-title-link" href="/2019/06/17/19-10/02/" itemprop="url">vue中在某一页面禁掉移动设备的物理返回键</a></h1>
         
 
         <div class="post-meta">
@@ -1320,7 +1127,7 @@
 
           
           
-             <span id="/2019/06/17/19-10/01/" class="leancloud_visitors" data-flag-title="vue-scroller的使用">
+             <span id="/2019/06/17/19-10/02/" class="leancloud_visitors" data-flag-title="vue中在某一页面禁掉移动设备的物理返回键">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1346,7 +1153,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  521
+                  470
                 </span>
               
 
@@ -1362,7 +1169,197 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-挂载完成后，判断浏览器是否支持popstate"><a href="#1-挂载完成后，判断浏览器是否支持popstate" class="headerlink" title="1.挂载完成后，判断浏览器是否支持popstate"></a>1.挂载完成后，判断浏览器是否支持popstate</h3><p>History 对象包含用户（在浏览器窗口中）访问过的 URL。<br>History 对象是 window 对象的一部分，可通过 window.history 属性对其进行访问。<br>通过监听history的pushState来判断页面的状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mounted()&#123;</span><br><span class="line">            if (window.history &amp;&amp; window.history.pushState) &#123;</span><br><span class="line">            // 往历史记录里面添加一条新的当前页面的url</span><br><span class="line">            history.pushState(null, null, document.URL);</span><br><span class="line">            // 给 popstate 绑定一个方法 监听页面刷新</span><br><span class="line">            window.addEventListener(&apos;popstate&apos;, this.goBack, false);//false阻止默认事件</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/17/19-10/02/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/19-10/wechat_pay/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lval">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/myimg/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="紫气楠楠">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/17/19-10/wechat_pay/" itemprop="url">小程序接入微信支付</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-17T10:01:03+08:00">
+                2019-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/wechat/" itemprop="url" rel="index">
+                    <span itemprop="name">wechat</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/17/19-10/wechat_pay/" class="leancloud_visitors" data-flag-title="小程序接入微信支付">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  265
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
                 </span>
               
             </div>
@@ -1385,20 +1382,8 @@
       
         
           
-            <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用npm 安装<br>npm install vue-scroller -d</p>
-<h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>在main.js里面使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import VueScroller from &apos;vue-scroller&apos;</span><br><span class="line">Vue.use(VueScroller)</span><br></pre></td></tr></table></figure></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>注意：scroller的使用最好设置一个高<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;scroller style=&quot;top: 100px;&quot; :height=&apos;400&apos; :on-refresh=&quot;refresh&quot; :on-infinite=&quot;infinite&quot; ref=&quot;myscroller&quot;&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=&quot;order-box&quot; v-for=&quot;(item,index) in orderList&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">                </span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"> &lt;/scroller&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">           return&#123;</span><br><span class="line">                status:&apos;all&apos;,</span><br><span class="line">                orderList:[],</span><br><span class="line">                page:0,</span><br><span class="line">                all_page:1,</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
-<h3 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">refresh (done) &#123;</span><br><span class="line">				setTimeout(()=&gt;&#123;</span><br><span class="line">					done();</span><br><span class="line">                &#125;,1500)</span><br><span class="line">			&#125;,</span><br></pre></td></tr></table></figure>
-<h3 id="上拉加载更多"><a href="#上拉加载更多" class="headerlink" title="上拉加载更多"></a>上拉加载更多</h3><p>注意：done的使用，如果在数据没有赋值到模板前就调用，就会一直触发下拉函数，所以我们要在请求成功的回调中模板赋值后调用</p>
-<p>下拉的函数是绑定属性的方式绑定在scroller标签上的，所以我们不需要在created里面调用一次请求函数，页面初始化的时候回自动调用一次下拉的函数，从而获取到第一页的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//下拉触发</span><br><span class="line"></span><br><span class="line">infinite (done) &#123;</span><br><span class="line">                if(this.page&gt;=this.all_page)&#123;</span><br><span class="line">					setTimeout(()=&gt;&#123;</span><br><span class="line">						this.$refs.myscroller.finishInfinite(true);</span><br><span class="line">					&#125;,1500)</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    </span><br><span class="line">                    setTimeout(()=&gt;&#123;</span><br><span class="line">                        this.page++;</span><br><span class="line">                        this.getorderList(done)</span><br><span class="line">						</span><br><span class="line">					&#125;,500);</span><br><span class="line">                &#125;</span><br><span class="line">			&#125;,</span><br><span class="line"></span><br><span class="line">getorderList(done)&#123;</span><br><span class="line">                this.$http(&#123;</span><br><span class="line">                    method:&apos;post&apos;,</span><br><span class="line">                    url:&apos;/seckill/server/orderList&apos;,</span><br><span class="line">                    data:&#123;</span><br><span class="line">                        jwt:this.jwt,</span><br><span class="line">                        status:this.status,</span><br><span class="line">                        page:this.page,</span><br><span class="line">                        page_size:5</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).then(res=&gt;&#123;</span><br><span class="line">                    if(res.data.code == 0)&#123;</span><br><span class="line">                        </span><br><span class="line">                        </span><br><span class="line">                        this.orderList.push.apply(this.orderList,res.data.data.list)</span><br><span class="line">                        this.$refs.myscroller.finishInfinite(true)</span><br><span class="line"></span><br><span class="line">                        this.page = res.data.data.page</span><br><span class="line">						this.all_page = res.data.data.all_page</span><br><span class="line">                        done();</span><br><span class="line">                    &#125;else&#123;</span><br><span class="line">                       </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>如果涉及到tab栏切换，需要重新设置scroller的状态.finishInfinite(false)参数为false时会从新调用一次上拉函数，从而重置当前scroller的状态</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">goodsAll()&#123;</span><br><span class="line">               this.status = &apos;all&apos;</span><br><span class="line">               this.page = 0</span><br><span class="line">			this.all_page = 1</span><br><span class="line">			this.$refs.myscroller.finishInfinite(false);</span><br><span class="line">               this.orderList = []</span><br><span class="line">           &#125;,</span><br></pre></td></tr></table></figure>
-<p>注：</p>
-<p>triggerPullToRefresh() 触发下拉刷新</p>
-<p>finishPullToRefresh() 完成下拉刷新</p>
-<p>this.$refs.my_scroller.finishInfinite(false)<br>finishInfinite(isNoMoreData :Boolean) 当参数为false时，上拉获取数据可以重新调用。当参数为true，上拉获取数据回调函数停止使用,下拉下部不再显示loading，会显示‘’暂无更多数据</p>
+            <h3 id="小程序接入微信支付"><a href="#小程序接入微信支付" class="headerlink" title="小程序接入微信支付"></a>小程序接入微信支付</h3><p>思路：小程序提供了微信支付的api我们只要填写对应参数就行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">goodsbuy(data)&#123;</span><br><span class="line">	//参数data是从后台获取的相关数据</span><br><span class="line">    wx.requestPayment(&#123; //支付api</span><br><span class="line">      timeStamp: data.timeStamp,//时间戳</span><br><span class="line">      nonceStr: data.nonceStr,//随机字符串</span><br><span class="line">      package: data.package,//统一下单接口返回的 prepay_id 参数值</span><br><span class="line">      signType: &apos;MD5&apos;,//签名算法</span><br><span class="line">      paySign: data.sign,//签名</span><br><span class="line">      success:res=&gt;&#123;</span><br><span class="line">        alert(&apos;success&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
+<p>注：支付的签名算法需要用到key，这个放在前端来做是很不安全的，所以一般都是后台做好签名直接返回我们需要的数据填入即可，但我们也要做一些了解<br>例：利用md5做的签名，要先下载一个md5并导入小程序<br>var MD5 = require(“../../utils/MD5Encode.js”);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let newdata = parseInt(new Date().getTime() / 1000) + “”, //将时间戳转为字符串</span><br><span class="line">//拼接参数进行md5加密</span><br><span class="line">   let countMD5 = &quot;appId=&quot; + data.appid + &quot;&amp;nonceStr=&quot; + data.nonce_str + &quot;&amp;package=&quot; +</span><br><span class="line">   data.prepay_id + &quot;&amp;signType=MD5&quot; + &quot;&amp;timeStamp=&quot; + newdata + &quot;&amp;key=&quot; + data.key;</span><br><span class="line">MD5.hexMD5(countMD5).toUpperCase()</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1580,7 +1565,7 @@
                 </li>
               
                 <li>
-                  <a href="/2019/06/17/19-10/07/" title="小程序动画创建及动画结束的监听事件" target="_blank">小程序动画创建及动画结束的监听事件</a>
+                  <a href="/2019/06/17/19-10/01/" title="vue-scroller的使用" target="_blank">vue-scroller的使用</a>
                 </li>
               
                 <li>
@@ -1588,7 +1573,7 @@
                 </li>
               
                 <li>
-                  <a href="/2019/06/17/19-10/06/" title="小程序picker组件BUG，fields属性为month时，IOS显示不正确" target="_blank">小程序picker组件BUG，fields属性为month时，IOS显示不正确</a>
+                  <a href="/2019/06/17/19-10/02/" title="vue中在某一页面禁掉移动设备的物理返回键" target="_blank">vue中在某一页面禁掉移动设备的物理返回键</a>
                 </li>
               
             </ul>
